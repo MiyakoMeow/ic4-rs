@@ -1,0 +1,22 @@
+[package]
+name = "ic4-sys"
+version.workspace = true
+edition.workspace = true
+readme.workspace = true
+license.workspace = true
+description.workspace = true
+homepage.workspace = true
+repository.workspace = true
+documentation.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+build = "build.rs"
+
+[build-dependencies]
+bindgen = { workspace = true, optional = true }
+once_cell.workspace = true
+
+[features]
+default = []
+buildtime-bindgen = ["bindgen"]
