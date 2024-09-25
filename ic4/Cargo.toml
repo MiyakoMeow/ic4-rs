@@ -1,6 +1,6 @@
 [package]
-name = "ic4-sys"
-version = "0.1.0"
+name = "ic4"
+version = "0.0.1"
 
 edition.workspace = true
 readme.workspace = true
@@ -12,12 +12,8 @@ documentation.workspace = true
 keywords.workspace = true
 categories.workspace = true
 
-build = "build.rs"
-
-[build-dependencies]
-bindgen = { workspace = true, optional = true }
-once_cell.workspace = true
+[dependencies]
+ic4-sys.workspace = true
 
 [features]
-default = []
-buildtime-bindgen = ["bindgen"]
+buildtime-bindgen = ["ic4-sys/bindgen"]

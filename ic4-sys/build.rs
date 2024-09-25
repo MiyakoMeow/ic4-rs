@@ -16,8 +16,8 @@ static OUT_DIR: Lazy<PathBuf> = Lazy::new(|| {
 });
 
 /// 以下内容是给src/bindings目录下、由bindgen生成的rs文件的，不是给此文件（build.rs）的。
-#[cfg(feature = "buildtime-bindgen")]
-const BINDGEN_RS_FILE_HEADER: &str = "/*
+#[allow(unused)]
+const BINDGEN_RS_FILE_HEADER_OLD: &str = "/*
  * 注意：不要修改此文件。
  * 此文件由bindgen生成，转换自特定的一个或多个C++头文件。详见build.rs文件。
  */
@@ -26,6 +26,9 @@ const BINDGEN_RS_FILE_HEADER: &str = "/*
 #![allow(non_camel_case_types)]
 #![allow(non_upper_case_globals)]
 ";
+
+#[cfg(feature = "buildtime-bindgen")]
+const BINDGEN_RS_FILE_HEADER: &str = "";
 
 fn main() {
     let path_ori = std::env::var_os("Path").unwrap();
@@ -82,16 +85,19 @@ fn ic4_bindgen(ic4_root: &Path) {
         .expect("Unable to generate bindings");
 
     // Write the bindings to the $OUT_DIR/bindings.rs file.
-    let target_rs_file_path = Path::new(MANIFEST_DIR)
-                .join("src")
-                .join("bindings")
-                .join("ic4.rs");
+    let target_rs_file_path = Path::new(MANIFEST_DIR).join("bindings").join("bindings.rs");
     let mut writer = std::io::BufWriter::new(std::fs::File::create(target_rs_file_path).unwrap());
-    writer.write_all(BINDGEN_RS_FILE_HEADER.bytes().collect::<Vec<u8>>().as_slice()).unwrap();
+    writer
+        .write_all(
+            BINDGEN_RS_FILE_HEADER
+                .bytes()
+                .collect::<Vec<u8>>()
+                .as_slice(),
+        )
+        .unwrap();
     bindings
         .write(Box::new(&mut writer))
         .expect("Couldn't write bindings!");
-
 }
 
 fn ic4_link(ic4_root: &Path) {

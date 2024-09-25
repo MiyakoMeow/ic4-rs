@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["ic4-sys"]
+members = ["ic4-sys", "ic4"]
 
 [workspace.package]
 edition = "2021"
