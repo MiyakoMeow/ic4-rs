@@ -575,7 +575,7 @@ impl Property {
     pub fn float_get_increment_mode(&mut self) -> PropertyIncrementMode {
         unsafe { ic4_sys::ic4_prop_float_get_inc_mode(self.as_mut_ptr()).into() }
     }
-    pub fn float_get_vaild_value_set(&mut self) -> self::Result<Vec<f64>> {
+    pub fn float_get_valid_value_set(&mut self) -> self::Result<Vec<f64>> {
         let mut vaild_value_set = vec![0.0; 1024 * 1024];
         let mut vaild_value_length = 0;
         unsafe {

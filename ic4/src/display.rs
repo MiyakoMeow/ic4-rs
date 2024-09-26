@@ -7,7 +7,7 @@ use crate::*;
  */
 
 bind_ptr_type!(
-    DisplayIC,
+    Display,
     ic4_sys::IC4_DISPLAY,
     ic4_sys::ic4_display_ref,
     ic4_sys::ic4_display_unref
@@ -33,7 +33,7 @@ impl Default for DisplayStats {
 pub type WindowHandleOri = ic4_sys::IC4_WINDOW_HANDLE;
 bind_type!(WindowHandle, WindowHandleOri);
 
-impl DisplayIC {
+impl Display {
     pub fn create(display_type: DisplayType, parent: WindowHandle) -> self::Result<Self> {
         let mut ptr = null_mut();
         unsafe {
@@ -55,7 +55,7 @@ impl DisplayIC {
     }
 }
 
-impl DisplayIC {
+impl Display {
     pub fn display_buffer(&mut self, image_buffer: &ImageBuffer) -> self::Result<()> {
         unsafe {
             ic4_sys::ic4_display_display_buffer(self.as_mut_ptr(), image_buffer.as_ptr())
@@ -78,7 +78,7 @@ impl DisplayIC {
 pub type DisplayRenderPositionOri = ic4_sys::IC4_DISPLAY_RENDER_POSITION;
 bind_type!(DisplayRenderPosition, DisplayRenderPositionOri);
 
-impl DisplayIC {
+impl Display {
     pub fn set_render_position(
         &mut self,
         pos: DisplayRenderPosition,
@@ -109,7 +109,7 @@ bind_type!(DisplayWindowClosedHandler, DisplayWindowClosedHandlerOri);
 pub type DisplayWindowClosedDeleterOri = ic4_sys::ic4_display_window_closed_deleter;
 bind_type!(DisplayWindowClosedDeleter, DisplayWindowClosedDeleterOri);
 
-impl DisplayIC {
+impl Display {
     /// # Safety
     /// Unknown.
     pub unsafe fn event_add_window_closed(
@@ -140,7 +140,7 @@ impl DisplayIC {
     }
 }
 
-impl DisplayIC {
+impl Display {
     pub fn external_opengl_initialize(&mut self) -> self::Result<()> {
         unsafe {
             ic4_sys::ic4_display_external_opengl_initialize(self.as_mut_ptr())

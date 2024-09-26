@@ -2,18 +2,21 @@
 pub mod macros;
 
 pub mod buffer;
+pub mod debug;
 pub mod device;
 pub mod display;
 pub mod error;
 pub mod grabber;
+pub mod init;
 pub mod property;
 pub mod propid;
+pub mod sink;
 pub mod traits;
 
 #[allow(unused)]
 pub use crate::{
-    buffer::*, device::*, display::*, error::*, grabber::*, macros::*, property::*, propid::*,
-    traits::*,
+    buffer::*, debug::*, device::*, display::*, error::*, grabber::*, init::*, macros::*,
+    property::*, propid::*, sink::*, traits::*,
 };
 
 #[allow(unused)]
