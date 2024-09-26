@@ -261,3 +261,120 @@ impl BufferPool {
         Ok(ImageBuffer::from(image_buffer))
     }
 }
+
+/*
+ * ImageBuffer: Save
+ */
+
+pub type ImageBufferSaveOptionsBMPOri = ic4_sys::IC4_IMAGEBUFFER_SAVE_OPTIONS_BMP;
+bind_type!(ImageBufferSaveOptionsBMP, ImageBufferSaveOptionsBMPOri);
+
+impl Default for ImageBufferSaveOptionsBMP {
+    fn default() -> Self {
+        Self::from(ImageBufferSaveOptionsBMPOri {
+            store_bayer_raw_data_as_monochrome: 0,
+        })
+    }
+}
+
+pub type PNGCompressionLevelOri = ic4_sys::IC4_PNG_COMPRESSION_LEVEL;
+bind_type!(PNGCompressionLevel, PNGCompressionLevelOri);
+
+pub type ImageBufferSaveOptionsPNGOri = ic4_sys::IC4_IMAGEBUFFER_SAVE_OPTIONS_PNG;
+bind_type!(ImageBufferSaveOptionsPNG, ImageBufferSaveOptionsPNGOri);
+
+impl Default for ImageBufferSaveOptionsPNG {
+    fn default() -> Self {
+        Self::from(ImageBufferSaveOptionsPNGOri {
+            store_bayer_raw_data_as_monochrome: 0,
+            compression_level: PNGCompressionLevelOri::IC4_PNG_COMPRESSION_AUTO,
+        })
+    }
+}
+
+pub type ImageBufferSaveOptionsJPEGOri = ic4_sys::IC4_IMAGEBUFFER_SAVE_OPTIONS_JPEG;
+bind_type!(ImageBufferSaveOptionsJPEG, ImageBufferSaveOptionsJPEGOri);
+
+impl Default for ImageBufferSaveOptionsJPEG {
+    fn default() -> Self {
+        Self::from(ImageBufferSaveOptionsJPEGOri { quality_pct: 0 })
+    }
+}
+
+pub type ImageBufferSaveOptionsTIFFOri = ic4_sys::IC4_IMAGEBUFFER_SAVE_OPTIONS_TIFF;
+bind_type!(ImageBufferSaveOptionsTIFF, ImageBufferSaveOptionsTIFFOri);
+
+impl Default for ImageBufferSaveOptionsTIFF {
+    fn default() -> Self {
+        Self::from(ImageBufferSaveOptionsTIFFOri {
+            store_bayer_raw_data_as_monochrome: 0,
+        })
+    }
+}
+
+impl ImageBuffer {
+    pub fn save_as_bmp(
+        &mut self,
+        file_path: &CStr,
+        options: &ImageBufferSaveOptionsBMP,
+    ) -> self::Result<()> {
+        unsafe {
+            ic4_sys::ic4_imagebuffer_save_as_bmp(
+                self.as_mut_ptr(),
+                file_path.as_ptr(),
+                ptr_from_ref(&options.inner),
+            )
+            .then_some(())
+            .ok_or_else(|| self::get_last_error())?;
+        }
+        Ok(())
+    }
+    pub fn save_as_jpeg(
+        &mut self,
+        file_path: &CStr,
+        options: &ImageBufferSaveOptionsJPEG,
+    ) -> self::Result<()> {
+        unsafe {
+            ic4_sys::ic4_imagebuffer_save_as_jpeg(
+                self.as_mut_ptr(),
+                file_path.as_ptr(),
+                ptr_from_ref(&options.inner),
+            )
+            .then_some(())
+            .ok_or_else(|| self::get_last_error())?;
+        }
+        Ok(())
+    }
+    pub fn save_as_png(
+        &mut self,
+        file_path: &CStr,
+        options: &ImageBufferSaveOptionsPNG,
+    ) -> self::Result<()> {
+        unsafe {
+            ic4_sys::ic4_imagebuffer_save_as_png(
+                self.as_mut_ptr(),
+                file_path.as_ptr(),
+                ptr_from_ref(&options.inner),
+            )
+            .then_some(())
+            .ok_or_else(|| self::get_last_error())?;
+        }
+        Ok(())
+    }
+    pub fn save_as_tiff(
+        &mut self,
+        file_path: &CStr,
+        options: &ImageBufferSaveOptionsTIFF,
+    ) -> self::Result<()> {
+        unsafe {
+            ic4_sys::ic4_imagebuffer_save_as_tiff(
+                self.as_mut_ptr(),
+                file_path.as_ptr(),
+                ptr_from_ref(&options.inner),
+            )
+            .then_some(())
+            .ok_or_else(|| self::get_last_error())?;
+        }
+        Ok(())
+    }
+}

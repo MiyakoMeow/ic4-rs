@@ -6,14 +6,11 @@ use crate::*;
  * Property
  */
 
-pub type PropertyTypeOri = ic4_sys::IC4_PROPERTY_TYPE;
-bind_type!(PropertyType, PropertyTypeOri);
+pub type PropertyType = ic4_sys::IC4_PROPERTY_TYPE;
 
-pub type PropertyVisibilityOri = ic4_sys::IC4_PROPERTY_VISIBILITY;
-bind_type!(PropertyVisibility, PropertyVisibilityOri);
+pub type PropertyVisibility = ic4_sys::IC4_PROPERTY_VISIBILITY;
 
-pub type PropertyIncrementModeOri = ic4_sys::IC4_PROPERTY_INCREMENT_MODE;
-bind_type!(PropertyIncrementMode, PropertyIncrementModeOri);
+pub type PropertyIncrementMode = ic4_sys::IC4_PROPERTY_INCREMENT_MODE;
 
 pub type PropertyOri = ic4_sys::IC4_PROPERTY;
 bind_ptr_type!(
@@ -337,7 +334,7 @@ impl PropertyMap {
 
 impl Property {
     pub fn get_type(&mut self) -> PropertyType {
-        unsafe { ic4_sys::ic4_prop_get_type(self.as_mut_ptr()).into() }
+        unsafe { ic4_sys::ic4_prop_get_type(self.as_mut_ptr()) }
     }
     pub fn get_name(&mut self) -> &CStr {
         unsafe { CStr::from_ptr(ic4_sys::ic4_prop_get_name(self.as_mut_ptr())) }
@@ -355,7 +352,7 @@ impl Property {
         unsafe { ic4_sys::ic4_prop_is_readonly(self.as_mut_ptr()) }
     }
     pub fn get_visibility(&mut self) -> PropertyVisibility {
-        unsafe { ic4_sys::ic4_prop_get_visibility(self.as_mut_ptr()).into() }
+        unsafe { ic4_sys::ic4_prop_get_visibility(self.as_mut_ptr()) }
     }
     pub fn get_display_name(&mut self) -> &CStr {
         unsafe { CStr::from_ptr(ic4_sys::ic4_prop_get_display_name(self.as_mut_ptr())) }
@@ -502,7 +499,7 @@ impl Property {
         Ok(increment)
     }
     pub fn integer_get_increment_mode(&mut self) -> PropertyIncrementMode {
-        unsafe { ic4_sys::ic4_prop_integer_get_inc_mode(self.as_mut_ptr()).into() }
+        unsafe { ic4_sys::ic4_prop_integer_get_inc_mode(self.as_mut_ptr()) }
     }
     pub fn integer_get_vaild_value_set(&mut self) -> self::Result<Vec<i64>> {
         let mut vaild_value_set = vec![0; 1024 * 1024];
