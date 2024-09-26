@@ -6,5 +6,8 @@ For Windows platform, bindings from C headers.
 
 Download, install, and check the `bin` directory of the SDK is in the `PATH` variable.
 
+## Notice
+Call `ic4::init_library` or `ic4_sys::ic4_init_library` before calling any other function of this crate.
+
 ## Progress
 Safe Rust bindings are done, but there is still no tests.
