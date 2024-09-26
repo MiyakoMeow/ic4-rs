@@ -8,7 +8,6 @@ readme = "README.md"
 license = "MIT"
 homepage = "https://github.com/MiyakoMeow/ic4-rs"
 repository = "https://github.com/MiyakoMeow/ic4-rs"
-documentation = "https://docs.rs/ic4-sys"
 keywords = ["ffi", "camera", "video", "windows"]
 categories = ["api-bindings", "external-ffi-bindings", "hardware-support", "multimedia::video", "os::windows-apis"]
 
