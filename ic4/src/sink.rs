@@ -2,6 +2,9 @@
 
 use crate::*;
 
+pub mod queue_sink;
+pub mod snap_sink;
+
 /*
  * Sink
  */
