@@ -15,5 +15,7 @@ categories.workspace = true
 [dependencies]
 ic4-sys.workspace = true
 
+once_cell.workspace = true
+
 [features]
 buildtime-bindgen = ["ic4-sys/bindgen"]

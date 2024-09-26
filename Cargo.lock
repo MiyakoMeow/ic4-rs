@@ -80,6 +80,7 @@ name = "ic4"
 version = "0.0.1"
 dependencies = [
  "ic4-sys",
+ "once_cell",
 ]
 
 [[package]]
