@@ -55,19 +55,16 @@ impl SnapSink {
         }
         Ok(buffer_ptr.into())
     }
-    // TODO
-    // pub fn snap_sequence(&mut self, count: usize, timeout_ms: i64) -> self::Result<ImageBuffer> {
-    //     let mut buffer_ptr = null_mut();
-    //     unsafe {
-    //         ic4_sys::ic4_snapsink_snap_sequence(
-    //             self.inner.as_mut_ptr(),
-    //             ptr_from_mut(&mut buffer_ptr),
-    //             count,
-    //             timeout_ms,
-    //         )
-    //         .then_some(())
-    //         .ok_or_else(|| self::get_last_error())?;
-    //     }
-    //     Ok(buffer_ptr.into())
-    // }
+    /// TODO Size of ImageBuffer Not Known.
+    ///
+    /// # Safety
+    /// Unknown
+    pub unsafe fn snap_sequence(
+        &mut self,
+        count: usize,
+        timeout_ms: i64,
+        dst: *mut *mut ic4_sys::IC4_IMAGE_BUFFER,
+    ) -> usize {
+        ic4_sys::ic4_snapsink_snap_sequence(self.inner.as_mut_ptr(), dst, count, timeout_ms)
+    }
 }

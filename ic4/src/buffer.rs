@@ -132,7 +132,6 @@ impl ImageBuffer {
     /// # TODO
     ///
     /// # Safety
-    ///
     /// see ic4_sys::ic4_imagebuffer_copy
     pub unsafe fn copy_to(
         &self,
@@ -159,7 +158,6 @@ pub type ImageBufferMemoryReleaseOri = ic4_sys::ic4_imagebuffer_memory_release;
 /// # TODO
 ///
 /// # Safety
-///
 /// see ic4_sys::ic4_imagebuffer_wrap_memory
 pub unsafe fn imagebuffer_wrap_memory(
     pp_buffer: *mut *mut ic4_sys::IC4_IMAGE_BUFFER,
