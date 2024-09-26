@@ -6,7 +6,6 @@ members = ["ic4-sys", "ic4"]
 edition = "2021"
 readme = "README.md"
 license = "MIT"
-description = "A Rust bindings for IC Imaging Control 4 SDK from The Imaging Source."
 homepage = "https://github.com/MiyakoMeow/ic4-rs"
 repository = "https://github.com/MiyakoMeow/ic4-rs"
 documentation = "https://docs.rs/ic4-sys"
@@ -14,7 +13,7 @@ keywords = ["ffi", "camera", "video", "windows"]
 categories = ["api-bindings", "external-ffi-bindings", "hardware-support", "multimedia::video", "os::windows-apis"]
 
 [workspace.dependencies]
-ic4-sys = { path = "./ic4-sys" }
+ic4-sys = { path = "./ic4-sys", version = "0.1.0" }
 
-bindgen = "0.70.1"
-once_cell = "1.19.0"
+bindgen = ">=0.70.1,<1"
+once_cell = ">=1.19.0,<2"

@@ -1,11 +1,11 @@
 [package]
 name = "ic4-sys"
-version = "0.1.0"
+version = "0.1.1"
+description = "A Rust bindings for IC Imaging Control 4 SDK from The Imaging Source. (Raw Part from bindgen)"
+readme = "./README.md"
 
 edition.workspace = true
-readme.workspace = true
 license.workspace = true
-description.workspace = true
 homepage.workspace = true
 repository.workspace = true
 documentation.workspace = true
