@@ -2,9 +2,20 @@
 For Windows platform, bindings from C headers.
 
 ## Build & Run Requirement
-[IC Imaging Control 4 SDK](https://www.theimagingsource.com/zh-hans-cn/support/download/icimagingcontrol4win-1.1.0.2833/) is required before using this crate.
+Download, install with all default presets.
 
-Download, install, and check the `bin` directory of the SDK is in the `PATH` variable.
+Then ensure that the `bin` directory of the SDK and Driver is in the `PATH` variable.
+
+1. SDK:
+
+[IC Imaging Control 4 SDK](https://www.theimagingsource.com/zh-hans-cn/support/download/icimagingcontrol4win-1.1.0.2833/)
+
+2. Driver:
+
+- For GigE Devices: https://www.theimagingsource.com/zh-hans-cn/support/download/ic4gentlprodgevwintis-1.3.0.821/
+- For USB3 Devices: https://www.theimagingsource.com/zh-hans-cn/support/download/ic4gentlprodu3vwintis-1.3.0.480/
+
+For more infomation, see https://www.theimagingsource.com/zh-hans-cn/support/download/
 
 ## Notice
 1. Call `ic4::init_library` or `ic4_sys::ic4_init_library` before calling any other function of this crate.
@@ -13,7 +24,8 @@ Download, install, and check the `bin` directory of the SDK is in the `PATH` var
 Use `ic4::DefaultExt::default_ext` instead.
 
 ## Progress
-[x] Safe Rust bindings are all done.
+[x] Raw bindings.
+[x] Safe Rust bindings.
 
 Tests:
 - [x] CString buffer to C functions. 
