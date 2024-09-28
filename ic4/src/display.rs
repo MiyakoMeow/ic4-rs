@@ -13,23 +13,11 @@ bind_ptr_type!(
     ic4_sys::ic4_display_unref
 );
 
-pub type DisplayTypeOri = ic4_sys::IC4_DISPLAY_TYPE;
-bind_type!(DisplayType, DisplayTypeOri);
+pub type DisplayType = ic4_sys::IC4_DISPLAY_TYPE;
 
-pub type DisplayStatsOri = ic4_sys::IC4_DISPLAY_STATS;
-bind_type!(DisplayStats, DisplayStatsOri);
+pub type DisplayStats = ic4_sys::IC4_DISPLAY_STATS;
 
-impl Default for DisplayStats {
-    fn default() -> Self {
-        Self {
-            inner: DisplayStatsOri {
-                num_frames_displayed: 0,
-                num_frames_dropped: 0,
-            },
-        }
-    }
-}
-
+/// Should be wrapped, because ic4_sys::IC4_WINDOW_HANDLE is a raw c_void pointer.
 pub type WindowHandleOri = ic4_sys::IC4_WINDOW_HANDLE;
 bind_type!(WindowHandle, WindowHandleOri);
 
@@ -37,7 +25,7 @@ impl Display {
     pub fn create(display_type: DisplayType, parent: WindowHandle) -> self::Result<Self> {
         let mut ptr = null_mut();
         unsafe {
-            ic4_sys::ic4_display_create(display_type.into(), parent.into(), ptr_from_mut(&mut ptr))
+            ic4_sys::ic4_display_create(display_type, parent.into(), ptr_from_mut(&mut ptr))
                 .then_some(())
                 .ok_or(self::get_last_error())?;
         }
@@ -65,9 +53,12 @@ impl Display {
         Ok(())
     }
     pub fn get_stats(&mut self) -> self::Result<DisplayStats> {
-        let mut result: DisplayStats = Default::default();
+        let mut result: DisplayStats = DisplayStats {
+            num_frames_displayed: 0,
+            num_frames_dropped: 0,
+        };
         unsafe {
-            ic4_sys::ic4_display_get_stats(self.as_mut_ptr(), ptr_from_mut(&mut result.inner))
+            ic4_sys::ic4_display_get_stats(self.as_mut_ptr(), ptr_from_mut(&mut result))
                 .then_some(())
                 .ok_or(self::get_last_error())?;
         }
@@ -75,8 +66,7 @@ impl Display {
     }
 }
 
-pub type DisplayRenderPositionOri = ic4_sys::IC4_DISPLAY_RENDER_POSITION;
-bind_type!(DisplayRenderPosition, DisplayRenderPositionOri);
+pub type DisplayRenderPosition = ic4_sys::IC4_DISPLAY_RENDER_POSITION;
 
 impl Display {
     pub fn set_render_position(
@@ -90,7 +80,7 @@ impl Display {
         unsafe {
             ic4_sys::ic4_display_set_render_position(
                 self.as_mut_ptr(),
-                pos.inner,
+                pos,
                 left,
                 top,
                 width,
@@ -104,10 +94,8 @@ impl Display {
     }
 }
 
-pub type DisplayWindowClosedHandlerOri = ic4_sys::ic4_display_window_closed_handler;
-bind_type!(DisplayWindowClosedHandler, DisplayWindowClosedHandlerOri);
-pub type DisplayWindowClosedDeleterOri = ic4_sys::ic4_display_window_closed_deleter;
-bind_type!(DisplayWindowClosedDeleter, DisplayWindowClosedDeleterOri);
+pub type DisplayWindowClosedHandler = ic4_sys::ic4_display_window_closed_handler;
+pub type DisplayWindowClosedDeleter = ic4_sys::ic4_display_window_closed_deleter;
 
 impl Display {
     /// # Safety
@@ -118,14 +106,9 @@ impl Display {
         user_ptr: *mut c_void,
         deleter: DisplayWindowClosedDeleter,
     ) -> self::Result<()> {
-        ic4_sys::ic4_display_event_add_window_closed(
-            self.as_mut_ptr(),
-            handler.inner,
-            user_ptr,
-            deleter.inner,
-        )
-        .then_some(())
-        .ok_or_else(|| self::get_last_error())
+        ic4_sys::ic4_display_event_add_window_closed(self.as_mut_ptr(), handler, user_ptr, deleter)
+            .then_some(())
+            .ok_or_else(|| self::get_last_error())
     }
     /// # Safety
     /// Unknown.
@@ -134,7 +117,7 @@ impl Display {
         handler: DisplayWindowClosedHandler,
         user_ptr: *mut c_void,
     ) -> self::Result<()> {
-        ic4_sys::ic4_display_event_remove_window_closed(self.as_mut_ptr(), handler.inner, user_ptr)
+        ic4_sys::ic4_display_event_remove_window_closed(self.as_mut_ptr(), handler, user_ptr)
             .then_some(())
             .ok_or_else(|| self::get_last_error())
     }

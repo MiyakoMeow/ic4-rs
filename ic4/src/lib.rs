@@ -12,7 +12,6 @@ pub mod grabber;
 pub mod gui;
 pub mod init;
 pub mod property;
-pub mod propid;
 pub mod sink;
 pub mod traits;
 pub mod version;
@@ -21,8 +20,8 @@ pub mod video_writer;
 #[allow(unused)]
 pub use crate::{
     buffer::*, debug::*, device::*, display::*, error::*, grabber::*, init::*,
-    macros::bind_type::*, property::*, propid::*, sink::queue_sink::*, sink::snap_sink::*, sink::*,
-    traits::*, version::*, video_writer::*,
+    macros::bind_type::*, property::names::*, property::*, sink::queue_sink::*, sink::snap_sink::*,
+    sink::*, traits::*, version::*, video_writer::*,
 };
 
 #[allow(unused)]

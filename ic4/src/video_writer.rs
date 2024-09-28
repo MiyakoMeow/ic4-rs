@@ -13,14 +13,13 @@ bind_ptr_type!(
     ic4_sys::ic4_videowriter_unref
 );
 
-pub type VideoWriterTypeOri = ic4_sys::IC4_VIDEO_WRITER_TYPE;
-bind_type!(VideoWriterType, VideoWriterTypeOri);
+pub type VideoWriterType = ic4_sys::IC4_VIDEO_WRITER_TYPE;
 
 impl VideoWriter {
     pub fn create(video_writer_type: VideoWriterType) -> self::Result<Self> {
         let mut self_ptr = null_mut();
         unsafe {
-            ic4_sys::ic4_videowriter_create(video_writer_type.inner, ptr_from_mut(&mut self_ptr))
+            ic4_sys::ic4_videowriter_create(video_writer_type, ptr_from_mut(&mut self_ptr))
                 .then_some(())
                 .ok_or_else(|| self::get_last_error())?;
         }

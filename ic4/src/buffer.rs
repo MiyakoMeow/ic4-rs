@@ -100,22 +100,18 @@ impl ImageBuffer {
  * FrameMetadata
  */
 
-pub type FrameMetadataOri = ic4_sys::IC4_FRAME_METADATA;
-bind_type!(FrameMetadata, FrameMetadataOri);
+pub type FrameMetadata = ic4_sys::IC4_FRAME_METADATA;
 
 impl ImageBuffer {
     pub fn get_metadata(&self) -> self::Result<FrameMetadata> {
         unsafe {
-            let mut meta_data = FrameMetadata::from(FrameMetadataOri {
+            let mut meta_data = FrameMetadata {
                 device_frame_number: 0,
                 device_timestamp_ns: 0,
-            });
-            ic4_sys::ic4_imagebuffer_get_metadata(
-                self.as_ptr(),
-                ptr_from_mut(&mut meta_data.inner),
-            )
-            .then_some(())
-            .ok_or_else(|| self::get_last_error())?;
+            };
+            ic4_sys::ic4_imagebuffer_get_metadata(self.as_ptr(), ptr_from_mut(&mut meta_data))
+                .then_some(())
+                .ok_or_else(|| self::get_last_error())?;
             Ok(meta_data)
         }
     }
@@ -125,8 +121,7 @@ impl ImageBuffer {
  * ImageBufferCopyFlags
  */
 
-pub type ImageBufferCopyFlagsOri = ic4_sys::IC4_IMAGEBUFFER_COPY_FLAGS;
-bind_type!(ImageBufferCopyFlags, ImageBufferCopyFlagsOri);
+pub type ImageBufferCopyFlags = ic4_sys::IC4_IMAGEBUFFER_COPY_FLAGS;
 
 impl ImageBuffer {
     /// # TODO
@@ -179,27 +174,24 @@ pub unsafe fn imagebuffer_wrap_memory(
     )
 }
 
-pub type AllocatorCallbacksOri = ic4_sys::IC4_ALLOCATOR_CALLBACKS;
+pub type AllocatorCallbacks = ic4_sys::IC4_ALLOCATOR_CALLBACKS;
 
 /*
  * BufferPool
  */
 
-pub type BufferPoolConfigOri = ic4_sys::IC4_BUFFER_POOL_CONFIG;
-bind_type!(BufferPoolConfig, BufferPoolConfigOri);
+pub type BufferPoolConfig = ic4_sys::IC4_BUFFER_POOL_CONFIG;
 
-impl Default for BufferPoolConfig {
-    fn default() -> Self {
-        Self::from(BufferPoolConfigOri {
-            cache_frames_max: 0,
-            cache_bytes_max: 0,
-            allocator: AllocatorCallbacksOri {
-                release: None,
-                allocate_buffer: None,
-                free_buffer: None,
-            },
-            allocator_context: null_mut(),
-        })
+pub fn default_buffer_pool_config() -> BufferPoolConfig {
+    BufferPoolConfig {
+        cache_frames_max: 0,
+        cache_bytes_max: 0,
+        allocator: AllocatorCallbacks {
+            release: None,
+            allocate_buffer: None,
+            free_buffer: None,
+        },
+        allocator_context: null_mut(),
     }
 }
 
@@ -228,12 +220,9 @@ impl BufferPool {
     pub fn create(config: &BufferPoolConfig) -> self::Result<Self> {
         let mut buffer_pool = null_mut();
         unsafe {
-            ic4_sys::ic4_bufferpool_create(
-                ptr_from_mut(&mut buffer_pool),
-                ptr_from_ref(&config.inner),
-            )
-            .then_some(())
-            .ok_or_else(|| self::get_last_error())?;
+            ic4_sys::ic4_bufferpool_create(ptr_from_mut(&mut buffer_pool), ptr_from_ref(config))
+                .then_some(())
+                .ok_or_else(|| self::get_last_error())?;
         }
         Ok(Self::from(buffer_pool))
     }

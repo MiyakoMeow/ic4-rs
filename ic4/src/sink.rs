@@ -16,17 +16,9 @@ bind_ptr_type!(
     ic4_sys::ic4_sink_unref
 );
 
-pub type SinkTypeOri = ic4_sys::IC4_SINK_TYPE;
-bind_type!(SinkType, SinkTypeOri);
+pub type SinkType = ic4_sys::IC4_SINK_TYPE;
 
-pub type SinkModeOri = ic4_sys::IC4_SINK_MODE;
-bind_type!(SinkMode, SinkModeOri);
-
-impl Default for SinkMode {
-    fn default() -> Self {
-        Self::from(SinkModeOri::IC4_SINK_MODE_INVALID)
-    }
-}
+pub type SinkMode = ic4_sys::IC4_SINK_MODE;
 
 impl Sink {
     pub fn get_mode(&mut self) -> SinkMode {
@@ -34,7 +26,7 @@ impl Sink {
     }
     pub fn set_mode(&mut self, mode: SinkMode) -> self::Result<()> {
         unsafe {
-            ic4_sys::ic4_sink_set_mode(self.as_mut_ptr(), mode.inner)
+            ic4_sys::ic4_sink_set_mode(self.as_mut_ptr(), mode)
                 .then_some(())
                 .ok_or_else(|| self::get_last_error())?;
         }

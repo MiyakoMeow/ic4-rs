@@ -2,6 +2,8 @@
 
 use crate::*;
 
+pub mod names;
+
 /*
  * Property
  */
@@ -12,32 +14,29 @@ pub type PropertyVisibility = ic4_sys::IC4_PROPERTY_VISIBILITY;
 
 pub type PropertyIncrementMode = ic4_sys::IC4_PROPERTY_INCREMENT_MODE;
 
-pub type PropertyOri = ic4_sys::IC4_PROPERTY;
 bind_ptr_type!(
     Property,
-    PropertyOri,
+    ic4_sys::IC4_PROPERTY,
     ic4_sys::ic4_prop_ref,
     ic4_sys::ic4_prop_unref
 );
 
-pub type PropertyListOri = ic4_sys::IC4_PROPERTY_LIST;
 bind_ptr_type!(
     PropertyList,
-    PropertyListOri,
+    ic4_sys::IC4_PROPERTY_LIST,
     ic4_sys::ic4_proplist_ref,
     ic4_sys::ic4_proplist_unref
 );
 
-pub type PropertyMapOri = ic4_sys::IC4_PROPERTY_MAP;
 bind_ptr_type!(
     PropertyMap,
-    PropertyMapOri,
+    ic4_sys::IC4_PROPERTY_MAP,
     ic4_sys::ic4_propmap_ref,
     ic4_sys::ic4_propmap_unref
 );
 
 impl PropertyMap {
-    pub fn execute_command(&mut self, prop_name: &CStr) -> self::Result<()> {
+    pub fn execute_command(&mut self, prop_name: PropertyName) -> self::Result<()> {
         unsafe {
             ic4_sys::ic4_propmap_execute_command(
                 self.as_mut_ptr(),
@@ -51,7 +50,7 @@ impl PropertyMap {
 }
 
 impl PropertyMap {
-    pub fn get_value_i64(&mut self, prop_name: &CStr) -> self::Result<i64> {
+    pub fn get_value_i64(&mut self, prop_name: PropertyName) -> self::Result<i64> {
         let mut value = Default::default();
         unsafe {
             ic4_sys::ic4_propmap_get_value_int64(
@@ -64,7 +63,7 @@ impl PropertyMap {
         }
         Ok(value)
     }
-    pub fn get_value_f64(&mut self, prop_name: &CStr) -> self::Result<f64> {
+    pub fn get_value_f64(&mut self, prop_name: PropertyName) -> self::Result<f64> {
         let mut value = Default::default();
         unsafe {
             ic4_sys::ic4_propmap_get_value_double(
@@ -77,7 +76,7 @@ impl PropertyMap {
         }
         Ok(value)
     }
-    pub fn get_value_bool(&mut self, prop_name: &CStr) -> self::Result<bool> {
+    pub fn get_value_bool(&mut self, prop_name: PropertyName) -> self::Result<bool> {
         let mut value = Default::default();
         unsafe {
             ic4_sys::ic4_propmap_get_value_bool(
@@ -90,7 +89,7 @@ impl PropertyMap {
         }
         Ok(value)
     }
-    pub fn get_value_cstring(&mut self, prop_name: &CStr) -> self::Result<CString> {
+    pub fn get_value_cstring(&mut self, prop_name: PropertyName) -> self::Result<CString> {
         let mut message_buffer = vec![0u8; 1024 * 1024];
         let mut message_length = 0;
         unsafe {
@@ -108,7 +107,7 @@ impl PropertyMap {
 }
 
 impl PropertyMap {
-    pub fn set_value_i64(&mut self, prop_name: &CStr, value: i64) -> self::Result<()> {
+    pub fn set_value_i64(&mut self, prop_name: PropertyName, value: i64) -> self::Result<()> {
         unsafe {
             ic4_sys::ic4_propmap_set_value_int64(self.as_mut_ptr(), prop_name.as_ptr(), value)
                 .then_some(())
@@ -116,7 +115,7 @@ impl PropertyMap {
         }
         Ok(())
     }
-    pub fn set_value_f64(&mut self, prop_name: &CStr, value: f64) -> self::Result<()> {
+    pub fn set_value_f64(&mut self, prop_name: PropertyName, value: f64) -> self::Result<()> {
         unsafe {
             ic4_sys::ic4_propmap_set_value_double(self.as_mut_ptr(), prop_name.as_ptr(), value)
                 .then_some(())
@@ -124,7 +123,7 @@ impl PropertyMap {
         }
         Ok(())
     }
-    pub fn set_value_bool(&mut self, prop_name: &CStr, value: bool) -> self::Result<()> {
+    pub fn set_value_bool(&mut self, prop_name: PropertyName, value: bool) -> self::Result<()> {
         unsafe {
             ic4_sys::ic4_propmap_set_value_bool(self.as_mut_ptr(), prop_name.as_ptr(), value)
                 .then_some(())
@@ -132,7 +131,7 @@ impl PropertyMap {
         }
         Ok(())
     }
-    pub fn set_value_cstr(&mut self, prop_name: &CStr, value: &CStr) -> self::Result<()> {
+    pub fn set_value_cstr(&mut self, prop_name: PropertyName, value: &CStr) -> self::Result<()> {
         unsafe {
             ic4_sys::ic4_propmap_set_value_string(
                 self.as_mut_ptr(),
@@ -147,7 +146,7 @@ impl PropertyMap {
 }
 
 impl PropertyMap {
-    pub fn find(&mut self, prop_name: &CStr) -> self::Result<Property> {
+    pub fn find(&mut self, prop_name: PropertyName) -> self::Result<Property> {
         let mut property = null_mut();
         unsafe {
             ic4_sys::ic4_propmap_find(
@@ -160,7 +159,7 @@ impl PropertyMap {
         }
         Ok(property.into())
     }
-    pub fn find_command(&mut self, prop_name: &CStr) -> self::Result<Property> {
+    pub fn find_command(&mut self, prop_name: PropertyName) -> self::Result<Property> {
         let mut property = null_mut();
         unsafe {
             ic4_sys::ic4_propmap_find_command(
@@ -173,7 +172,7 @@ impl PropertyMap {
         }
         Ok(property.into())
     }
-    pub fn find_float(&mut self, prop_name: &CStr) -> self::Result<Property> {
+    pub fn find_float(&mut self, prop_name: PropertyName) -> self::Result<Property> {
         let mut property = null_mut();
         unsafe {
             ic4_sys::ic4_propmap_find_float(
@@ -186,7 +185,7 @@ impl PropertyMap {
         }
         Ok(property.into())
     }
-    pub fn find_boolean(&mut self, prop_name: &CStr) -> self::Result<Property> {
+    pub fn find_boolean(&mut self, prop_name: PropertyName) -> self::Result<Property> {
         let mut property = null_mut();
         unsafe {
             ic4_sys::ic4_propmap_find_boolean(
@@ -199,7 +198,7 @@ impl PropertyMap {
         }
         Ok(property.into())
     }
-    pub fn find_string(&mut self, prop_name: &CStr) -> self::Result<Property> {
+    pub fn find_string(&mut self, prop_name: PropertyName) -> self::Result<Property> {
         let mut property = null_mut();
         unsafe {
             ic4_sys::ic4_propmap_find_string(
@@ -212,7 +211,7 @@ impl PropertyMap {
         }
         Ok(property.into())
     }
-    pub fn find_enumeration(&mut self, prop_name: &CStr) -> self::Result<Property> {
+    pub fn find_enumeration(&mut self, prop_name: PropertyName) -> self::Result<Property> {
         let mut property = null_mut();
         unsafe {
             ic4_sys::ic4_propmap_find_enumeration(
@@ -225,7 +224,7 @@ impl PropertyMap {
         }
         Ok(property.into())
     }
-    pub fn find_register(&mut self, prop_name: &CStr) -> self::Result<Property> {
+    pub fn find_register(&mut self, prop_name: PropertyName) -> self::Result<Property> {
         let mut property = null_mut();
         unsafe {
             ic4_sys::ic4_propmap_find_register(
@@ -238,7 +237,7 @@ impl PropertyMap {
         }
         Ok(property.into())
     }
-    pub fn find_category(&mut self, prop_name: &CStr) -> self::Result<Property> {
+    pub fn find_category(&mut self, prop_name: PropertyName) -> self::Result<Property> {
         let mut property = null_mut();
         unsafe {
             ic4_sys::ic4_propmap_find_category(
@@ -299,8 +298,7 @@ impl PropertyMap {
      */
 }
 
-pub type SerlalizationAllocatorOri = ic4_sys::ic4_serialization_allocator;
-bind_type!(SerlalizationAllocator, SerlalizationAllocatorOri);
+pub type SerlalizationAllocator = ic4_sys::ic4_serialization_allocator;
 
 impl PropertyMap {
     pub fn serialize_to_memory(&mut self, alloc: SerlalizationAllocator) -> Result<Vec<u8>> {
@@ -309,7 +307,7 @@ impl PropertyMap {
         unsafe {
             ic4_sys::ic4_propmap_serialize_to_memory(
                 self.as_mut_ptr(),
-                alloc.inner,
+                alloc,
                 ptr_from_mut(&mut data),
                 ptr_from_mut(&mut data_size),
             )
@@ -365,10 +363,8 @@ impl Property {
     }
 }
 
-pub type PropertyNotificationOri = ic4_sys::ic4_prop_notification;
-bind_type!(PropertyNotification, PropertyNotificationOri);
-pub type PropertyNotificationDeleterOri = ic4_sys::ic4_prop_notification_deleter;
-bind_type!(PropertyNotificationDeleter, PropertyNotificationDeleterOri);
+pub type PropertyNotification = ic4_sys::ic4_prop_notification;
+pub type PropertyNotificationDeleter = ic4_sys::ic4_prop_notification_deleter;
 
 impl Property {
     /// # Safety
@@ -380,14 +376,9 @@ impl Property {
         user_ptr: *mut c_void,
         deleter: PropertyNotificationDeleter,
     ) -> self::Result<()> {
-        ic4_sys::ic4_prop_event_add_notification(
-            self.as_mut_ptr(),
-            handler.inner,
-            user_ptr,
-            deleter.inner,
-        )
-        .then_some(())
-        .ok_or_else(|| self::get_last_error())?;
+        ic4_sys::ic4_prop_event_add_notification(self.as_mut_ptr(), handler, user_ptr, deleter)
+            .then_some(())
+            .ok_or_else(|| self::get_last_error())?;
         Ok(())
     }
 
@@ -399,7 +390,7 @@ impl Property {
         handler: PropertyNotification,
         user_ptr: *mut c_void,
     ) -> self::Result<()> {
-        ic4_sys::ic4_prop_event_remove_notification(self.as_mut_ptr(), handler.inner, user_ptr)
+        ic4_sys::ic4_prop_event_remove_notification(self.as_mut_ptr(), handler, user_ptr)
             .then_some(())
             .ok_or_else(|| self::get_last_error())?;
         Ok(())
@@ -447,8 +438,7 @@ impl Property {
     }
 }
 
-pub type PropertyIntRepresentationOri = ic4_sys::IC4_PROPERTY_INT_REPRESENTATION;
-bind_type!(PropertyIntRepresentation, PropertyIntRepresentationOri);
+pub type PropertyIntRepresentation = ic4_sys::IC4_PROPERTY_INT_REPRESENTATION;
 
 impl Property {
     pub fn integer_get_unit(&mut self) -> &CStr {
@@ -518,8 +508,7 @@ impl Property {
     }
 }
 
-pub type PropertyFloatRepresentationOri = ic4_sys::IC4_PROPERTY_FLOAT_REPRESENTATION;
-bind_type!(PropertyFloatRepresentation, PropertyFloatRepresentationOri);
+pub type PropertyFloatRepresentation = ic4_sys::IC4_PROPERTY_FLOAT_REPRESENTATION;
 
 impl Property {
     pub fn float_get_unit(&mut self) -> &CStr {
@@ -589,12 +578,11 @@ impl Property {
     }
 }
 
-pub type PropertyDisplayNotationOri = ic4_sys::IC4_PROPERTY_DISPLAY_NOTATION;
-bind_type!(PropertyDisplayNotation, PropertyDisplayNotationOri);
+pub type PropertyDisplayNotation = ic4_sys::IC4_PROPERTY_DISPLAY_NOTATION;
 
 impl Property {
     pub fn get_display_notation(&mut self) -> PropertyDisplayNotation {
-        unsafe { ic4_sys::ic4_prop_float_get_display_notation(self.as_mut_ptr()).into() }
+        unsafe { ic4_sys::ic4_prop_float_get_display_notation(self.as_mut_ptr()) }
     }
     pub fn get_display_precision(&mut self) -> i64 {
         unsafe { ic4_sys::ic4_prop_float_get_display_precision(self.as_mut_ptr()) }

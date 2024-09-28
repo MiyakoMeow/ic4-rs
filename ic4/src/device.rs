@@ -97,16 +97,8 @@ impl DeviceEnum {
     }
 }
 
-pub type DeviceEnumDeviceListChangeHandlerOri = ic4_sys::ic4_devenum_device_list_change_handler;
-bind_type!(
-    DeviceEnumDeviceListChangeHandler,
-    DeviceEnumDeviceListChangeHandlerOri
-);
-pub type DeviceEnumDeviceListChangeDeleterOri = ic4_sys::ic4_devenum_device_list_change_deleter;
-bind_type!(
-    DeviceEnumDeviceListChangeDeleter,
-    DeviceEnumDeviceListChangeDeleterOri
-);
+pub type DeviceEnumDeviceListChangeHandler = ic4_sys::ic4_devenum_device_list_change_handler;
+pub type DeviceEnumDeviceListChangeDeleter = ic4_sys::ic4_devenum_device_list_change_deleter;
 
 impl DeviceEnum {
     /// # Safety
@@ -119,9 +111,9 @@ impl DeviceEnum {
     ) -> self::Result<()> {
         ic4_sys::ic4_devenum_event_add_device_list_changed(
             self.as_mut_ptr(),
-            handler.inner,
+            handler,
             user_ptr,
-            deleter.inner,
+            deleter,
         )
         .then_some(())
         .ok_or_else(|| self::get_last_error())
@@ -133,18 +125,13 @@ impl DeviceEnum {
         handler: DeviceEnumDeviceListChangeHandler,
         user_ptr: *mut c_void,
     ) -> self::Result<()> {
-        ic4_sys::ic4_devenum_event_remove_device_list_changed(
-            self.as_mut_ptr(),
-            handler.inner,
-            user_ptr,
-        )
-        .then_some(())
-        .ok_or_else(|| self::get_last_error())
+        ic4_sys::ic4_devenum_event_remove_device_list_changed(self.as_mut_ptr(), handler, user_ptr)
+            .then_some(())
+            .ok_or_else(|| self::get_last_error())
     }
 }
 
-pub type TLTypeOri = ic4_sys::IC4_TL_TYPE;
-bind_type!(TLType, TLTypeOri);
+pub type TLType = ic4_sys::IC4_TL_TYPE;
 
 impl Interface {
     pub fn get_display_name(&self) -> &CStr {
@@ -157,7 +144,7 @@ impl Interface {
         unsafe { CStr::from_ptr(ic4_sys::ic4_devitf_get_tl_version(self.as_ptr())) }
     }
     pub fn get_tl_type(&self) -> TLType {
-        unsafe { ic4_sys::ic4_devitf_get_tl_type(self.as_ptr()).into() }
+        unsafe { ic4_sys::ic4_devitf_get_tl_type(self.as_ptr()) }
     }
 }
 

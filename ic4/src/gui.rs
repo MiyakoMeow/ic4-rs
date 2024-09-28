@@ -21,11 +21,9 @@ pub fn select_device(parent: WindowHandle) -> self::Result<DeviceInfo> {
     Ok(result_ptr.into())
 }
 
-pub type PropertyDialogFlagsOri = ic4_sys::IC4_PROPERTY_DIALOG_FLAGS;
-bind_type!(PropertyDialogFlags, PropertyDialogFlagsOri);
+pub type PropertyDialogFlags = ic4_sys::IC4_PROPERTY_DIALOG_FLAGS;
 
-pub type PropertyDialogOptionsOri = ic4_sys::IC4_PROPERTY_DIALOG_OPTIONS;
-bind_type!(PropertyDialogOptions, PropertyDialogOptionsOri);
+pub type PropertyDialogOptions = ic4_sys::IC4_PROPERTY_DIALOG_OPTIONS;
 
 pub fn grabber_show_device_properties(
     parent: WindowHandle,
@@ -36,7 +34,7 @@ pub fn grabber_show_device_properties(
         ic4_sys::ic4_gui_grabber_show_device_properties(
             parent.inner,
             grabber.as_mut_ptr(),
-            ptr_from_ref(&options.into()),
+            ptr_from_ref(&options),
         )
         .then_some(())
         .ok_or_else(|| self::get_last_error())?;
@@ -53,7 +51,7 @@ pub fn show_property_map(
         ic4_sys::ic4_gui_show_property_map(
             parent.inner,
             property_map.as_mut_ptr(),
-            ptr_from_ref(&options.into()),
+            ptr_from_ref(&options),
         )
         .then_some(())
         .ok_or_else(|| self::get_last_error())?;

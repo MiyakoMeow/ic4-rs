@@ -17,6 +17,12 @@ impl ToCStr for CStr {
     }
 }
 
+impl ToCStr for &CStr {
+    fn to_cstr(&self) -> &CStr {
+        self
+    }
+}
+
 impl ToCStr for CString {
     fn to_cstr(&self) -> &CStr {
         self.as_c_str()
