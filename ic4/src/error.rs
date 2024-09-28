@@ -23,12 +23,12 @@ pub type Result<T> = std::result::Result<T, self::Error>;
 
 pub fn get_last_error() -> Error {
     unsafe {
-        let mut error = ic4_sys::IC4_ERROR::IC4_ERROR_UNKNOWN;
-        let mut message_buffer = vec![0u8; 1024 * 1024];
-        let mut message_length = 0;
+        let mut error = ErrorEnum::IC4_ERROR_UNKNOWN;
+        let mut message_length = 10 * 1024;
+        let mut message_vec: Vec<_> = std::iter::repeat(0u8).take(message_length).collect();
         if !ic4_sys::ic4_get_last_error(
             std::ptr::from_mut(&mut error),
-            message_buffer.as_mut_ptr() as *mut std::ffi::c_char,
+            message_vec.as_mut_ptr() as *mut c_char,
             std::ptr::from_mut(&mut message_length),
         ) {
             return Error {
@@ -36,10 +36,10 @@ pub fn get_last_error() -> Error {
                 message: CString::from_vec_unchecked(b"Cannot generate ic4::Error!".to_vec()),
             };
         }
-        let message = CString::from_vec_unchecked(message_buffer);
+        message_vec.resize(message_length - 1, 0); // Remove tailing '\0'
         Error {
             err: error,
-            message,
+            message: CString::from_vec_unchecked(message_vec),
         }
     }
 }

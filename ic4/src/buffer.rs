@@ -49,11 +49,11 @@ impl DefaultExt for ImageType {
 impl ToCString for ImageType {
     fn to_cstring(&self) -> CString {
         unsafe {
-            let mut message_buffer = vec![0u8; 1024 * 1024];
-            let mut message_length = 0;
+            let mut message_length = 10 * 1024;
+            let mut message_vec = vec![0u8; 10 * 1024];
             let result = ic4_sys::ic4_imagetype_tostring(
                 ptr_from_ref(self),
-                message_buffer.as_mut_ptr() as *mut c_char,
+                message_vec.as_mut_ptr() as *mut c_char,
                 ptr_from_mut(&mut message_length),
             );
             if !result {
@@ -61,7 +61,8 @@ impl ToCString for ImageType {
                     b"imagetype: Failed to create buffer!".to_vec(),
                 );
             }
-            CString::from_vec_unchecked(message_buffer)
+            message_vec.resize(message_length - 1, 0);
+            CString::from_vec_unchecked(message_vec)
         }
     }
 }
@@ -188,10 +189,6 @@ impl DefaultExt for AllocatorCallbacks {
     }
 }
 
-pub fn default_allocator_callbacks() -> AllocatorCallbacks {
-    DefaultExt::default_ext()
-}
-
 /*
  * BufferPool
  */
@@ -201,7 +198,7 @@ pub type BufferPoolConfig = ic4_sys::IC4_BUFFER_POOL_CONFIG;
 impl DefaultExt for BufferPoolConfig {
     fn default_ext() -> Self {
         BufferPoolConfig {
-            cache_frames_max: 0,
+            cache_frames_max: 128,
             cache_bytes_max: 0,
             allocator: AllocatorCallbacks {
                 release: None,
@@ -213,11 +210,17 @@ impl DefaultExt for BufferPoolConfig {
     }
 }
 
-pub fn default_buffer_pool_config() -> BufferPoolConfig {
-    DefaultExt::default_ext()
-}
-
 pub type BufferPoolAllocationOptions = ic4_sys::IC4_BUFFERPOOL_ALLOCATION_OPTIONS;
+
+impl DefaultExt for BufferPoolAllocationOptions {
+    fn default_ext() -> Self {
+        Self {
+            alignment: 0,
+            pitch: 0,
+            buffer_size: 0,
+        }
+    }
+}
 
 bind_ptr_type!(
     BufferPool,

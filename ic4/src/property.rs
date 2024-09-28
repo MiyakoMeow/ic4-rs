@@ -90,18 +90,19 @@ impl PropertyMap {
         Ok(value)
     }
     pub fn get_value_cstring(&mut self, prop_name: PropertyName) -> self::Result<CString> {
-        let mut message_buffer = vec![0u8; 1024 * 1024];
-        let mut message_length = 0;
+        let mut message_length = 10 * 1024;
+        let mut message_vec = vec![0u8; 10 * 1024];
         unsafe {
             ic4_sys::ic4_propmap_get_value_string(
                 self.as_mut_ptr(),
                 prop_name.as_ptr(),
-                ptr_from_mut(&mut message_buffer) as *mut std::ffi::c_char,
+                ptr_from_mut(&mut message_vec) as *mut c_char,
                 ptr_from_mut(&mut message_length),
             )
             .then_some(())
             .ok_or_else(|| self::get_last_error())?;
-            Ok(CString::from_vec_unchecked(message_buffer))
+            message_vec.resize(message_length - 1, 0);
+            Ok(CString::from_vec_unchecked(message_vec))
         }
     }
 }
@@ -492,8 +493,8 @@ impl Property {
         unsafe { ic4_sys::ic4_prop_integer_get_inc_mode(self.as_mut_ptr()) }
     }
     pub fn integer_get_vaild_value_set(&mut self) -> self::Result<Vec<i64>> {
-        let mut vaild_value_set = vec![0; 1024 * 1024];
-        let mut vaild_value_length = 0;
+        let mut vaild_value_length = 10 * 1024;
+        let mut vaild_value_set = vec![0; 10 * 1024];
         unsafe {
             ic4_sys::ic4_prop_integer_get_valid_value_set(
                 self.as_mut_ptr(),
@@ -562,8 +563,8 @@ impl Property {
         unsafe { ic4_sys::ic4_prop_float_get_inc_mode(self.as_mut_ptr()) }
     }
     pub fn float_get_valid_value_set(&mut self) -> self::Result<Vec<f64>> {
-        let mut vaild_value_set = vec![0.0; 1024 * 1024];
-        let mut vaild_value_length = 0;
+        let mut vaild_value_length = 10 * 1024;
+        let mut vaild_value_set = vec![0.0; 10 * 1024];
         unsafe {
             ic4_sys::ic4_prop_float_get_valid_value_set(
                 self.as_mut_ptr(),
@@ -611,8 +612,8 @@ impl Property {
 
 impl Property {
     pub fn string_get_value(&mut self) -> self::Result<CString> {
-        let mut value = vec![0; 1024 * 1024];
-        let mut value_length = 0;
+        let mut value_length = 10 * 1024;
+        let mut value = vec![0; 10 * 1024];
         unsafe {
             ic4_sys::ic4_prop_string_get_value(
                 self.as_mut_ptr(),
@@ -621,6 +622,7 @@ impl Property {
             )
             .then_some(())
             .ok_or_else(|| self::get_last_error())?;
+            value.resize(value_length - 1, 0);
             Ok(CString::from_vec_unchecked(value))
         }
     }
