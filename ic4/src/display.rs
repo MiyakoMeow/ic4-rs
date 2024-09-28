@@ -15,11 +15,35 @@ bind_ptr_type!(
 
 pub type DisplayType = ic4_sys::IC4_DISPLAY_TYPE;
 
+impl DefaultExt for DisplayType {
+    fn default_ext() -> Self {
+        Self::IC4_DISPLAY_DEFAULT
+    }
+}
+
 pub type DisplayStats = ic4_sys::IC4_DISPLAY_STATS;
+
+impl DefaultExt for DisplayStats {
+    fn default_ext() -> Self {
+        Self {
+            num_frames_displayed: 0,
+            num_frames_dropped: 0,
+        }
+    }
+}
 
 /// Should be wrapped, because ic4_sys::IC4_WINDOW_HANDLE is a raw c_void pointer.
 pub type WindowHandleOri = ic4_sys::IC4_WINDOW_HANDLE;
 bind_type!(WindowHandle, WindowHandleOri);
+
+impl WindowHandle {
+    pub fn create_null() -> Self {
+        WindowHandle::from(ic4_sys::IC4_WINDOW_HANDLE(null_mut()))
+    }
+    pub fn create_from_ptr(handle_ptr: *mut c_void) -> Self {
+        WindowHandle::from(ic4_sys::IC4_WINDOW_HANDLE(handle_ptr))
+    }
+}
 
 impl Display {
     pub fn create(display_type: DisplayType, parent: WindowHandle) -> self::Result<Self> {

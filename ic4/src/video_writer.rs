@@ -15,6 +15,12 @@ bind_ptr_type!(
 
 pub type VideoWriterType = ic4_sys::IC4_VIDEO_WRITER_TYPE;
 
+impl DefaultExt for VideoWriterType {
+    fn default_ext() -> Self {
+        Self::IC4_VIDEO_WRITER_MP4_H264
+    }
+}
+
 impl VideoWriter {
     pub fn create(video_writer_type: VideoWriterType) -> self::Result<Self> {
         let mut self_ptr = null_mut();
@@ -38,7 +44,7 @@ impl VideoWriter {
             ic4_sys::ic4_videowriter_begin_file(
                 self.as_mut_ptr(),
                 file_name.as_ptr(),
-                ptr_from_ref(&image_type.inner),
+                ptr_from_ref(image_type),
                 frame_rate,
             )
             .then_some(())
@@ -54,11 +60,14 @@ impl VideoWriter {
         }
         Ok(())
     }
-    pub fn add_frame(&mut self, mut image_buffer: ImageBuffer) -> self::Result<()> {
+    pub fn add_frame(&mut self, image_buffer: ImageBuffer) -> self::Result<()> {
         unsafe {
-            ic4_sys::ic4_videowriter_add_frame(self.as_mut_ptr(), image_buffer.as_mut_ptr())
-                .then_some(())
-                .ok_or_else(|| self::get_last_error())?;
+            ic4_sys::ic4_videowriter_add_frame(
+                self.as_mut_ptr(),
+                image_buffer.clone().as_mut_ptr(),
+            )
+            .then_some(())
+            .ok_or_else(|| self::get_last_error())?;
         }
         Ok(())
     }

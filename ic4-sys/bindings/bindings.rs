@@ -9,7 +9,7 @@ pub const _USE_DECLSPECS_FOR_SAL: i8 = 0;
 pub const _USE_ATTRIBUTES_FOR_SAL: i8 = 0;
 pub const _CRT_PACKING: i8 = 8;
 pub const _HAS_EXCEPTIONS: i8 = 1;
-pub const _HAS_CXX17: i8 = 0;
+pub const _HAS_CXX17: i8 = 1;
 pub const _HAS_CXX20: i8 = 0;
 pub const _HAS_CXX23: i8 = 0;
 pub const _HAS_NODISCARD: i8 = 1;
@@ -18,257 +18,728 @@ pub const WCHAR_MAX: i32 = 65535;
 pub const WINT_MIN: i8 = 0;
 pub const WINT_MAX: i32 = 65535;
 pub const IC4_WINDOW_HANDLE_NULL: i8 = 0;
-pub const IC4_PROPID_ACQUISITION_BURST_FRAME_COUNT: &[u8; 27] = b"AcquisitionBurstFrameCount\0";
-pub const IC4_PROPID_ACQUISITION_BURST_INTERVAL: &[u8; 25] = b"AcquisitionBurstInterval\0";
-pub const IC4_PROPID_ACQUISITION_FRAME_RATE: &[u8; 21] = b"AcquisitionFrameRate\0";
-pub const IC4_PROPID_ACQUISITION_MODE: &[u8; 16] = b"AcquisitionMode\0";
-pub const IC4_PROPID_ACQUISITION_START: &[u8; 17] = b"AcquisitionStart\0";
-pub const IC4_PROPID_ACQUISITION_STOP: &[u8; 16] = b"AcquisitionStop\0";
-pub const IC4_PROPID_ACTION_DEVICE_KEY: &[u8; 16] = b"ActionDeviceKey\0";
-pub const IC4_PROPID_ACTION_GROUP_KEY: &[u8; 15] = b"ActionGroupKey\0";
-pub const IC4_PROPID_ACTION_GROUP_MASK: &[u8; 16] = b"ActionGroupMask\0";
-pub const IC4_PROPID_ACTION_QUEUE_SIZE: &[u8; 16] = b"ActionQueueSize\0";
-pub const IC4_PROPID_ACTION_SCHEDULER_CANCEL: &[u8; 22] = b"ActionSchedulerCancel\0";
-pub const IC4_PROPID_ACTION_SCHEDULER_COMMIT: &[u8; 22] = b"ActionSchedulerCommit\0";
-pub const IC4_PROPID_ACTION_SCHEDULER_INTERVAL: &[u8; 24] = b"ActionSchedulerInterval\0";
-pub const IC4_PROPID_ACTION_SCHEDULER_STATUS: &[u8; 22] = b"ActionSchedulerStatus\0";
-pub const IC4_PROPID_ACTION_SCHEDULER_TIME: &[u8; 20] = b"ActionSchedulerTime\0";
-pub const IC4_PROPID_ACTION_SELECTOR: &[u8; 15] = b"ActionSelector\0";
-pub const IC4_PROPID_AUTO_FOCUS_ROI_ENABLE: &[u8; 19] = b"AutoFocusROIEnable\0";
-pub const IC4_PROPID_AUTO_FOCUS_ROI_HEIGHT: &[u8; 19] = b"AutoFocusROIHeight\0";
-pub const IC4_PROPID_AUTO_FOCUS_ROI_LEFT: &[u8; 17] = b"AutoFocusROILeft\0";
-pub const IC4_PROPID_AUTO_FOCUS_ROI_TOP: &[u8; 16] = b"AutoFocusROITop\0";
-pub const IC4_PROPID_AUTO_FOCUS_ROI_WIDTH: &[u8; 18] = b"AutoFocusROIWidth\0";
-pub const IC4_PROPID_AUTO_FUNCTIONS_ROI_ENABLE: &[u8; 23] = b"AutoFunctionsROIEnable\0";
-pub const IC4_PROPID_AUTO_FUNCTIONS_ROI_HEIGHT: &[u8; 23] = b"AutoFunctionsROIHeight\0";
-pub const IC4_PROPID_AUTO_FUNCTIONS_ROI_LEFT: &[u8; 21] = b"AutoFunctionsROILeft\0";
-pub const IC4_PROPID_AUTO_FUNCTIONS_ROI_PRESET: &[u8; 23] = b"AutoFunctionsROIPreset\0";
-pub const IC4_PROPID_AUTO_FUNCTIONS_ROI_TOP: &[u8; 20] = b"AutoFunctionsROITop\0";
-pub const IC4_PROPID_AUTO_FUNCTIONS_ROI_WIDTH: &[u8; 22] = b"AutoFunctionsROIWidth\0";
-pub const IC4_PROPID_BALANCE_RATIO: &[u8; 13] = b"BalanceRatio\0";
-pub const IC4_PROPID_BALANCE_RATIO_SELECTOR: &[u8; 21] = b"BalanceRatioSelector\0";
-pub const IC4_PROPID_BALANCE_WHITE_AUTO: &[u8; 17] = b"BalanceWhiteAuto\0";
-pub const IC4_PROPID_BALANCE_WHITE_AUTO_PRESET: &[u8; 23] = b"BalanceWhiteAutoPreset\0";
-pub const IC4_PROPID_BALANCE_WHITE_MODE: &[u8; 17] = b"BalanceWhiteMode\0";
-pub const IC4_PROPID_BALANCE_WHITE_TEMPERATURE: &[u8; 24] = b"BalanceWhiteTemperature\0";
-pub const IC4_PROPID_BALANCE_WHITE_TEMPERATURE_PRESET: &[u8; 30] =
-    b"BalanceWhiteTemperaturePreset\0";
-pub const IC4_PROPID_BINNING_HORIZONTAL: &[u8; 18] = b"BinningHorizontal\0";
-pub const IC4_PROPID_BINNING_VERTICAL: &[u8; 16] = b"BinningVertical\0";
-pub const IC4_PROPID_BLACK_LEVEL: &[u8; 11] = b"BlackLevel\0";
-pub const IC4_PROPID_CHUNK_BLOCK_ID: &[u8; 13] = b"ChunkBlockId\0";
-pub const IC4_PROPID_CHUNK_ENABLE: &[u8; 12] = b"ChunkEnable\0";
-pub const IC4_PROPID_CHUNK_EXPOSURE_TIME: &[u8; 18] = b"ChunkExposureTime\0";
-pub const IC4_PROPID_CHUNK_GAIN: &[u8; 10] = b"ChunkGain\0";
-pub const IC4_PROPID_CHUNK_IMAGE: &[u8; 11] = b"ChunkImage\0";
-pub const IC4_PROPID_CHUNK_IMX174_FRAME_ID: &[u8; 19] = b"ChunkIMX174FrameId\0";
-pub const IC4_PROPID_CHUNK_IMX174_FRAME_SET: &[u8; 20] = b"ChunkIMX174FrameSet\0";
-pub const IC4_PROPID_CHUNK_MODE_ACTIVE: &[u8; 16] = b"ChunkModeActive\0";
-pub const IC4_PROPID_CHUNK_MULTI_FRAME_SET_FRAME_ID: &[u8; 26] = b"ChunkMultiFrameSetFrameId\0";
-pub const IC4_PROPID_CHUNK_MULTI_FRAME_SET_ID: &[u8; 21] = b"ChunkMultiFrameSetId\0";
-pub const IC4_PROPID_CHUNK_SELECTOR: &[u8; 14] = b"ChunkSelector\0";
-pub const IC4_PROPID_COLOR_TRANSFORMATION_ENABLE: &[u8; 26] = b"ColorTransformationEnable\0";
-pub const IC4_PROPID_COLOR_TRANSFORMATION_SELECTOR: &[u8; 28] = b"ColorTransformationSelector\0";
-pub const IC4_PROPID_COLOR_TRANSFORMATION_VALUE: &[u8; 25] = b"ColorTransformationValue\0";
-pub const IC4_PROPID_COLOR_TRANSFORMATION_VALUE_SELECTOR: &[u8; 33] =
-    b"ColorTransformationValueSelector\0";
-pub const IC4_PROPID_CONTRAST: &[u8; 9] = b"Contrast\0";
-pub const IC4_PROPID_DECIMATION_HORIZONTAL: &[u8; 21] = b"DecimationHorizontal\0";
-pub const IC4_PROPID_DECIMATION_VERTICAL: &[u8; 19] = b"DecimationVertical\0";
-pub const IC4_PROPID_DENOISE: &[u8; 8] = b"Denoise\0";
-pub const IC4_PROPID_DEVICE_EVENT_CHANNEL_COUNT: &[u8; 24] = b"DeviceEventChannelCount\0";
-pub const IC4_PROPID_DEVICE_FACTORY_RESET: &[u8; 19] = b"DeviceFactoryReset\0";
-pub const IC4_PROPID_DEVICE_FIRMWARE_VERSION: &[u8; 22] = b"DeviceFirmwareVersion\0";
-pub const IC4_PROPID_DEVICE_LINK_HEARTBEAT_TIMEOUT: &[u8; 27] = b"DeviceLinkHeartbeatTimeout\0";
-pub const IC4_PROPID_DEVICE_LINK_SELECTOR: &[u8; 19] = b"DeviceLinkSelector\0";
-pub const IC4_PROPID_DEVICE_MODEL_NAME: &[u8; 16] = b"DeviceModelName\0";
-pub const IC4_PROPID_DEVICE_RESET: &[u8; 12] = b"DeviceReset\0";
-pub const IC4_PROPID_DEVICE_SCAN_TYPE: &[u8; 15] = b"DeviceScanType\0";
-pub const IC4_PROPID_DEVICE_SERIAL_NUMBER: &[u8; 19] = b"DeviceSerialNumber\0";
-pub const IC4_PROPID_DEVICE_SFNC_VERSION_MAJOR: &[u8; 23] = b"DeviceSFNCVersionMajor\0";
-pub const IC4_PROPID_DEVICE_SFNC_VERSION_MINOR: &[u8; 23] = b"DeviceSFNCVersionMinor\0";
-pub const IC4_PROPID_DEVICE_SFNC_VERSION_SUB_MINOR: &[u8; 26] = b"DeviceSFNCVersionSubMinor\0";
-pub const IC4_PROPID_DEVICE_STREAM_CHANNEL_COUNT: &[u8; 25] = b"DeviceStreamChannelCount\0";
-pub const IC4_PROPID_DEVICE_STREAM_CHANNEL_ENDIANNESS: &[u8; 30] =
-    b"DeviceStreamChannelEndianness\0";
-pub const IC4_PROPID_DEVICE_STREAM_CHANNEL_LINK: &[u8; 24] = b"DeviceStreamChannelLink\0";
-pub const IC4_PROPID_DEVICE_STREAM_CHANNEL_PACKET_SIZE: &[u8; 30] =
-    b"DeviceStreamChannelPacketSize\0";
-pub const IC4_PROPID_DEVICE_STREAM_CHANNEL_SELECTOR: &[u8; 28] = b"DeviceStreamChannelSelector\0";
-pub const IC4_PROPID_DEVICE_STREAM_CHANNEL_TYPE: &[u8; 24] = b"DeviceStreamChannelType\0";
-pub const IC4_PROPID_DEVICE_TEMPERATURE: &[u8; 18] = b"DeviceTemperature\0";
-pub const IC4_PROPID_DEVICE_TEMPERATURE_SELECTOR: &[u8; 26] = b"DeviceTemperatureSelector\0";
-pub const IC4_PROPID_DEVICE_TL_TYPE: &[u8; 13] = b"DeviceTLType\0";
-pub const IC4_PROPID_DEVICE_TL_VERSION_MAJOR: &[u8; 21] = b"DeviceTLVersionMajor\0";
-pub const IC4_PROPID_DEVICE_TL_VERSION_MINOR: &[u8; 21] = b"DeviceTLVersionMinor\0";
-pub const IC4_PROPID_DEVICE_TL_VERSION_SUB_MINOR: &[u8; 24] = b"DeviceTLVersionSubMinor\0";
-pub const IC4_PROPID_DEVICE_TYPE: &[u8; 11] = b"DeviceType\0";
-pub const IC4_PROPID_DEVICE_USER_ID: &[u8; 13] = b"DeviceUserID\0";
-pub const IC4_PROPID_DEVICE_VENDOR_NAME: &[u8; 17] = b"DeviceVendorName\0";
-pub const IC4_PROPID_DEVICE_VERSION: &[u8; 14] = b"DeviceVersion\0";
-pub const IC4_PROPID_DISABLE_INFO_OVERLAY: &[u8; 19] = b"DisableInfoOverlay\0";
-pub const IC4_PROPID_EVENT_EXPOSURE_END: &[u8; 17] = b"EventExposureEnd\0";
-pub const IC4_PROPID_EVENT_EXPOSURE_END_FRAME_ID: &[u8; 24] = b"EventExposureEndFrameID\0";
-pub const IC4_PROPID_EVENT_EXPOSURE_END_TIMESTAMP: &[u8; 26] = b"EventExposureEndTimestamp\0";
-pub const IC4_PROPID_EVENT_FOCUS_MOVE_COMPLETED: &[u8; 24] = b"EventFocusMoveCompleted\0";
-pub const IC4_PROPID_EVENT_FOCUS_MOVE_COMPLETED_FOCUS: &[u8; 29] =
-    b"EventFocusMoveCompletedFocus\0";
-pub const IC4_PROPID_EVENT_FOCUS_MOVE_COMPLETED_TIMESTAMP: &[u8; 33] =
-    b"EventFocusMoveCompletedTimestamp\0";
-pub const IC4_PROPID_EVENT_FRAME_TRIGGER_MISSED: &[u8; 24] = b"EventFrameTriggerMissed\0";
-pub const IC4_PROPID_EVENT_FRAME_TRIGGER_MISSED_TIMESTAMP: &[u8; 33] =
-    b"EventFrameTriggerMissedTimestamp\0";
-pub const IC4_PROPID_EVENT_LINE1_FALLING_EDGE: &[u8; 22] = b"EventLine1FallingEdge\0";
-pub const IC4_PROPID_EVENT_LINE1_FALLING_EDGE_TIMESTAMP: &[u8; 31] =
-    b"EventLine1FallingEdgeTimestamp\0";
-pub const IC4_PROPID_EVENT_LINE1_RISING_EDGE: &[u8; 21] = b"EventLine1RisingEdge\0";
-pub const IC4_PROPID_EVENT_LINE1_RISING_EDGE_TIMESTAMP: &[u8; 30] =
-    b"EventLine1RisingEdgeTimestamp\0";
-pub const IC4_PROPID_EVENT_NOTIFICATION: &[u8; 18] = b"EventNotification\0";
-pub const IC4_PROPID_EVENT_SELECTOR: &[u8; 14] = b"EventSelector\0";
-pub const IC4_PROPID_EVENT_TEST: &[u8; 10] = b"EventTest\0";
-pub const IC4_PROPID_EVENT_TEST_TIMESTAMP: &[u8; 19] = b"EventTestTimestamp\0";
-pub const IC4_PROPID_EVENT_ZOOM_MOVE_COMPLETED: &[u8; 23] = b"EventZoomMoveCompleted\0";
-pub const IC4_PROPID_EVENT_ZOOM_MOVE_COMPLETED_TIMESTAMP: &[u8; 32] =
-    b"EventZoomMoveCompletedTimestamp\0";
-pub const IC4_PROPID_EVENT_ZOOM_MOVE_COMPLETED_ZOOM: &[u8; 27] = b"EventZoomMoveCompletedZoom\0";
-pub const IC4_PROPID_EXPAND_OUTPUT_RANGE: &[u8; 18] = b"ExpandOutputRange\0";
-pub const IC4_PROPID_EXPOSURE_AUTO: &[u8; 13] = b"ExposureAuto\0";
-pub const IC4_PROPID_EXPOSURE_AUTO_HIGHLIGH_REDUCTION: &[u8; 30] =
-    b"ExposureAutoHighlighReduction\0";
-pub const IC4_PROPID_EXPOSURE_AUTO_HIGHLIGHT_REDUCTION: &[u8; 31] =
-    b"ExposureAutoHighlightReduction\0";
-pub const IC4_PROPID_EXPOSURE_AUTO_LOWER_LIMIT: &[u8; 23] = b"ExposureAutoLowerLimit\0";
-pub const IC4_PROPID_EXPOSURE_AUTO_REFERENCE: &[u8; 22] = b"ExposureAutoReference\0";
-pub const IC4_PROPID_EXPOSURE_AUTO_UPPER_LIMIT: &[u8; 23] = b"ExposureAutoUpperLimit\0";
-pub const IC4_PROPID_EXPOSURE_AUTO_UPPER_LIMIT_AUTO: &[u8; 27] = b"ExposureAutoUpperLimitAuto\0";
-pub const IC4_PROPID_EXPOSURE_TIME: &[u8; 13] = b"ExposureTime\0";
-pub const IC4_PROPID_FILE_ACCESS_BUFFER: &[u8; 17] = b"FileAccessBuffer\0";
-pub const IC4_PROPID_FILE_ACCESS_LENGTH: &[u8; 17] = b"FileAccessLength\0";
-pub const IC4_PROPID_FILE_ACCESS_OFFSET: &[u8; 17] = b"FileAccessOffset\0";
-pub const IC4_PROPID_FILE_OPEN_MODE: &[u8; 13] = b"FileOpenMode\0";
-pub const IC4_PROPID_FILE_OPERATION_EXECUTE: &[u8; 21] = b"FileOperationExecute\0";
-pub const IC4_PROPID_FILE_OPERATION_RESULT: &[u8; 20] = b"FileOperationResult\0";
-pub const IC4_PROPID_FILE_OPERATION_SELECTOR: &[u8; 22] = b"FileOperationSelector\0";
-pub const IC4_PROPID_FILE_OPERATION_STATUS: &[u8; 20] = b"FileOperationStatus\0";
-pub const IC4_PROPID_FILE_SELECTOR: &[u8; 13] = b"FileSelector\0";
-pub const IC4_PROPID_FILE_SIZE: &[u8; 9] = b"FileSize\0";
-pub const IC4_PROPID_FOCUS: &[u8; 6] = b"Focus\0";
-pub const IC4_PROPID_FOCUS_AUTO: &[u8; 10] = b"FocusAuto\0";
-pub const IC4_PROPID_GAIN: &[u8; 5] = b"Gain\0";
-pub const IC4_PROPID_GAIN_AUTO: &[u8; 9] = b"GainAuto\0";
-pub const IC4_PROPID_GAIN_AUTO_LOWER_LIMIT: &[u8; 19] = b"GainAutoLowerLimit\0";
-pub const IC4_PROPID_GAIN_AUTO_UPPER_LIMIT: &[u8; 19] = b"GainAutoUpperLimit\0";
-pub const IC4_PROPID_GAIN_MODE: &[u8; 9] = b"GainMode\0";
-pub const IC4_PROPID_GAMMA: &[u8; 6] = b"Gamma\0";
-pub const IC4_PROPID_GEV_GVSP_EXTENDED_ID_MODE: &[u8; 22] = b"GevGVSPExtendedIDMode\0";
-pub const IC4_PROPID_GEV_SCPS_DO_NOT_FRAGMENT: &[u8; 21] = b"GevSCPSDoNotFragment\0";
-pub const IC4_PROPID_GEV_SCPS_PACKET_SIZE: &[u8; 18] = b"GevSCPSPacketSize\0";
-pub const IC4_PROPID_GP_IN: &[u8; 5] = b"GPIn\0";
-pub const IC4_PROPID_GP_OUT: &[u8; 6] = b"GPOut\0";
-pub const IC4_PROPID_HEIGHT: &[u8; 7] = b"Height\0";
-pub const IC4_PROPID_HEIGHT_MAX: &[u8; 10] = b"HeightMax\0";
-pub const IC4_PROPID_HUE: &[u8; 4] = b"Hue\0";
-pub const IC4_PROPID_IMX174_HARDWARE_WDR_ENABLE: &[u8; 24] = b"IMX174HardwareWDREnable\0";
-pub const IC4_PROPID_IMX174_HARDWARE_WDR_SHUTTER_MODE: &[u8; 29] =
-    b"IMX174HardwareWDRShutterMode\0";
-pub const IC4_PROPID_IMX174_WDR_SHUTTER2: &[u8; 18] = b"IMX174WDRShutter2\0";
-pub const IC4_PROPID_IMX_LOW_LATENCY_TRIGGER_MODE: &[u8; 25] = b"IMXLowLatencyTriggerMode\0";
-pub const IC4_PROPID_INPUT_BITS: &[u8; 10] = b"InputBits\0";
-pub const IC4_PROPID_INPUT_FP1KS: &[u8; 11] = b"InputFp1ks\0";
-pub const IC4_PROPID_INPUT_HEIGHT: &[u8; 12] = b"InputHeight\0";
-pub const IC4_PROPID_INPUT_WIDTH: &[u8; 11] = b"InputWidth\0";
-pub const IC4_PROPID_IR_CUT_FILTER_ENABLE: &[u8; 18] = b"IRCutFilterEnable\0";
-pub const IC4_PROPID_IRIS: &[u8; 5] = b"Iris\0";
-pub const IC4_PROPID_IRIS_AUTO: &[u8; 9] = b"IrisAuto\0";
-pub const IC4_PROPID_LUT_ENABLE: &[u8; 10] = b"LUTEnable\0";
-pub const IC4_PROPID_LUT_INDEX: &[u8; 9] = b"LUTIndex\0";
-pub const IC4_PROPID_LUT_SELECTOR: &[u8; 12] = b"LUTSelector\0";
-pub const IC4_PROPID_LUT_VALUE: &[u8; 9] = b"LUTValue\0";
-pub const IC4_PROPID_LUT_VALUE_ALL: &[u8; 12] = b"LUTValueAll\0";
-pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_CUSTOM_GAIN: &[u8; 34] =
-    b"MultiFrameSetOutputModeCustomGain\0";
-pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_ENABLE: &[u8; 30] =
-    b"MultiFrameSetOutputModeEnable\0";
-pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_EXPOSURE_TIME0: &[u8; 37] =
-    b"MultiFrameSetOutputModeExposureTime0\0";
-pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_EXPOSURE_TIME1: &[u8; 37] =
-    b"MultiFrameSetOutputModeExposureTime1\0";
-pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_EXPOSURE_TIME2: &[u8; 37] =
-    b"MultiFrameSetOutputModeExposureTime2\0";
-pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_EXPOSURE_TIME3: &[u8; 37] =
-    b"MultiFrameSetOutputModeExposureTime3\0";
-pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_FRAME_COUNT: &[u8; 34] =
-    b"MultiFrameSetOutputModeFrameCount\0";
-pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_GAIN0: &[u8; 29] =
-    b"MultiFrameSetOutputModeGain0\0";
-pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_GAIN1: &[u8; 29] =
-    b"MultiFrameSetOutputModeGain1\0";
-pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_GAIN2: &[u8; 29] =
-    b"MultiFrameSetOutputModeGain2\0";
-pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_GAIN3: &[u8; 29] =
-    b"MultiFrameSetOutputModeGain3\0";
-pub const IC4_PROPID_OFFSET_AUTO_CENTER: &[u8; 17] = b"OffsetAutoCenter\0";
-pub const IC4_PROPID_OFFSET_X: &[u8; 8] = b"OffsetX\0";
-pub const IC4_PROPID_OFFSET_Y: &[u8; 8] = b"OffsetY\0";
-pub const IC4_PROPID_PAYLOAD_SIZE: &[u8; 12] = b"PayloadSize\0";
-pub const IC4_PROPID_PIXEL_FORMAT: &[u8; 12] = b"PixelFormat\0";
-pub const IC4_PROPID_PTP_CLOCK_ACCURACY: &[u8; 17] = b"PtpClockAccuracy\0";
-pub const IC4_PROPID_PTP_ENABLE: &[u8; 10] = b"PtpEnable\0";
-pub const IC4_PROPID_PTP_STATUS: &[u8; 10] = b"PtpStatus\0";
-pub const IC4_PROPID_REVERSE_X: &[u8; 9] = b"ReverseX\0";
-pub const IC4_PROPID_REVERSE_Y: &[u8; 9] = b"ReverseY\0";
-pub const IC4_PROPID_SATURATION: &[u8; 11] = b"Saturation\0";
-pub const IC4_PROPID_SENSOR_HEIGHT: &[u8; 13] = b"SensorHeight\0";
-pub const IC4_PROPID_SENSOR_PIXEL_HEIGHT: &[u8; 18] = b"SensorPixelHeight\0";
-pub const IC4_PROPID_SENSOR_PIXEL_WIDTH: &[u8; 17] = b"SensorPixelWidth\0";
-pub const IC4_PROPID_SENSOR_WIDTH: &[u8; 12] = b"SensorWidth\0";
-pub const IC4_PROPID_SHARPNESS: &[u8; 10] = b"Sharpness\0";
-pub const IC4_PROPID_SIDEBAND_USE: &[u8; 12] = b"SidebandUse\0";
-pub const IC4_PROPID_SIGNAL_DETECTED: &[u8; 15] = b"SignalDetected\0";
-pub const IC4_PROPID_SOFTWARE_TRANSFORM_ENABLE: &[u8; 24] = b"SoftwareTransformEnable\0";
-pub const IC4_PROPID_SOURCE_CONNECTED: &[u8; 16] = b"SourceConnected\0";
-pub const IC4_PROPID_STROBE_DELAY: &[u8; 12] = b"StrobeDelay\0";
-pub const IC4_PROPID_STROBE_DURATION: &[u8; 15] = b"StrobeDuration\0";
-pub const IC4_PROPID_STROBE_ENABLE: &[u8; 13] = b"StrobeEnable\0";
-pub const IC4_PROPID_STROBE_OPERATION: &[u8; 16] = b"StrobeOperation\0";
-pub const IC4_PROPID_STROBE_POLARITY: &[u8; 15] = b"StrobePolarity\0";
-pub const IC4_PROPID_TEST_EVENT_GENERATE: &[u8; 18] = b"TestEventGenerate\0";
-pub const IC4_PROPID_TEST_PENDING_ACK: &[u8; 15] = b"TestPendingAck\0";
-pub const IC4_PROPID_TIMESTAMP_LATCH: &[u8; 15] = b"TimestampLatch\0";
-pub const IC4_PROPID_TIMESTAMP_LATCH_STRING: &[u8; 21] = b"TimestampLatchString\0";
-pub const IC4_PROPID_TIMESTAMP_LATCH_VALUE: &[u8; 20] = b"TimestampLatchValue\0";
-pub const IC4_PROPID_TIMESTAMP_RESET: &[u8; 15] = b"TimestampReset\0";
-pub const IC4_PROPID_TL_PARAMS_LOCKED: &[u8; 15] = b"TLParamsLocked\0";
-pub const IC4_PROPID_TONE_MAPPING_ENABLE: &[u8; 18] = b"ToneMappingEnable\0";
-pub const IC4_PROPID_TONE_MAPPING_GLOBAL_BRIGHTNESS: &[u8; 28] = b"ToneMappingGlobalBrightness\0";
-pub const IC4_PROPID_TONE_MAPPING_INTENSITY: &[u8; 21] = b"ToneMappingIntensity\0";
-pub const IC4_PROPID_TRIGGER_ACTIVATION: &[u8; 18] = b"TriggerActivation\0";
-pub const IC4_PROPID_TRIGGER_DEBOUNCER: &[u8; 17] = b"TriggerDebouncer\0";
-pub const IC4_PROPID_TRIGGER_DELAY: &[u8; 13] = b"TriggerDelay\0";
-pub const IC4_PROPID_TRIGGER_DENOISE: &[u8; 15] = b"TriggerDenoise\0";
-pub const IC4_PROPID_TRIGGER_MASK: &[u8; 12] = b"TriggerMask\0";
-pub const IC4_PROPID_TRIGGER_MODE: &[u8; 12] = b"TriggerMode\0";
-pub const IC4_PROPID_TRIGGER_OPERATION: &[u8; 17] = b"TriggerOperation\0";
-pub const IC4_PROPID_TRIGGER_OVERLAP: &[u8; 15] = b"TriggerOverlap\0";
-pub const IC4_PROPID_TRIGGER_SELECTOR: &[u8; 16] = b"TriggerSelector\0";
-pub const IC4_PROPID_TRIGGER_SOFTWARE: &[u8; 16] = b"TriggerSoftware\0";
-pub const IC4_PROPID_TRIGGER_SOURCE: &[u8; 14] = b"TriggerSource\0";
-pub const IC4_PROPID_USER_SET_DEFAULT: &[u8; 15] = b"UserSetDefault\0";
-pub const IC4_PROPID_USER_SET_LOAD: &[u8; 12] = b"UserSetLoad\0";
-pub const IC4_PROPID_USER_SET_SAVE: &[u8; 12] = b"UserSetSave\0";
-pub const IC4_PROPID_USER_SET_SELECTOR: &[u8; 16] = b"UserSetSelector\0";
-pub const IC4_PROPID_WIDTH: &[u8; 6] = b"Width\0";
-pub const IC4_PROPID_WIDTH_MAX: &[u8; 9] = b"WidthMax\0";
-pub const IC4_PROPID_ZOOM: &[u8; 5] = b"Zoom\0";
-pub type std_nullptr_t = *const ::std::os::raw::c_void;
-pub type max_align_t = f64;
-pub type va_list = *mut ::std::os::raw::c_char;
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ACQUISITION_BURST_FRAME_COUNT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AcquisitionBurstFrameCount\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ACQUISITION_BURST_INTERVAL: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AcquisitionBurstInterval\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ACQUISITION_FRAME_RATE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AcquisitionFrameRate\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ACQUISITION_MODE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AcquisitionMode\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ACQUISITION_START: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AcquisitionStart\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ACQUISITION_STOP: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AcquisitionStop\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ACTION_DEVICE_KEY: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ActionDeviceKey\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ACTION_GROUP_KEY: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ActionGroupKey\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ACTION_GROUP_MASK: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ActionGroupMask\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ACTION_QUEUE_SIZE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ActionQueueSize\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ACTION_SCHEDULER_CANCEL: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ActionSchedulerCancel\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ACTION_SCHEDULER_COMMIT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ActionSchedulerCommit\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ACTION_SCHEDULER_INTERVAL: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ActionSchedulerInterval\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ACTION_SCHEDULER_STATUS: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ActionSchedulerStatus\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ACTION_SCHEDULER_TIME: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ActionSchedulerTime\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ACTION_SELECTOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ActionSelector\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_AUTO_FOCUS_ROI_ENABLE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AutoFocusROIEnable\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_AUTO_FOCUS_ROI_HEIGHT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AutoFocusROIHeight\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_AUTO_FOCUS_ROI_LEFT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AutoFocusROILeft\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_AUTO_FOCUS_ROI_TOP: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AutoFocusROITop\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_AUTO_FOCUS_ROI_WIDTH: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AutoFocusROIWidth\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_AUTO_FUNCTIONS_ROI_ENABLE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AutoFunctionsROIEnable\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_AUTO_FUNCTIONS_ROI_HEIGHT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AutoFunctionsROIHeight\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_AUTO_FUNCTIONS_ROI_LEFT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AutoFunctionsROILeft\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_AUTO_FUNCTIONS_ROI_PRESET: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AutoFunctionsROIPreset\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_AUTO_FUNCTIONS_ROI_TOP: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AutoFunctionsROITop\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_AUTO_FUNCTIONS_ROI_WIDTH: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"AutoFunctionsROIWidth\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_BALANCE_RATIO: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"BalanceRatio\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_BALANCE_RATIO_SELECTOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"BalanceRatioSelector\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_BALANCE_WHITE_AUTO: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"BalanceWhiteAuto\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_BALANCE_WHITE_AUTO_PRESET: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"BalanceWhiteAutoPreset\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_BALANCE_WHITE_MODE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"BalanceWhiteMode\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_BALANCE_WHITE_TEMPERATURE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"BalanceWhiteTemperature\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_BALANCE_WHITE_TEMPERATURE_PRESET: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"BalanceWhiteTemperaturePreset\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_BINNING_HORIZONTAL: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"BinningHorizontal\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_BINNING_VERTICAL: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"BinningVertical\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_BLACK_LEVEL: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"BlackLevel\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_CHUNK_BLOCK_ID: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ChunkBlockId\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_CHUNK_ENABLE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ChunkEnable\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_CHUNK_EXPOSURE_TIME: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ChunkExposureTime\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_CHUNK_GAIN: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ChunkGain\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_CHUNK_IMAGE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ChunkImage\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_CHUNK_IMX174_FRAME_ID: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ChunkIMX174FrameId\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_CHUNK_IMX174_FRAME_SET: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ChunkIMX174FrameSet\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_CHUNK_MODE_ACTIVE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ChunkModeActive\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_CHUNK_MULTI_FRAME_SET_FRAME_ID: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ChunkMultiFrameSetFrameId\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_CHUNK_MULTI_FRAME_SET_ID: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ChunkMultiFrameSetId\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_CHUNK_SELECTOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ChunkSelector\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_COLOR_TRANSFORMATION_ENABLE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ColorTransformationEnable\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_COLOR_TRANSFORMATION_SELECTOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ColorTransformationSelector\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_COLOR_TRANSFORMATION_VALUE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ColorTransformationValue\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_COLOR_TRANSFORMATION_VALUE_SELECTOR: &::core::ffi::CStr = unsafe {
+    ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ColorTransformationValueSelector\0")
+};
+#[allow(unsafe_code)]
+pub const IC4_PROPID_CONTRAST: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"Contrast\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DECIMATION_HORIZONTAL: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DecimationHorizontal\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DECIMATION_VERTICAL: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DecimationVertical\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DENOISE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"Denoise\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_EVENT_CHANNEL_COUNT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceEventChannelCount\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_FACTORY_RESET: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceFactoryReset\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_FIRMWARE_VERSION: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceFirmwareVersion\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_LINK_HEARTBEAT_TIMEOUT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceLinkHeartbeatTimeout\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_LINK_SELECTOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceLinkSelector\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_MODEL_NAME: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceModelName\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_RESET: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceReset\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_SCAN_TYPE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceScanType\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_SERIAL_NUMBER: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceSerialNumber\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_SFNC_VERSION_MAJOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceSFNCVersionMajor\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_SFNC_VERSION_MINOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceSFNCVersionMinor\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_SFNC_VERSION_SUB_MINOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceSFNCVersionSubMinor\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_STREAM_CHANNEL_COUNT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceStreamChannelCount\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_STREAM_CHANNEL_ENDIANNESS: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceStreamChannelEndianness\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_STREAM_CHANNEL_LINK: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceStreamChannelLink\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_STREAM_CHANNEL_PACKET_SIZE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceStreamChannelPacketSize\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_STREAM_CHANNEL_SELECTOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceStreamChannelSelector\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_STREAM_CHANNEL_TYPE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceStreamChannelType\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_TEMPERATURE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceTemperature\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_TEMPERATURE_SELECTOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceTemperatureSelector\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_TL_TYPE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceTLType\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_TL_VERSION_MAJOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceTLVersionMajor\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_TL_VERSION_MINOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceTLVersionMinor\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_TL_VERSION_SUB_MINOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceTLVersionSubMinor\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_TYPE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceType\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_USER_ID: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceUserID\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_VENDOR_NAME: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceVendorName\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DEVICE_VERSION: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DeviceVersion\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_DISABLE_INFO_OVERLAY: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"DisableInfoOverlay\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_EXPOSURE_END: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventExposureEnd\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_EXPOSURE_END_FRAME_ID: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventExposureEndFrameID\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_EXPOSURE_END_TIMESTAMP: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventExposureEndTimestamp\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_FOCUS_MOVE_COMPLETED: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventFocusMoveCompleted\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_FOCUS_MOVE_COMPLETED_FOCUS: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventFocusMoveCompletedFocus\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_FOCUS_MOVE_COMPLETED_TIMESTAMP: &::core::ffi::CStr = unsafe {
+    ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventFocusMoveCompletedTimestamp\0")
+};
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_FRAME_TRIGGER_MISSED: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventFrameTriggerMissed\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_FRAME_TRIGGER_MISSED_TIMESTAMP: &::core::ffi::CStr = unsafe {
+    ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventFrameTriggerMissedTimestamp\0")
+};
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_LINE1_FALLING_EDGE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventLine1FallingEdge\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_LINE1_FALLING_EDGE_TIMESTAMP: &::core::ffi::CStr = unsafe {
+    ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventLine1FallingEdgeTimestamp\0")
+};
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_LINE1_RISING_EDGE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventLine1RisingEdge\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_LINE1_RISING_EDGE_TIMESTAMP: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventLine1RisingEdgeTimestamp\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_NOTIFICATION: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventNotification\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_SELECTOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventSelector\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_TEST: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventTest\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_TEST_TIMESTAMP: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventTestTimestamp\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_ZOOM_MOVE_COMPLETED: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventZoomMoveCompleted\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_ZOOM_MOVE_COMPLETED_TIMESTAMP: &::core::ffi::CStr = unsafe {
+    ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventZoomMoveCompletedTimestamp\0")
+};
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EVENT_ZOOM_MOVE_COMPLETED_ZOOM: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"EventZoomMoveCompletedZoom\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EXPAND_OUTPUT_RANGE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ExpandOutputRange\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EXPOSURE_AUTO: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ExposureAuto\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EXPOSURE_AUTO_HIGHLIGH_REDUCTION: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ExposureAutoHighlighReduction\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EXPOSURE_AUTO_HIGHLIGHT_REDUCTION: &::core::ffi::CStr = unsafe {
+    ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ExposureAutoHighlightReduction\0")
+};
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EXPOSURE_AUTO_LOWER_LIMIT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ExposureAutoLowerLimit\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EXPOSURE_AUTO_REFERENCE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ExposureAutoReference\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EXPOSURE_AUTO_UPPER_LIMIT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ExposureAutoUpperLimit\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EXPOSURE_AUTO_UPPER_LIMIT_AUTO: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ExposureAutoUpperLimitAuto\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_EXPOSURE_TIME: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ExposureTime\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_FILE_ACCESS_BUFFER: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"FileAccessBuffer\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_FILE_ACCESS_LENGTH: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"FileAccessLength\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_FILE_ACCESS_OFFSET: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"FileAccessOffset\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_FILE_OPEN_MODE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"FileOpenMode\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_FILE_OPERATION_EXECUTE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"FileOperationExecute\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_FILE_OPERATION_RESULT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"FileOperationResult\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_FILE_OPERATION_SELECTOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"FileOperationSelector\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_FILE_OPERATION_STATUS: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"FileOperationStatus\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_FILE_SELECTOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"FileSelector\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_FILE_SIZE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"FileSize\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_FOCUS: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"Focus\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_FOCUS_AUTO: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"FocusAuto\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_GAIN: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"Gain\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_GAIN_AUTO: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"GainAuto\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_GAIN_AUTO_LOWER_LIMIT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"GainAutoLowerLimit\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_GAIN_AUTO_UPPER_LIMIT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"GainAutoUpperLimit\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_GAIN_MODE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"GainMode\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_GAMMA: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"Gamma\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_GEV_GVSP_EXTENDED_ID_MODE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"GevGVSPExtendedIDMode\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_GEV_SCPS_DO_NOT_FRAGMENT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"GevSCPSDoNotFragment\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_GEV_SCPS_PACKET_SIZE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"GevSCPSPacketSize\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_GP_IN: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"GPIn\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_GP_OUT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"GPOut\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_HEIGHT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"Height\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_HEIGHT_MAX: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"HeightMax\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_HUE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"Hue\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_IMX174_HARDWARE_WDR_ENABLE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"IMX174HardwareWDREnable\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_IMX174_HARDWARE_WDR_SHUTTER_MODE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"IMX174HardwareWDRShutterMode\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_IMX174_WDR_SHUTTER2: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"IMX174WDRShutter2\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_IMX_LOW_LATENCY_TRIGGER_MODE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"IMXLowLatencyTriggerMode\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_INPUT_BITS: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"InputBits\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_INPUT_FP1KS: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"InputFp1ks\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_INPUT_HEIGHT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"InputHeight\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_INPUT_WIDTH: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"InputWidth\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_IR_CUT_FILTER_ENABLE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"IRCutFilterEnable\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_IRIS: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"Iris\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_IRIS_AUTO: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"IrisAuto\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_LUT_ENABLE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"LUTEnable\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_LUT_INDEX: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"LUTIndex\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_LUT_SELECTOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"LUTSelector\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_LUT_VALUE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"LUTValue\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_LUT_VALUE_ALL: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"LUTValueAll\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_CUSTOM_GAIN: &::core::ffi::CStr = unsafe {
+    ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"MultiFrameSetOutputModeCustomGain\0")
+};
+#[allow(unsafe_code)]
+pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_ENABLE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"MultiFrameSetOutputModeEnable\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_EXPOSURE_TIME0: &::core::ffi::CStr = unsafe {
+    ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"MultiFrameSetOutputModeExposureTime0\0")
+};
+#[allow(unsafe_code)]
+pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_EXPOSURE_TIME1: &::core::ffi::CStr = unsafe {
+    ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"MultiFrameSetOutputModeExposureTime1\0")
+};
+#[allow(unsafe_code)]
+pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_EXPOSURE_TIME2: &::core::ffi::CStr = unsafe {
+    ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"MultiFrameSetOutputModeExposureTime2\0")
+};
+#[allow(unsafe_code)]
+pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_EXPOSURE_TIME3: &::core::ffi::CStr = unsafe {
+    ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"MultiFrameSetOutputModeExposureTime3\0")
+};
+#[allow(unsafe_code)]
+pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_FRAME_COUNT: &::core::ffi::CStr = unsafe {
+    ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"MultiFrameSetOutputModeFrameCount\0")
+};
+#[allow(unsafe_code)]
+pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_GAIN0: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"MultiFrameSetOutputModeGain0\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_GAIN1: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"MultiFrameSetOutputModeGain1\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_GAIN2: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"MultiFrameSetOutputModeGain2\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_MULTI_FRAME_SET_OUTPUT_MODE_GAIN3: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"MultiFrameSetOutputModeGain3\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_OFFSET_AUTO_CENTER: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"OffsetAutoCenter\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_OFFSET_X: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"OffsetX\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_OFFSET_Y: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"OffsetY\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_PAYLOAD_SIZE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"PayloadSize\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_PIXEL_FORMAT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"PixelFormat\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_PTP_CLOCK_ACCURACY: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"PtpClockAccuracy\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_PTP_ENABLE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"PtpEnable\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_PTP_STATUS: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"PtpStatus\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_REVERSE_X: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ReverseX\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_REVERSE_Y: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ReverseY\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_SATURATION: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"Saturation\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_SENSOR_HEIGHT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"SensorHeight\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_SENSOR_PIXEL_HEIGHT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"SensorPixelHeight\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_SENSOR_PIXEL_WIDTH: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"SensorPixelWidth\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_SENSOR_WIDTH: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"SensorWidth\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_SHARPNESS: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"Sharpness\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_SIDEBAND_USE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"SidebandUse\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_SIGNAL_DETECTED: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"SignalDetected\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_SOFTWARE_TRANSFORM_ENABLE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"SoftwareTransformEnable\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_SOURCE_CONNECTED: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"SourceConnected\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_STROBE_DELAY: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"StrobeDelay\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_STROBE_DURATION: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"StrobeDuration\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_STROBE_ENABLE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"StrobeEnable\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_STROBE_OPERATION: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"StrobeOperation\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_STROBE_POLARITY: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"StrobePolarity\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TEST_EVENT_GENERATE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TestEventGenerate\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TEST_PENDING_ACK: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TestPendingAck\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TIMESTAMP_LATCH: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TimestampLatch\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TIMESTAMP_LATCH_STRING: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TimestampLatchString\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TIMESTAMP_LATCH_VALUE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TimestampLatchValue\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TIMESTAMP_RESET: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TimestampReset\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TL_PARAMS_LOCKED: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TLParamsLocked\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TONE_MAPPING_ENABLE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ToneMappingEnable\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TONE_MAPPING_GLOBAL_BRIGHTNESS: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ToneMappingGlobalBrightness\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TONE_MAPPING_INTENSITY: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"ToneMappingIntensity\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TRIGGER_ACTIVATION: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TriggerActivation\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TRIGGER_DEBOUNCER: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TriggerDebouncer\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TRIGGER_DELAY: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TriggerDelay\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TRIGGER_DENOISE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TriggerDenoise\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TRIGGER_MASK: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TriggerMask\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TRIGGER_MODE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TriggerMode\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TRIGGER_OPERATION: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TriggerOperation\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TRIGGER_OVERLAP: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TriggerOverlap\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TRIGGER_SELECTOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TriggerSelector\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TRIGGER_SOFTWARE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TriggerSoftware\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_TRIGGER_SOURCE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"TriggerSource\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_USER_SET_DEFAULT: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"UserSetDefault\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_USER_SET_LOAD: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"UserSetLoad\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_USER_SET_SAVE: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"UserSetSave\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_USER_SET_SELECTOR: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"UserSetSelector\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_WIDTH: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"Width\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_WIDTH_MAX: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"WidthMax\0") };
+#[allow(unsafe_code)]
+pub const IC4_PROPID_ZOOM: &::core::ffi::CStr =
+    unsafe { ::core::ffi::CStr::from_bytes_with_nul_unchecked(b"Zoom\0") };
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
+pub struct std_nullptr_t(pub *const ::core::ffi::c_void);
+impl ::core::ops::Deref for std_nullptr_t {
+    type Target = *const ::core::ffi::c_void;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for std_nullptr_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq)]
+pub struct max_align_t(pub f64);
+impl ::core::ops::Deref for max_align_t {
+    type Target = f64;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for max_align_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
+pub struct va_list(pub *mut ::core::ffi::c_char);
+impl ::core::ops::Deref for va_list {
+    type Target = *mut ::core::ffi::c_char;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for va_list {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
 extern "C" {
     pub fn __va_start(arg1: *mut va_list, ...);
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
 pub struct __vcrt_va_list_is_reference {
     pub _address: u8,
 }
@@ -281,11 +752,26 @@ pub enum __vcrt_va_list_is_reference__bindgen_ty_1 {
     __the_value = 0,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
 pub struct __vcrt_assert_va_start_is_not_reference {
     pub _address: u8,
 }
-pub type __vcrt_bool = bool;
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct __vcrt_bool(pub bool);
+impl ::core::ops::Deref for __vcrt_bool {
+    type Target = bool;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for __vcrt_bool {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
 extern "C" {
     pub fn __security_init_cookie();
 }
@@ -298,24 +784,294 @@ extern "C" {
 extern "C" {
     pub static mut __security_cookie: usize;
 }
-pub type int_least8_t = ::std::os::raw::c_schar;
-pub type int_least16_t = ::std::os::raw::c_short;
-pub type int_least32_t = ::std::os::raw::c_int;
-pub type int_least64_t = ::std::os::raw::c_longlong;
-pub type uint_least8_t = ::std::os::raw::c_uchar;
-pub type uint_least16_t = ::std::os::raw::c_ushort;
-pub type uint_least32_t = ::std::os::raw::c_uint;
-pub type uint_least64_t = ::std::os::raw::c_ulonglong;
-pub type int_fast8_t = ::std::os::raw::c_schar;
-pub type int_fast16_t = ::std::os::raw::c_int;
-pub type int_fast32_t = ::std::os::raw::c_int;
-pub type int_fast64_t = ::std::os::raw::c_longlong;
-pub type uint_fast8_t = ::std::os::raw::c_uchar;
-pub type uint_fast16_t = ::std::os::raw::c_uint;
-pub type uint_fast32_t = ::std::os::raw::c_uint;
-pub type uint_fast64_t = ::std::os::raw::c_ulonglong;
-pub type intmax_t = ::std::os::raw::c_longlong;
-pub type uintmax_t = ::std::os::raw::c_ulonglong;
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct int_least8_t(pub ::core::ffi::c_schar);
+impl ::core::ops::Deref for int_least8_t {
+    type Target = ::core::ffi::c_schar;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for int_least8_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct int_least16_t(pub ::core::ffi::c_short);
+impl ::core::ops::Deref for int_least16_t {
+    type Target = ::core::ffi::c_short;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for int_least16_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct int_least32_t(pub ::core::ffi::c_int);
+impl ::core::ops::Deref for int_least32_t {
+    type Target = ::core::ffi::c_int;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for int_least32_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct int_least64_t(pub ::core::ffi::c_longlong);
+impl ::core::ops::Deref for int_least64_t {
+    type Target = ::core::ffi::c_longlong;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for int_least64_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct uint_least8_t(pub ::core::ffi::c_uchar);
+impl ::core::ops::Deref for uint_least8_t {
+    type Target = ::core::ffi::c_uchar;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for uint_least8_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct uint_least16_t(pub ::core::ffi::c_ushort);
+impl ::core::ops::Deref for uint_least16_t {
+    type Target = ::core::ffi::c_ushort;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for uint_least16_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct uint_least32_t(pub ::core::ffi::c_uint);
+impl ::core::ops::Deref for uint_least32_t {
+    type Target = ::core::ffi::c_uint;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for uint_least32_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct uint_least64_t(pub ::core::ffi::c_ulonglong);
+impl ::core::ops::Deref for uint_least64_t {
+    type Target = ::core::ffi::c_ulonglong;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for uint_least64_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct int_fast8_t(pub ::core::ffi::c_schar);
+impl ::core::ops::Deref for int_fast8_t {
+    type Target = ::core::ffi::c_schar;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for int_fast8_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct int_fast16_t(pub ::core::ffi::c_int);
+impl ::core::ops::Deref for int_fast16_t {
+    type Target = ::core::ffi::c_int;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for int_fast16_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct int_fast32_t(pub ::core::ffi::c_int);
+impl ::core::ops::Deref for int_fast32_t {
+    type Target = ::core::ffi::c_int;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for int_fast32_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct int_fast64_t(pub ::core::ffi::c_longlong);
+impl ::core::ops::Deref for int_fast64_t {
+    type Target = ::core::ffi::c_longlong;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for int_fast64_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct uint_fast8_t(pub ::core::ffi::c_uchar);
+impl ::core::ops::Deref for uint_fast8_t {
+    type Target = ::core::ffi::c_uchar;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for uint_fast8_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct uint_fast16_t(pub ::core::ffi::c_uint);
+impl ::core::ops::Deref for uint_fast16_t {
+    type Target = ::core::ffi::c_uint;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for uint_fast16_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct uint_fast32_t(pub ::core::ffi::c_uint);
+impl ::core::ops::Deref for uint_fast32_t {
+    type Target = ::core::ffi::c_uint;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for uint_fast32_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct uint_fast64_t(pub ::core::ffi::c_ulonglong);
+impl ::core::ops::Deref for uint_fast64_t {
+    type Target = ::core::ffi::c_ulonglong;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for uint_fast64_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct intmax_t(pub ::core::ffi::c_longlong);
+impl ::core::ops::Deref for intmax_t {
+    type Target = ::core::ffi::c_longlong;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for intmax_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct uintmax_t(pub ::core::ffi::c_ulonglong);
+impl ::core::ops::Deref for uintmax_t {
+    type Target = ::core::ffi::c_ulonglong;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for uintmax_t {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
 #[repr(i32)]
 #[non_exhaustive]
 #[doc = " The pixel format defines the representation of pixels in an image."]
@@ -400,7 +1156,7 @@ pub enum IC4_PIXEL_FORMAT {
 }
 #[doc = " @struct IC4_IMAGE_TYPE\n\n Represents an image type, including pixel format and image dimensions.\n\n Using a partially-specified image type is allowed when defining the buffer format of a sink.\n The sink will fill the other fields with data from the device automatically."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_IMAGE_TYPE {
     #[doc = " Specifies the pixel format of the image.\n\n Setting \\a pixel_format to \\c IC4_PIXEL_FORMAT_Unspecified creates a partially-specified image type."]
     pub pixel_format: IC4_PIXEL_FORMAT,
@@ -411,20 +1167,27 @@ pub struct IC4_IMAGE_TYPE {
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
-    ["Size of IC4_IMAGE_TYPE"][::std::mem::size_of::<IC4_IMAGE_TYPE>() - 12usize];
-    ["Alignment of IC4_IMAGE_TYPE"][::std::mem::align_of::<IC4_IMAGE_TYPE>() - 4usize];
+    ["Size of IC4_IMAGE_TYPE"][::core::mem::size_of::<IC4_IMAGE_TYPE>() - 12usize];
+    ["Alignment of IC4_IMAGE_TYPE"][::core::mem::align_of::<IC4_IMAGE_TYPE>() - 4usize];
     ["Offset of field: IC4_IMAGE_TYPE::pixel_format"]
-        [::std::mem::offset_of!(IC4_IMAGE_TYPE, pixel_format) - 0usize];
+        [::core::mem::offset_of!(IC4_IMAGE_TYPE, pixel_format) - 0usize];
     ["Offset of field: IC4_IMAGE_TYPE::width"]
-        [::std::mem::offset_of!(IC4_IMAGE_TYPE, width) - 4usize];
+        [::core::mem::offset_of!(IC4_IMAGE_TYPE, width) - 4usize];
     ["Offset of field: IC4_IMAGE_TYPE::height"]
-        [::std::mem::offset_of!(IC4_IMAGE_TYPE, height) - 8usize];
+        [::core::mem::offset_of!(IC4_IMAGE_TYPE, height) - 8usize];
 };
+impl Default for IC4_IMAGE_TYPE {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     #[doc = " @brief Returns the name of a pixel format.\n\n @param[in] pixel_format\tA pixel format\n\n @return\tA pointer to a null-terminated string containing the name of the pixel format.\\n\n\t\t\tThe memory pointed to by the return value is valid forever does not need to be released.\\n\n\t\t\tIf the passed pixel format is unknown, the function returns \\c NULL."]
-    pub fn ic4_pixelformat_tostring(
-        pixel_format: IC4_PIXEL_FORMAT,
-    ) -> *const ::std::os::raw::c_char;
+    pub fn ic4_pixelformat_tostring(pixel_format: IC4_PIXEL_FORMAT) -> *const ::core::ffi::c_char;
 }
 extern "C" {
     #[doc = " @brief Returns the bits per pixel of a pixel format.\n\n @param[in] pixel_format  pixel format\n\n @return\tThe bits required to store one pixel using the given pixel format.\\n\n\t\t\tThe function returns \\c 0 if the bits per pixel of the pixel format is unknown."]
@@ -434,7 +1197,7 @@ extern "C" {
     #[doc = " @brief Convert a given image type into a string representation.\n\n @param[out] image_type\t\tPointer to a #IC4_IMAGE_TYPE value to receive the error code.\n @param[out] buffer\t\t\tPointer to a character array to receive the string.\\n\n\t\t\t\t\t\t\t\tThis parameter can be \\c NULL to find out the required space without allocating an initial array.\n @param[in, out] buffer_size\tPointer to a \\c size_t describing the length of the array pointed to by \\a buffer.\\n\n\t\t\t\t\t\t\t\tThe function always writes the actual number of characters required to store the string representation.\n\n @return\t\\c true on success.\n @return\tIf \\a image_type is \\c NULL, the function fails and returns \\c false.\n @return\tIf \\a buffer is not \\c NULL, and \\c *buffer_size is smaller than the required number\n\t\t\tof bytes to store the string, the function fails and returns \\c false.\n @return\tUse #ic4_get_last_error() to query error information."]
     pub fn ic4_imagetype_tostring(
         image_type: *const IC4_IMAGE_TYPE,
-        buffer: *mut ::std::os::raw::c_char,
+        buffer: *mut ::core::ffi::c_char,
         buffer_size: *mut usize,
     ) -> bool;
 }
@@ -456,7 +1219,7 @@ extern "C" {
     #[doc = " @brief Returns a pointer to the data managed by the image buffer.\n\n @param[in] pImageBuffer An image buffer\n\n @return A pointer to the image data contained in the image buffer,\\n\n\t\t   or \\c NULL if an error occurred. Use ic4_get_last_error() to query error information.\n\n @remarks The memory pointed to by the returned pointer is valid as long as the image buffer object exists."]
     pub fn ic4_imagebuffer_get_ptr(
         pImageBuffer: *const IC4_IMAGE_BUFFER,
-    ) -> *mut ::std::os::raw::c_void;
+    ) -> *mut ::core::ffi::c_void;
 }
 extern "C" {
     #[doc = " @brief Returns the pitch for the image buffer.\n\n The pitch is the distance between the starting memory location of two consecutive lines.\n\n @param[in] pImageBuffer\tAn image buffer\n\n @return\tThe pitch for this image buffer, or \\c 0 if an error occurred.\\n\n\t\t\tUse @ref ic4_get_last_error() to query error information."]
@@ -475,7 +1238,7 @@ extern "C" {
 }
 #[doc = " A structure containing frame metadata"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_FRAME_METADATA {
     #[doc = " @brief The frame number assigned to the image by the video capture device\n\n @remarks The behavior of this value, including starting value and possible rollover is device-specific."]
     pub device_frame_number: u64,
@@ -484,12 +1247,12 @@ pub struct IC4_FRAME_METADATA {
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
-    ["Size of IC4_FRAME_METADATA"][::std::mem::size_of::<IC4_FRAME_METADATA>() - 16usize];
-    ["Alignment of IC4_FRAME_METADATA"][::std::mem::align_of::<IC4_FRAME_METADATA>() - 8usize];
+    ["Size of IC4_FRAME_METADATA"][::core::mem::size_of::<IC4_FRAME_METADATA>() - 16usize];
+    ["Alignment of IC4_FRAME_METADATA"][::core::mem::align_of::<IC4_FRAME_METADATA>() - 8usize];
     ["Offset of field: IC4_FRAME_METADATA::device_frame_number"]
-        [::std::mem::offset_of!(IC4_FRAME_METADATA, device_frame_number) - 0usize];
+        [::core::mem::offset_of!(IC4_FRAME_METADATA, device_frame_number) - 0usize];
     ["Offset of field: IC4_FRAME_METADATA::device_timestamp_ns"]
-        [::std::mem::offset_of!(IC4_FRAME_METADATA, device_timestamp_ns) - 8usize];
+        [::core::mem::offset_of!(IC4_FRAME_METADATA, device_timestamp_ns) - 8usize];
 };
 extern "C" {
     #[doc = " @brief Retrieves metadata from an image buffer object.\n\n @param[in] pImageBuffer An image buffer\n @param[out] metadata A #IC4_FRAME_METADATA structure receiving the metadata.\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information."]
@@ -513,7 +1276,7 @@ extern "C" {
     pub fn ic4_imagebuffer_copy(
         source: *const IC4_IMAGE_BUFFER,
         destination: *mut IC4_IMAGE_BUFFER,
-        flags: ::std::os::raw::c_uint,
+        flags: ::core::ffi::c_uint,
     ) -> bool;
 }
 extern "C" {
@@ -521,61 +1284,85 @@ extern "C" {
     pub fn ic4_imagebuffer_is_writable(buffer: *const IC4_IMAGE_BUFFER) -> bool;
 }
 #[doc = " @brief Defines a callback function to be called when an image buffer created by @ref ic4_imagebuffer_wrap_memory\n is destroyed and the image data will no longer be accessed through it.\n\n @param[in] ptr\t\t\tPointer to the image data as passed as @a data into @ref ic4_imagebuffer_wrap_memory\n @param[in] buffer_size\tBuffer size as passed as @a buffer_size into @ref ic4_imagebuffer_wrap_memory\n @param[in] user_ptr\t\tThe @a on_release_user_ptr parameter that was specified when the image buffer was created."]
-pub type ic4_imagebuffer_memory_release = ::std::option::Option<
-    unsafe extern "C" fn(
-        ptr: *mut ::std::os::raw::c_void,
-        buffer_size: usize,
-        user_ptr: *mut ::std::os::raw::c_void,
-    ),
->;
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct ic4_imagebuffer_memory_release(
+    pub  ::core::option::Option<
+        unsafe extern "C" fn(
+            ptr: *mut ::core::ffi::c_void,
+            buffer_size: usize,
+            user_ptr: *mut ::core::ffi::c_void,
+        ),
+    >,
+);
+impl ::core::ops::Deref for ic4_imagebuffer_memory_release {
+    type Target = ::core::option::Option<
+        unsafe extern "C" fn(
+            ptr: *mut ::core::ffi::c_void,
+            buffer_size: usize,
+            user_ptr: *mut ::core::ffi::c_void,
+        ),
+    >;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for ic4_imagebuffer_memory_release {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
 extern "C" {
     #[doc = " @brief Creates an image buffer object using external memory as storage area for the image data.\n\n This function can be useful when copying image data into buffers of third-party libraries:\n - Create an image object in the third-party library\n - Wrap the third-party library's image data into an @ref IC4_IMAGE_BUFFER using @ref ic4_imagebuffer_wrap_memory().\n - Copy the data from an existing image buffer object into the third-party image buffer using @ref ic4_imagebuffer_copy().\n\n @param[out] ppBuffer\t\t\t\tPointer to an image buffer handle to receive the new buffer object.\\n\n\t\t\t\t\t\t\t\t\tWhen the buffer is no longer required, release the object reference using @ref ic4_imagebuffer_unref().\n @param[in] data\t\t\t\t\tPointer to a region of memory to be used as image data by the image buffer object\n @param[in] buffer_size\t\t\tSize of the region of memory pointed to by @a data\n @param[in] pitch\t\t\t\t\tDifference between memory addresses of two consecutive lines of image data\n @param[in] image_type\t\t\tType of image to be stored in the image buffer\n @param[in] on_release\t\t\tOptional pointer to a callback function to be called when the image buffer object is destroyed.\\n\n\t\t\t\t\t\t\t\t\tThis can be useful when the program needs to keep track of the memory pointer to by the image buffer\n\t\t\t\t\t\t\t\t\tand has to release it once the image buffer object no longer exists.\\n\n\t\t\t\t\t\t\t\t\tThe lifetime of the image buffer can potentially be extended beyond the existance of its handle\n\t\t\t\t\t\t\t\t\twhen it is shared with API functions, e.g. @ref ic4_display_display_buffer or @ref ic4_videowriter_add_frame.\n @param[in] on_release_user_ptr\tUser pointer to be passed when calling @a on_release.\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information."]
     pub fn ic4_imagebuffer_wrap_memory(
         ppBuffer: *mut *mut IC4_IMAGE_BUFFER,
-        data: *mut ::std::os::raw::c_void,
+        data: *mut ::core::ffi::c_void,
         buffer_size: usize,
         pitch: isize,
         image_type: *const IC4_IMAGE_TYPE,
         on_release: ic4_imagebuffer_memory_release,
-        on_release_user_ptr: *mut ::std::os::raw::c_void,
+        on_release_user_ptr: *mut ::core::ffi::c_void,
     ) -> bool;
 }
 #[doc = " Contains function pointers used to configure a custom allocator for image buffers"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_ALLOCATOR_CALLBACKS {
     #[doc = " @brief Notifies the user that the allocator will not receive any additional callback function calls.\n\n @anchor allocator_release\n\n Any resources attached to the \\c context parameter can be released.\n\n @param[in] context   The \\c allocator_context parameter that was passed to the sink creation function.\n\n @note\n The \\c release callback function is executed on the thread that destroys the sink using the final call to #ic4_sink_unref()."]
-    pub release: ::std::option::Option<unsafe extern "C" fn(context: *mut ::std::os::raw::c_void)>,
+    pub release: ::core::option::Option<unsafe extern "C" fn(context: *mut ::core::ffi::c_void)>,
     #[doc = " @brief Requests the allocator to allocate a memory buffer.\n\n @param[in] context       The \\c allocator_context parameter that was passed to the sink creation function\n @param[in] buffer_size   The size of the requested memory buffer\n @param[in] alignment     Requests memory to be allocated on a specific alignment boundary.\\n\n                          This value is always a power of 2.\n @param[out] buffer_ptr   A pointer to a pointer that receives the address of the newly-allocated buffer\n @param[out] user_data    User data to attach to the buffer. The user data is passed to @ref free_buffer when\n                          the allocated memory is freed again.\n\n @return \\c true on success. If the allocation could not be performed, return \\c false."]
-    pub allocate_buffer: ::std::option::Option<
+    pub allocate_buffer: ::core::option::Option<
         unsafe extern "C" fn(
-            context: *mut ::std::os::raw::c_void,
+            context: *mut ::core::ffi::c_void,
             buffer_size: usize,
             alignment: usize,
-            buffer_ptr: *mut *mut ::std::os::raw::c_void,
-            user_data: *mut *mut ::std::os::raw::c_void,
+            buffer_ptr: *mut *mut ::core::ffi::c_void,
+            user_data: *mut *mut ::core::ffi::c_void,
         ) -> bool,
     >,
     #[doc = " @brief Requests the allocator to free a previously-allocated memory buffer.\n\n @param[in] context       The \\c allocator_context parameter that was passed to the sink creation function\n @param[in] buffer_ptr    Pointer to the memory buffer to be freed\n @param[in] user_data     The user data that was returned from @ref allocate_buffer when the memory buffer was allocated"]
-    pub free_buffer: ::std::option::Option<
+    pub free_buffer: ::core::option::Option<
         unsafe extern "C" fn(
-            context: *mut ::std::os::raw::c_void,
-            buffer_ptr: *mut ::std::os::raw::c_void,
-            user_data: *mut ::std::os::raw::c_void,
+            context: *mut ::core::ffi::c_void,
+            buffer_ptr: *mut ::core::ffi::c_void,
+            user_data: *mut ::core::ffi::c_void,
         ),
     >,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
-    ["Size of IC4_ALLOCATOR_CALLBACKS"][::std::mem::size_of::<IC4_ALLOCATOR_CALLBACKS>() - 24usize];
+    ["Size of IC4_ALLOCATOR_CALLBACKS"]
+        [::core::mem::size_of::<IC4_ALLOCATOR_CALLBACKS>() - 24usize];
     ["Alignment of IC4_ALLOCATOR_CALLBACKS"]
-        [::std::mem::align_of::<IC4_ALLOCATOR_CALLBACKS>() - 8usize];
+        [::core::mem::align_of::<IC4_ALLOCATOR_CALLBACKS>() - 8usize];
     ["Offset of field: IC4_ALLOCATOR_CALLBACKS::release"]
-        [::std::mem::offset_of!(IC4_ALLOCATOR_CALLBACKS, release) - 0usize];
+        [::core::mem::offset_of!(IC4_ALLOCATOR_CALLBACKS, release) - 0usize];
     ["Offset of field: IC4_ALLOCATOR_CALLBACKS::allocate_buffer"]
-        [::std::mem::offset_of!(IC4_ALLOCATOR_CALLBACKS, allocate_buffer) - 8usize];
+        [::core::mem::offset_of!(IC4_ALLOCATOR_CALLBACKS, allocate_buffer) - 8usize];
     ["Offset of field: IC4_ALLOCATOR_CALLBACKS::free_buffer"]
-        [::std::mem::offset_of!(IC4_ALLOCATOR_CALLBACKS, free_buffer) - 16usize];
+        [::core::mem::offset_of!(IC4_ALLOCATOR_CALLBACKS, free_buffer) - 16usize];
 };
 #[doc = " @struct IC4_BUFFER_POOL\n @brief The buffer pool allows allocating additional image buffers for use by the program.\n\n This type is opaque, programs only use pointers of type \\c IC4_BUFFER_POOL*.\n\n Most programs will only use image buffers provided by one of the sink types.\n However, some programs require additional buffers, for example to use as destination for image processing.\n\n To create additional buffers, first create a buffer pool using #ic4_bufferpool_create().\n Then, use #ic4_bufferpool_get_buffer() to create a new image buffer with a specified image type.\n Allocation options can be specified to customizer image buffer's memory alignment, pitch and total buffer size.\n\n When the image buffer is no longer required, call #ic4_imagebuffer_unref on it. The buffer will then be returned to the buffer pool.\n\n The buffer pool has configurable caching behavior. By default, the buffer pool will cache one image buffer and return it the next\n time a matching image buffer is requested.\n\n Buffer pool objects are reference-counted, and created with an initial reference count of one.\n To share a buffer pool object between multiple parts of a program, create a new reference by calling #ic4_bufferpool_ref().\n When a reference is no longer required, call #ic4_bufferpool_unref().\n\n If the buffer pool object's internal reference count reaches zero, the buffer pool object is destroyed.\n Even after that, image buffers created by the buffer pool are still valid until they are released by calling #ic4_imagebuffer_unref."]
 #[repr(C)]
@@ -585,7 +1372,7 @@ pub struct IC4_BUFFER_POOL {
 }
 #[doc = " @brief Configures the behavior of a #IC4_BUFFER_POOL."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_BUFFER_POOL_CONFIG {
     #[doc = " @brief Maximum number of frames to keep in the buffer pool's cache"]
     pub cache_frames_max: usize,
@@ -594,22 +1381,31 @@ pub struct IC4_BUFFER_POOL_CONFIG {
     #[doc = " @brief A structure containing function pointers to customize the buffer pool's allocator.\n\n This parameter is optional, set all callback functions to \\c NULL to use the default allocator.\n\n If @ref IC4_ALLOCATOR_CALLBACKS::allocate_buffer is set, @ref IC4_ALLOCATOR_CALLBACKS::free_buffer must be set as well."]
     pub allocator: IC4_ALLOCATOR_CALLBACKS,
     #[doc = " @brief A user-defined value that is passed to the allocator callbacks\n\n If \\c callback_context points to a memory location, and callback functions access that memory,\n the program has to make sure that the memory is valid until the @ref IC4_ALLOCATOR_CALLBACKS::release callback is executed."]
-    pub allocator_context: *mut ::std::os::raw::c_void,
+    pub allocator_context: *mut ::core::ffi::c_void,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
-    ["Size of IC4_BUFFER_POOL_CONFIG"][::std::mem::size_of::<IC4_BUFFER_POOL_CONFIG>() - 48usize];
+    ["Size of IC4_BUFFER_POOL_CONFIG"][::core::mem::size_of::<IC4_BUFFER_POOL_CONFIG>() - 48usize];
     ["Alignment of IC4_BUFFER_POOL_CONFIG"]
-        [::std::mem::align_of::<IC4_BUFFER_POOL_CONFIG>() - 8usize];
+        [::core::mem::align_of::<IC4_BUFFER_POOL_CONFIG>() - 8usize];
     ["Offset of field: IC4_BUFFER_POOL_CONFIG::cache_frames_max"]
-        [::std::mem::offset_of!(IC4_BUFFER_POOL_CONFIG, cache_frames_max) - 0usize];
+        [::core::mem::offset_of!(IC4_BUFFER_POOL_CONFIG, cache_frames_max) - 0usize];
     ["Offset of field: IC4_BUFFER_POOL_CONFIG::cache_bytes_max"]
-        [::std::mem::offset_of!(IC4_BUFFER_POOL_CONFIG, cache_bytes_max) - 8usize];
+        [::core::mem::offset_of!(IC4_BUFFER_POOL_CONFIG, cache_bytes_max) - 8usize];
     ["Offset of field: IC4_BUFFER_POOL_CONFIG::allocator"]
-        [::std::mem::offset_of!(IC4_BUFFER_POOL_CONFIG, allocator) - 16usize];
+        [::core::mem::offset_of!(IC4_BUFFER_POOL_CONFIG, allocator) - 16usize];
     ["Offset of field: IC4_BUFFER_POOL_CONFIG::allocator_context"]
-        [::std::mem::offset_of!(IC4_BUFFER_POOL_CONFIG, allocator_context) - 40usize];
+        [::core::mem::offset_of!(IC4_BUFFER_POOL_CONFIG, allocator_context) - 40usize];
 };
+impl Default for IC4_BUFFER_POOL_CONFIG {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     #[doc = " @brief Creates a new buffer pool.\n\n @param[in] ppPool\tPointer to a buffer pool handle to receive the new buffer pool.\n\t\t\t\t\t\tWhen the buffer pool is no longer required, release the object reference using #ic4_bufferpool_unref().\n @param[in] config\tPointer to a structure containing the buffer pool configuration\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information."]
     pub fn ic4_bufferpool_create(
@@ -627,7 +1423,7 @@ extern "C" {
 }
 #[doc = " @brief Contains options to configure the allocation when requesting an image buffer from a buffer pool.\n\n @see ic4_bufferpool_get_buffer"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_BUFFERPOOL_ALLOCATION_OPTIONS {
     #[doc = " @brief Specifies the alignment of the address of the buffer's memory.\n\n Setting this to 0 lets the buffer pool select an alignment automatically.\n\n The alignment must be a power of 2."]
     pub alignment: usize,
@@ -639,15 +1435,15 @@ pub struct IC4_BUFFERPOOL_ALLOCATION_OPTIONS {
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
     ["Size of IC4_BUFFERPOOL_ALLOCATION_OPTIONS"]
-        [::std::mem::size_of::<IC4_BUFFERPOOL_ALLOCATION_OPTIONS>() - 24usize];
+        [::core::mem::size_of::<IC4_BUFFERPOOL_ALLOCATION_OPTIONS>() - 24usize];
     ["Alignment of IC4_BUFFERPOOL_ALLOCATION_OPTIONS"]
-        [::std::mem::align_of::<IC4_BUFFERPOOL_ALLOCATION_OPTIONS>() - 8usize];
+        [::core::mem::align_of::<IC4_BUFFERPOOL_ALLOCATION_OPTIONS>() - 8usize];
     ["Offset of field: IC4_BUFFERPOOL_ALLOCATION_OPTIONS::alignment"]
-        [::std::mem::offset_of!(IC4_BUFFERPOOL_ALLOCATION_OPTIONS, alignment) - 0usize];
+        [::core::mem::offset_of!(IC4_BUFFERPOOL_ALLOCATION_OPTIONS, alignment) - 0usize];
     ["Offset of field: IC4_BUFFERPOOL_ALLOCATION_OPTIONS::pitch"]
-        [::std::mem::offset_of!(IC4_BUFFERPOOL_ALLOCATION_OPTIONS, pitch) - 8usize];
+        [::core::mem::offset_of!(IC4_BUFFERPOOL_ALLOCATION_OPTIONS, pitch) - 8usize];
     ["Offset of field: IC4_BUFFERPOOL_ALLOCATION_OPTIONS::buffer_size"]
-        [::std::mem::offset_of!(IC4_BUFFERPOOL_ALLOCATION_OPTIONS, buffer_size) - 16usize];
+        [::core::mem::offset_of!(IC4_BUFFERPOOL_ALLOCATION_OPTIONS, buffer_size) - 16usize];
 };
 extern "C" {
     #[doc = " @brief Gets a buffer from the buffer pool.\n\n The buffer is either newly allocated, or retrieved from the buffer pool's buffer cache.\n\n @param[in] pPool\t\t\t\tA buffer pool\n @param[in] image_type\t\tImage type of the requested buffer\n @param[in] options\t\t\tA pointer to a #IC4_BUFFERPOOL_ALLOCATION_OPTIONS structure specifying advance allocation options.\\n\n\t\t\t\t\t\t\t\tMay be @c NULL to use default allocation parameters.\n @param[out] ppImageBuffer\tPointer to an image buffer handle to receive the buffer.\\n\n\t\t\t\t\t\t\t\tWhen the buffer is no longer required, release the object reference using #ic4_imagebuffer_unref().\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information."]
@@ -742,14 +1538,14 @@ extern "C" {
     #[doc = " @brief Execute a command with a known name.\n\n @param[in] map\t\tA property map\n @param[in] prop_name\tName of a command property inside \\c map\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no with the name \\c prop_name in \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n\n If there is a property with the name \\c prop_name, but it is not a command property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n"]
     pub fn ic4_propmap_execute_command(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
     ) -> bool;
 }
 extern "C" {
     #[doc = " @brief Get the value of a property with a known name as an integer value.\n\n The behavior depends on the type of the property:\n - For integer properties, the value is returned directly.\n - For boolean properties, the value returned is @c 1 or @c 0.\n - For all other property types, the call results in an error (@ref IC4_ERROR_GENICAM_TYPE_MISMATCH).\n\n @param[in] map\t\t\tA property map\n @param[in] prop_name\t\tName of a property inside @c map\n @param[out] pValue\t\tPointer to an integer to receive the value of the property\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name in \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n"]
     pub fn ic4_propmap_get_value_int64(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
         pValue: *mut i64,
     ) -> bool;
 }
@@ -757,7 +1553,7 @@ extern "C" {
     #[doc = " @brief Get the value of a property with a known name as a double value.\n\n The behavior depends on the type of the property:\n - For integer properties, the value is converted to @c double.\n - For float properties, the value is returned directly.\n - For all other property types, the call results in an error (@ref IC4_ERROR_GENICAM_TYPE_MISMATCH).\n\n @param[in] map\t\t\tA property map\n @param[in] prop_name\t\tName of a property inside @c map\n @param[out] pValue\t\tPointer to a double to receive the value of the property\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name in \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n"]
     pub fn ic4_propmap_get_value_double(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
         pValue: *mut f64,
     ) -> bool;
 }
@@ -765,7 +1561,7 @@ extern "C" {
     #[doc = " @brief Get the value of a property with a known name as a bool value.\n\n The behavior depends on the type of the property:\n - For boolean properties, the value is returned directly.\n - For enumeration properties, a value is returned if the name of the currently selected entry unambiguously suggests to represent @c true or @c false.\n - For all other property types, the call results in an error (@ref IC4_ERROR_GENICAM_TYPE_MISMATCH).\n\n @param[in] map\t\t\tA property map\n @param[in] prop_name\t\tName of a property inside @c map\n @param[out] pValue\t\tPointer to a double to receive the value of the property\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name in \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n"]
     pub fn ic4_propmap_get_value_bool(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
         pValue: *mut bool,
     ) -> bool;
 }
@@ -773,8 +1569,8 @@ extern "C" {
     #[doc = " @brief Get the value of a property with a known name as a string value.\n\n The behavior depends on the type of the property:\n - For integer properties, the value is converted to a string\n - For float properties, the value is converted to a string\n - For boolean properties, the value is converted to the string @c \"true\" or @c \"false\".\n - For enumeration properties, the name of the currently selected entry is returned.\n - For string properties, the value is returned directly.\n - For all other property types, the call results in an error (@ref IC4_ERROR_GENICAM_TYPE_MISMATCH).\n\n @param[in] map\t\t\t\tA property map\n @param[in] prop_name\t\t\tName of a property inside \\c map\n @param[out] buffer\t\t\tPointer to a character array to receive the string value.\\n\n\t\t\t\t\t\t\t\tThis parameter can be \\c NULL to find out the required space without allocating an initial array.\n @param[in, out] buffer_size\tPointer to a \\c size_t describing the length of the array pointed to by \\a buffer.\\n\n\t\t\t\t\t\t\t\tThe function always writes the actual number of characters required to store the string representation.\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name in \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n"]
     pub fn ic4_propmap_get_value_string(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
-        buffer: *mut ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
+        buffer: *mut ::core::ffi::c_char,
         buffer_size: *mut usize,
     ) -> bool;
 }
@@ -782,7 +1578,7 @@ extern "C" {
     #[doc = " @brief Set the value of a property with a known name to the passed integer value.\n\n The behavior depends on the type of the property:\n - For integer properties, the value is set directly.\n - For float properties, the value is set directly.\n - For boolean properties, if the value is @c 1 or @c 0, it is set to @c true or @c false respectively. Other values result in an error.\n - For enumeration properties, the numeric value is set if the property is @c PixelFormat. Other properties result in an error.\n - For command properties, the command is executed if @a value is @c 1.\n - For all other property types, the call results in an error (@ref IC4_ERROR_GENICAM_TYPE_MISMATCH).\n\n @param[in] map\t\tA property map\n @param[in] prop_name\tName of a property inside \\c map\n @param[in] value\t\tNew value to be set for the property identified by \\c prop_name\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name in \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n"]
     pub fn ic4_propmap_set_value_int64(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
         value: i64,
     ) -> bool;
 }
@@ -790,7 +1586,7 @@ extern "C" {
     #[doc = " @brief Set the value of a property with a known name to the passed double value.\n\n The behavior depends on the type of the property:\n - For integer properties, the value is rounded to the nearest integer.\n - For float properties, the value is set directly.\n - For all other property types, the call results in an error (@ref IC4_ERROR_GENICAM_TYPE_MISMATCH).\n\n @param[in] map\t\tA property map\n @param[in] prop_name\tName of a property inside \\c map\n @param[in] value\t\tNew value to be set for the property identified by \\c prop_name\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name in \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n"]
     pub fn ic4_propmap_set_value_double(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
         value: f64,
     ) -> bool;
 }
@@ -798,7 +1594,7 @@ extern "C" {
     #[doc = " @brief Set the value of a property with a known name to the passed bool value.\n\n The behavior depends on the type of the property:\n - For boolean properties, the value is set directly.\n - For enumeration properties, it selects the entry with a name that unambiguously suggests to represent @c true or @c false, if available.\n - For command properties, the command is executed if @a value is @c true.\n - For all other property types, the call results in an error (@ref IC4_ERROR_GENICAM_TYPE_MISMATCH).\n\n @param[in] map\t\tA property map\n @param[in] prop_name\tName of a property inside \\c map\n @param[in] value\t\tNew value to be set for the property identified by \\c prop_name\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name in \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n"]
     pub fn ic4_propmap_set_value_bool(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
         value: bool,
     ) -> bool;
 }
@@ -806,15 +1602,15 @@ extern "C" {
     #[doc = " @brief Set the value of a property with a known name to the passed string value.\n\n The behavior depends on the type of the property:\n - For integer properties, the string is parsed, and the found integer value is set\n - For float properties, the string is parsed, and the found floating-point value is set\n - For boolean properties, a value is set if the string can be unambiguously identified to represent @c true or @c false.\n - For enumeration properties, the entry with a name or display name matching the value is set.\n - For string properties, the value is set directly.\n - For command properties, the command is executed if @a value is @c \"1\", @c \"true\" or @c \"execute\".\n - For all other property types, the call results in an error (@ref IC4_ERROR_GENICAM_TYPE_MISMATCH).\n\n @param[in] map\t\tA property map\n @param[in] prop_name\tName of a property inside \\c map\n @param[in] value\t\tNew value to be set for the property identified by \\c prop_name\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name in \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n"]
     pub fn ic4_propmap_set_value_string(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
-        value: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
+        value: *const ::core::ffi::c_char,
     ) -> bool;
 }
 extern "C" {
     #[doc = " @brief Returns a property object representing the property with the passed name.\n\n @param[in]\tmap\t\t\tA property map\n @param[in]\tprop_name\tThe name of a property inside \\c map\n @param[out]\tppProperty\tPointer to a handle receiving the property object\n\t\t\t\t\t\t\tWhen the property is no longer required, release the object reference using #ic4_prop_unref().\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name inside \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n"]
     pub fn ic4_propmap_find(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
         ppProperty: *mut *mut IC4_PROPERTY,
     ) -> bool;
 }
@@ -822,7 +1618,7 @@ extern "C" {
     #[doc = " @brief Returns a property object representing the command property with the passed name.\n\n @param[in]\tmap\t\t\tA property map\n @param[in]\tprop_name\tThe name of a command property inside \\c map\n @param[out]\tppProperty\tPointer to a handle receiving the property object\n\t\t\t\t\t\t\tWhen the property is no longer required, release the object reference using #ic4_prop_unref().\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name inside \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n\n If there is a property with the name \\c prop_name, but it is not a command property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n"]
     pub fn ic4_propmap_find_command(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
         ppProperty: *mut *mut IC4_PROPERTY,
     ) -> bool;
 }
@@ -830,7 +1626,7 @@ extern "C" {
     #[doc = " @brief Returns a property object representing the integer property with the passed name.\n\n @param[in]\tmap\t\t\tA property map\n @param[in]\tprop_name\tThe name of an integer property inside \\c map\n @param[out]\tppProperty\tPointer to a handle receiving the property object\n\t\t\t\t\t\t\tWhen the property is no longer required, release the object reference using #ic4_prop_unref().\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name inside \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n\n If there is a property with the name \\c prop_name, but it is not an integer property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n"]
     pub fn ic4_propmap_find_integer(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
         ppProperty: *mut *mut IC4_PROPERTY,
     ) -> bool;
 }
@@ -838,7 +1634,7 @@ extern "C" {
     #[doc = " @brief Returns a property object representing the float property with the passed name.\n\n @param[in]\tmap\t\t\tA property map\n @param[in]\tprop_name\tThe name of a float property inside \\c map\n @param[out]\tppProperty\tPointer to a handle receiving the property object\n\t\t\t\t\t\t\tWhen the property is no longer required, release the object reference using #ic4_prop_unref().\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name inside \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n\n If there is a property with the name \\c prop_name, but it is not a float property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n"]
     pub fn ic4_propmap_find_float(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
         ppProperty: *mut *mut IC4_PROPERTY,
     ) -> bool;
 }
@@ -846,7 +1642,7 @@ extern "C" {
     #[doc = " @brief Returns a property object representing the boolean property with the passed name.\n\n @param[in]\tmap\t\t\tA property map\n @param[in]\tprop_name\tThe name of a boolean property inside \\c map\n @param[out]\tppProperty\tPointer to a handle receiving the property object\n\t\t\t\t\t\t\tWhen the property is no longer required, release the object reference using #ic4_prop_unref().\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name inside \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n\n If there is a property with the name \\c prop_name, but it is not a boolean property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n"]
     pub fn ic4_propmap_find_boolean(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
         ppProperty: *mut *mut IC4_PROPERTY,
     ) -> bool;
 }
@@ -854,7 +1650,7 @@ extern "C" {
     #[doc = " @brief Returns a property object representing the string property with the passed name.\n\n @param[in]\tmap\t\t\tA property map\n @param[in]\tprop_name\tThe name of a string property inside \\c map\n @param[out]\tppProperty\tPointer to a handle receiving the property object\n\t\t\t\t\t\t\tWhen the property is no longer required, release the object reference using #ic4_prop_unref().\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name inside \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n\n If there is a property with the name \\c prop_name, but it is not a string property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n"]
     pub fn ic4_propmap_find_string(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
         ppProperty: *mut *mut IC4_PROPERTY,
     ) -> bool;
 }
@@ -862,7 +1658,7 @@ extern "C" {
     #[doc = " @brief Returns a property object representing the enumeration property with the passed name.\n\n @param[in]\tmap\t\t\tA property map\n @param[in]\tprop_name\tThe name of an enumeration property inside \\c map\n @param[out]\tppProperty\tPointer to a handle receiving the property object\n\t\t\t\t\t\t\tWhen the property is no longer required, release the object reference using #ic4_prop_unref().\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name inside \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n\n If there is a property with the name \\c prop_name, but it is not an enumeration property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n"]
     pub fn ic4_propmap_find_enumeration(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
         ppProperty: *mut *mut IC4_PROPERTY,
     ) -> bool;
 }
@@ -870,7 +1666,7 @@ extern "C" {
     #[doc = " @brief Returns a property object representing the register property with the passed name.\n\n @param[in]\tmap\t\t\tA property map\n @param[in]\tprop_name\tThe name of a register property inside \\c map\n @param[out]\tppProperty\tPointer to a handle receiving the property object\n\t\t\t\t\t\t\tWhen the property is no longer required, release the object reference using #ic4_prop_unref().\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name inside \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n\n If there is a property with the name \\c prop_name, but it is not a register property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n"]
     pub fn ic4_propmap_find_register(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
         ppProperty: *mut *mut IC4_PROPERTY,
     ) -> bool;
 }
@@ -878,7 +1674,7 @@ extern "C" {
     #[doc = " @brief Returns a property object representing the category property with the passed name.\n\n @param[in]\tmap\t\t\tA property map\n @param[in]\tprop_name\tThe name of a category property inside \\c map\n @param[out]\tppProperty\tPointer to a handle receiving the property object\n\t\t\t\t\t\t\tWhen the property is no longer required, release the object reference using #ic4_prop_unref().\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If there is no property with the name \\c prop_name inside \\c map, the function fails and the error value is set to #IC4_ERROR_GENICAM_FEATURE_NOT_FOUND. \\n\n If there is a property with the name \\c prop_name, but it is not a category property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n"]
     pub fn ic4_propmap_find_category(
         map: *mut IC4_PROPERTY_MAP,
-        prop_name: *const ::std::os::raw::c_char,
+        prop_name: *const ::core::ffi::c_char,
         ppProperty: *mut *mut IC4_PROPERTY,
     ) -> bool;
 }
@@ -900,21 +1696,38 @@ extern "C" {
     #[doc = " @brief Saves the state of the properties in this property map into a file.\n\n @param[in]\tmap\t\tA property map\n @param[in]\tpath\tA path to a file that the property state is written to\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @note\n The actual set of properties that is stored by this function is controlled by the object the property map belongs to.\\n\n To restore the properties at a later time, use #ic4_propmap_deserialize_from_file.\n\n @see ic4_propmap_deserialize_from_file\n @see ic4_propmap_serialize_to_memory"]
     pub fn ic4_propmap_serialize_to_file(
         map: *mut IC4_PROPERTY_MAP,
-        path: *const ::std::os::raw::c_char,
+        path: *const ::core::ffi::c_char,
     ) -> bool;
 }
 extern "C" {
     pub fn ic4_propmap_serialize_to_fileW(map: *mut IC4_PROPERTY_MAP, path: *const u16) -> bool;
 }
 #[doc = " @brief Callback function called to allocate memory during the call of #ic4_propmap_serialize_to_memory.\n\n @param[in]\tsize\tSize of the memory buffer to be allocated.\n\n @return\t\tThe pointer to the allocated memory buffer, or @c NULL if the allocation was not possible.\n\n @note\n If this function returns @c NULL, the call to #ic4_propmap_serialize_to_memory will fail.\n\n @see ic4_propmap_serialize_to_memory"]
-pub type ic4_serialization_allocator =
-    ::std::option::Option<unsafe extern "C" fn(size: usize) -> *mut ::std::os::raw::c_void>;
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct ic4_serialization_allocator(
+    pub ::core::option::Option<unsafe extern "C" fn(size: usize) -> *mut ::core::ffi::c_void>,
+);
+impl ::core::ops::Deref for ic4_serialization_allocator {
+    type Target =
+        ::core::option::Option<unsafe extern "C" fn(size: usize) -> *mut ::core::ffi::c_void>;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for ic4_serialization_allocator {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
 extern "C" {
     #[doc = " @brief Saves the state of the properties in this property map in a memory buffer.\n\n @param[in]\t\tmap\t\t\tA property map\n @param[in]\t\talloc\t\tPointer to a function that allocates the memory buffer.\\n\n\t\t\t\t\t\t\t\tFor example, @c malloc can be passed here.\n @param[out]\t\tppData\t\tPointer to a pointer to receive the newly-allocated memory buffer containing the properties.\\n\n\t\t\t\t\t\t\t\tThe caller is responsible for releasing the memory, using a function that can free memory returned by @c alloc.\n @param[out]\t\tdata_size\tPointer to size_t to receive the size of the memory buffer allocated by the call\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @note\n The actual set of properties that is stored by this function is controlled by the object the property map belongs to.\\n\n To restore the properties at a later time, use #ic4_propmap_deserialize_from_memory.\n\n @see ic4_propmap_deserialize_from_memory\n @see ic4_propmap_serialize_to_file"]
     pub fn ic4_propmap_serialize_to_memory(
         map: *mut IC4_PROPERTY_MAP,
         alloc: ic4_serialization_allocator,
-        ppData: *mut *mut ::std::os::raw::c_void,
+        ppData: *mut *mut ::core::ffi::c_void,
         data_size: *mut usize,
     ) -> bool;
 }
@@ -922,7 +1735,7 @@ extern "C" {
     #[doc = " @brief Restores the state of the properties in this property map from a file that was previously written by #ic4_propmap_serialize_to_file.\n\n @param[in]\tmap\t\tA property map\n @param[in]\tpath\tPath to a file that was previously written by #ic4_propmap_serialize_to_file\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @note\n If the file contains settings for properties that could not be written, the function fails and the error value is set to #IC4_ERROR_INCOMPLETE.\n\n @see ic4_propmap_serialize_to_file"]
     pub fn ic4_propmap_deserialize_from_file(
         map: *mut IC4_PROPERTY_MAP,
-        path: *const ::std::os::raw::c_char,
+        path: *const ::core::ffi::c_char,
     ) -> bool;
 }
 extern "C" {
@@ -933,7 +1746,7 @@ extern "C" {
     #[doc = " @brief Restores the state of the properties in this property map from a memory buffer containing data that was previously written by #ic4_propmap_serialize_to_memory.\n\n @param[in]\tmap\t\t\tA property map\n @param[in]\tpData\t\tPointer to a memory buffer containing data that was written by #ic4_propmap_serialize_to_memory\n @param[in]\tdata_size\tSize of the memory buffer pointed to by @c pData\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @note\n If the memory buffer contains settings for properties that could not be written, the function fails and the error value is set to #IC4_ERROR_INCOMPLETE.\n\n @see ic4_propmap_serialize_to_memory"]
     pub fn ic4_propmap_deserialize_from_memory(
         map: *mut IC4_PROPERTY_MAP,
-        pData: *const ::std::os::raw::c_void,
+        pData: *const ::core::ffi::c_void,
         data_size: usize,
     ) -> bool;
 }
@@ -951,7 +1764,7 @@ extern "C" {
 }
 extern "C" {
     #[doc = " @brief Returns the name of the passed property\n\n @param[in] prop\tA property\n\n @return\tThe name of the passed property, or \\c NULL in case of an error.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\\n\n\t\t\tThe memory pointed to by the return value is valid as long as the property object exists.\n\n @remarks\n A property's name is the symbolic name with which it can be found in a @ref propmap, for example \\c ExposureTime or \\c AcquisitionFrameRate.\n\n @see ic4_prop_get_display_name"]
-    pub fn ic4_prop_get_name(prop: *mut IC4_PROPERTY) -> *const ::std::os::raw::c_char;
+    pub fn ic4_prop_get_name(prop: *mut IC4_PROPERTY) -> *const ::core::ffi::c_char;
 }
 extern "C" {
     #[doc = " @brief Checks whether a property is currently available.\n\n If a property is not available, attempts to read or write its value will fail.\n\n A property may become unavailable, if its value does not have a meaning in the current state of the device.\n The property's availability status can change upon writing to another property.\n\n @param[in] prop\tA property\n\n @return\t\\c true, if the property is currently available, otherwise \\c false.\\n\n\t\t\tIf there is an error, this function returns \\c false. Use ic4_get_last_error() to query error information.\n\n @see ic4_prop_is_locked\n @see ic4_prop_is_readonly"]
@@ -975,29 +1788,64 @@ extern "C" {
 }
 extern "C" {
     #[doc = " @brief Returns the display name of the passed property\n\n @param[in] prop\tA property\n\n @return\tThe display name of the passed property, or \\c NULL in case of an error.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\\n\n\t\t\tThe memory pointed to by the return value is valid as long as the property object exists.\n\n @remarks\n A property's display name is a text representation of the property that is meant to be displayed in user interfaces.\\n\n For example, the display name of the \\c ExposureTime property usually is <i>Exposure Time</i>.\n\n @see ic4_prop_get_name"]
-    pub fn ic4_prop_get_display_name(prop: *mut IC4_PROPERTY) -> *const ::std::os::raw::c_char;
+    pub fn ic4_prop_get_display_name(prop: *mut IC4_PROPERTY) -> *const ::core::ffi::c_char;
 }
 extern "C" {
     #[doc = " @brief Returns a tooltip for the passed property\n\n @param[in] prop\tA property\n\n @return\tThe tooltip for the passed property, or \\c NULL in case of an error.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\\n\n\t\t\tThe memory pointed to by the return value is valid as long as the property object exists.\n\n @remarks\n A property's tooltip is a text that can be used when a tooltip is required by a user interface.\\n\n Usually, the tooltip is a short description of the property.\n\n @see ic4_prop_get_description"]
-    pub fn ic4_prop_get_tooltip(prop: *mut IC4_PROPERTY) -> *const ::std::os::raw::c_char;
+    pub fn ic4_prop_get_tooltip(prop: *mut IC4_PROPERTY) -> *const ::core::ffi::c_char;
 }
 extern "C" {
     #[doc = " @brief Returns a description text for the passed property\n\n @param[in] prop\tA property\n\n @return\tThe description for the passed property, or \\c NULL in case of an error.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\\n\n\t\t\tThe memory pointed to by the return value is valid as long as the property object exists.\n\n @remarks\n A property's description is a short text that describes the property, usually in more detail than the tooltip.\n\n @see ic4_prop_get_tooltip"]
-    pub fn ic4_prop_get_description(prop: *mut IC4_PROPERTY) -> *const ::std::os::raw::c_char;
+    pub fn ic4_prop_get_description(prop: *mut IC4_PROPERTY) -> *const ::core::ffi::c_char;
 }
 #[doc = " @brief Property notification handler function pointer\n\n @param[in] prop\t\tThe property that has changed\n @param[in] user_ptr\tThe user data that was specified when the notification handler was registered\n\n @see ic4_prop_event_add_notification"]
-pub type ic4_prop_notification = ::std::option::Option<
-    unsafe extern "C" fn(prop: *mut IC4_PROPERTY, user_ptr: *mut ::std::os::raw::c_void),
->;
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct ic4_prop_notification(
+    pub  ::core::option::Option<
+        unsafe extern "C" fn(prop: *mut IC4_PROPERTY, user_ptr: *mut ::core::ffi::c_void),
+    >,
+);
+impl ::core::ops::Deref for ic4_prop_notification {
+    type Target = ::core::option::Option<
+        unsafe extern "C" fn(prop: *mut IC4_PROPERTY, user_ptr: *mut ::core::ffi::c_void),
+    >;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for ic4_prop_notification {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
 #[doc = " @brief Property notification deleter\n\n @param[in] user_ptr\tThe user data that was specified when the notification deleter was registered\n\n @see ic4_prop_event_add_notification\n @see ic4_prop_event_remove_notification"]
-pub type ic4_prop_notification_deleter =
-    ::std::option::Option<unsafe extern "C" fn(user_ptr: *mut ::std::os::raw::c_void)>;
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct ic4_prop_notification_deleter(
+    pub ::core::option::Option<unsafe extern "C" fn(user_ptr: *mut ::core::ffi::c_void)>,
+);
+impl ::core::ops::Deref for ic4_prop_notification_deleter {
+    type Target = ::core::option::Option<unsafe extern "C" fn(user_ptr: *mut ::core::ffi::c_void)>;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for ic4_prop_notification_deleter {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
 extern "C" {
     #[doc = " @brief Registers a property notification handler\n\n The property notification handler is called whenever an aspect of the property changes, for example its value or locked status.\n\n @param[in] prop\t\tA property\n @param[in] handler\tThe property notification handler to be called if \\a prop changes\n @param[in] user_ptr\tUser data to be passed to the notification handler\n @param[in] deleter\tThe property notification deleter to be called if the notification is removed, or the property is destroyed\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n The \\c deleter callback can useful to release resources that the caller passed in into \\c user_ptr.\n\n @remarks\n Multiple notification handlers can be registered for the same property, as long as the \\c user_ptr parameter is different.\n\n @see ic4_prop_event_remove_notification\n @see ic4_prop_notification\n @see ic4_prop_notification_deleter"]
     pub fn ic4_prop_event_add_notification(
         prop: *mut IC4_PROPERTY,
         handler: ic4_prop_notification,
-        user_ptr: *mut ::std::os::raw::c_void,
+        user_ptr: *mut ::core::ffi::c_void,
         deleter: ic4_prop_notification_deleter,
     ) -> bool;
 }
@@ -1006,7 +1854,7 @@ extern "C" {
     pub fn ic4_prop_event_remove_notification(
         prop: *mut IC4_PROPERTY,
         handler: ic4_prop_notification,
-        user_ptr: *mut ::std::os::raw::c_void,
+        user_ptr: *mut ::core::ffi::c_void,
     ) -> bool;
 }
 extern "C" {
@@ -1063,7 +1911,7 @@ extern "C" {
 }
 extern "C" {
     #[doc = " @brief Returns the unit of an integer property.\n\n @param[in] prop\tAn integer property\n\n @return\tThe unit of the the property. The unit can be an empty string, if there is no unit for the property.\\n\n\t\t\tThe memory pointed to by the return value is valid as long as the property object exists.\\n\n\t\t\tIf an error occurs, the function returns @c NULL. Use ic4_get_last_error() to query error information.\n\n @remarks\n If \\c prop is not an integer property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n"]
-    pub fn ic4_prop_integer_get_unit(prop: *mut IC4_PROPERTY) -> *const ::std::os::raw::c_char;
+    pub fn ic4_prop_integer_get_unit(prop: *mut IC4_PROPERTY) -> *const ::core::ffi::c_char;
 }
 extern "C" {
     #[doc = " @brief Changes the value of an integer property.\n\n @param[in] prop\t\t\tAn integer property\n @param[in] value\t\t\tThe new value to set\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If \\c prop is not an integer property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n\n If the device or component rejected the value, the function fails and the error value is set to #IC4_ERROR_GENICAM_VALUE_ERROR. \\n\n If the value is currently not writable, the function fails and the error value is set to #IC4_ERROR_GENICAM_ACCESS_DENIED. \\n\n\n @see ic4_prop_integer_get_min\n @see ic4_prop_integer_get_max\n @see ic4_prop_integer_get_inc"]
@@ -1129,7 +1977,7 @@ extern "C" {
 }
 extern "C" {
     #[doc = " @brief Returns the unit of a float property.\n\n @param[in] prop\tA float property\n\n @return\tThe unit of the the property. The unit can be an empty string, if there is no unit for the property.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\\n\n\t\t\tThe memory pointed to by the return value is valid as long as the property object exists.\n\n @remarks\n If \\c prop is not a float property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n"]
-    pub fn ic4_prop_float_get_unit(prop: *mut IC4_PROPERTY) -> *const ::std::os::raw::c_char;
+    pub fn ic4_prop_float_get_unit(prop: *mut IC4_PROPERTY) -> *const ::core::ffi::c_char;
 }
 extern "C" {
     #[doc = " @brief Returns a suggested display notation to use when displaying the float property's value.\n\n @param[in] prop\tA float property\n\n @return\tA display notation suggestion, or @ref IC4_PROPDISPNOTATION_AUTOMATIC if there is an error.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\\n\n\n @remarks\n If \\c prop is not a float property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n"]
@@ -1185,7 +2033,7 @@ extern "C" {
     #[doc = " @brief Reads the current value of a string property.\n\n @param[in] prop\t\t\t\tA string property\n @param[out] buffer\t\t\tPointer to a character array to receive the string value.\\n\n\t\t\t\t\t\t\t\tThis parameter can be \\c NULL to find out the required space without allocating an initial array.\n @param[in, out] buffer_size\tPointer to a \\c size_t describing the length of the array pointed to by \\a buffer.\\n\n\t\t\t\t\t\t\t\tThe function always writes the actual number of characters required to store the string representation.\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If \\c prop is not a string property, the function fails and the error value is set to @ref IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n\n If \\c buffer is not \\c NULL, and \\c *buffer_size is less than the length of the value of this property, the function fails and the error value is set to @ref IC4_ERROR_BUFFER_TOO_SMALL. \\n"]
     pub fn ic4_prop_string_get_value(
         prop: *mut IC4_PROPERTY,
-        buffer: *mut ::std::os::raw::c_char,
+        buffer: *mut ::core::ffi::c_char,
         buffer_size: *mut usize,
     ) -> bool;
 }
@@ -1193,7 +2041,7 @@ extern "C" {
     #[doc = " @brief Changes the value of a string property.\n\n @param[in] prop\t\t\tA string property\n @param[in] buffer\t\tPointer to a buffer containing the new string value\n @param[in] buffer_size\tLength of \\c buffer.\\n\n\t\t\t\t\t\t\tIf \\c 0, interpret \\c buffer as a null-terminated string.\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If \\c prop is not a string property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n\n If the value is currently not writable, the function fails and the error value is set to #IC4_ERROR_GENICAM_ACCESS_DENIED. \\n"]
     pub fn ic4_prop_string_set_value(
         prop: *mut IC4_PROPERTY,
-        buffer: *const ::std::os::raw::c_char,
+        buffer: *const ::core::ffi::c_char,
         buffer_size: usize,
     ) -> bool;
 }
@@ -1212,7 +2060,7 @@ extern "C" {
     #[doc = " @brief Finds the enumeration entry with a given name in this enumeration property.\n\n @param[in] prop\t\t\tAn enumeration property\n @param[in] entry_name\tThe name of one of this enumeration property's enumeration entries\n @param[out] ppEntry\t\tA pointer to a property receiving the requested enumeration entry.\\n\n\t\t\t\t\t\t\tWhen the enumeration entry is no longer required, release the object reference using #ic4_prop_unref().\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If \\c prop is not an enumeration property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n\n\n @see ic4_prop_enum_find_entry_by_value"]
     pub fn ic4_prop_enum_find_entry_by_name(
         prop: *mut IC4_PROPERTY,
-        entry_name: *const ::std::os::raw::c_char,
+        entry_name: *const ::core::ffi::c_char,
         ppEntry: *mut *mut IC4_PROPERTY,
     ) -> bool;
 }
@@ -1228,12 +2076,12 @@ extern "C" {
     #[doc = " @brief Sets the enumeration's selected entry by name.\n\n @param[in] prop\t\t\tAn enumeration property\n @param[in] entry_name\tThe name of an enumeration entry of @c prop.\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If @c prop is not an enumeration property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n\n If @c entry_name is not the name of an entry of @c prop, the function fails and the error value is set to #IC4_ERROR_GENICAM_VALUE_ERROR. \\n\n\n @see ic4_prop_enum_set_selected_entry\n @see ic4_prop_enum_set_int_value"]
     pub fn ic4_prop_enum_set_value(
         prop: *mut IC4_PROPERTY,
-        entry_name: *const ::std::os::raw::c_char,
+        entry_name: *const ::core::ffi::c_char,
     ) -> bool;
 }
 extern "C" {
     #[doc = " @brief Returns the name of the currently selected entry of the enumeration.\n\n @param prop\t\t\t\tAn enumeration property\n\n @return\tThe name of the enumeration's currently selected entry, or \\c NULL in case of an error.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\\n\n\t\t\tThe memory pointed to by the return value is valid at least as the property object exists,\n\t\t\tor until the next call to @c ic4_prop_enum_get_value on this enumeration.\n\n @remarks\n If @c prop is not an enumeration property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH."]
-    pub fn ic4_prop_enum_get_value(prop: *mut IC4_PROPERTY) -> *const ::std::os::raw::c_char;
+    pub fn ic4_prop_enum_get_value(prop: *mut IC4_PROPERTY) -> *const ::core::ffi::c_char;
 }
 extern "C" {
     #[doc = " @brief Sets the enumeration's selected entry.\n\n @param[in] prop\t\tAn enumeration property\n @param[in] entry\t\tAn enumeration entry of @c prop.\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If @c prop is not an enumeration property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n\n If @c entry is not an enumeration entry property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n\n If @c entry is not an enumeration entry of @c prop, the function fails and the error value is set to #IC4_ERROR_GENICAM_VALUE_ERROR. \\n\n\n @see ic4_prop_enum_set_value\n @see ic4_prop_enum_set_int_value"]
@@ -1269,7 +2117,7 @@ extern "C" {
     #[doc = " @brief Reads data from a register property.\n\n @param[in]\tprop\t\tA register property\n @param[out]\tbuffer\t\tA buffer receiving the data from the property\n @param[in]\tbuffer_size Size of @c buffer in bytes. Must be equal to the size of the register property.\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If \\c prop is not a register property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n\n If @c buffer_size is not equal to the size of the property returned from #ic4_prop_register_get_size(), the function fails and the error value is set to #IC4_ERROR_INVALID_PARAM_VAL.\\n\n\n @see ic4_prop_register_get_size\n @see ic4_prop_register_set_value"]
     pub fn ic4_prop_register_get_value(
         prop: *mut IC4_PROPERTY,
-        buffer: *mut ::std::os::raw::c_void,
+        buffer: *mut ::core::ffi::c_void,
         buffer_size: usize,
     ) -> bool;
 }
@@ -1277,7 +2125,7 @@ extern "C" {
     #[doc = " @brief Writes data to a register property.\n\n @param[in]\tprop\t\tA register property\n @param[in]\tbuffer\t\tA buffer containing the data to be written to the property\n @param[in]\tbuffer_size\tSize of @c buffer in bytes. Must be equal to the size of the register property.\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If @c prop is not a register property, the function fails and the error value is set to #IC4_ERROR_GENICAM_TYPE_MISMATCH. \\n\n If @c buffer_size is not equal to the size of the property returned from #ic4_prop_register_get_size(), the function fails and the error value is set to #IC4_ERROR_INVALID_PARAM_VAL.\\n\n\n @see ic4_prop_register_get_size\n @see ic4_prop_register_get_value"]
     pub fn ic4_prop_register_set_value(
         prop: *mut IC4_PROPERTY,
-        buffer: *const ::std::os::raw::c_void,
+        buffer: *const ::core::ffi::c_void,
         buffer_size: usize,
     ) -> bool;
 }
@@ -1325,9 +2173,7 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Returns the number of devices discovered by the previous call to ic4_devenum_update_device_list().\n\n @param[in] pEnumerator A pointer to a device enumerator\n\n @return The number of devices in the enumerator's internal device list\\n\n         If an error occurs, the function returns 0. ic4_get_last_error() can query error information.\n\n @see ic4_devenum_get_devinfo"]
-    pub fn ic4_devenum_get_device_count(
-        pEnumerator: *const IC4_DEVICE_ENUM,
-    ) -> ::std::os::raw::c_int;
+    pub fn ic4_devenum_get_device_count(pEnumerator: *const IC4_DEVICE_ENUM) -> ::core::ffi::c_int;
 }
 #[doc = " \\struct IC4_DEVICE_INFO\n Device information type.\n\n Instances of this type are created by calling ic4_devenum_get_devinfo().\n\n This type is reference-counted. Call ic4_devinfo_ref() to increase the internal reference count,\n or ic4_devinfo_unref() to decrease it. If the reference count reaches zero, the object is destroyed."]
 #[repr(C)]
@@ -1339,7 +2185,7 @@ extern "C" {
     #[doc = " Returns a #IC4_DEVICE_INFO object describing one of the discovered video capture devices.\n\n @param[in] pEnumerator\tA pointer to a device enumerator\n @param[in] index\t\t\tList position of the device whose information is to be retrieved\n @param[out] ppInfo\t\tA pointer to receive a pointer to the a #IC4_DEVICE_INFO object.\\n\n\t\t\t\t\t\t\tWhen the device information object is no longer required, release the reference\n\t\t\t\t\t\t\tusing ic4_devenum_unref().\n\n @return \\c true on success, otherwise \\c false.\n\n @remarks ic4_devenum_update_device_list() has to be called before this function can return anything useful.\n          Use ic4_devenum_get_device_count() to determine the maximum valid value for \\a index.\n\n @see ic4_devinfo_unref"]
     pub fn ic4_devenum_get_devinfo(
         pEnumerator: *const IC4_DEVICE_ENUM,
-        index: ::std::os::raw::c_int,
+        index: ::core::ffi::c_int,
         ppInfo: *mut *mut IC4_DEVICE_INFO,
     ) -> bool;
 }
@@ -1351,7 +2197,7 @@ extern "C" {
     #[doc = " Returns the number of interfaces discovered by the previous call to ic4_devenum_update_interface_list().\n\n @param[in] pEnumerator A pointer to a device enumerator\n\n @return The number of interfaces in the enumerator's internal interface list\\n\n         If an error occurs, the function returns 0. ic4_get_last_error() can query error information.\n\n @see ic4_devenum_get_devitf"]
     pub fn ic4_devenum_get_interface_count(
         pEnumerator: *const IC4_DEVICE_ENUM,
-    ) -> ::std::os::raw::c_int;
+    ) -> ::core::ffi::c_int;
 }
 #[doc = " \\struct IC4_INTERFACE\n Device interface type.\n\n Interfaces represent physical connections for cameras to the computer, e.g. network adapters or USB controllers.\n\n Instances of this type are created by calling ic4_devenum_get_devitf().\n\n This type is reference-counted. Call ic4_devitf_ref() to increase the internal reference count,\n or ic4_devitf_unref() to decrease it. If the reference count reaches zero, the object is destroyed."]
 #[repr(C)]
@@ -1363,23 +2209,58 @@ extern "C" {
     #[doc = " Returns a #IC4_INTERFACE object describing one of the discovered interfaces.\n\n @param[in] pEnumerator\tA pointer to a device enumerator\n @param[in] index\t\t\tList position of the interface to be opened\n @param[out] ppInterface\tA pointer to receive a pointer to the a #IC4_INTERFACE object.\\n\n                          When the interface object is no longer required, release the reference\n                          using ic4_devitf_unref().\n\n @return \\c true on success, otherwise \\c false.\n\n @remarks ic4_devenum_update_interface_list() has to be called before this function can return anything useful.\n          Use ic4_devenum_get_interface_count() to determine the maximum valid value for \\a index.\n\n @see ic4_devinfo_unref"]
     pub fn ic4_devenum_get_devitf(
         pEnumerator: *const IC4_DEVICE_ENUM,
-        index: ::std::os::raw::c_int,
+        index: ::core::ffi::c_int,
         ppInterface: *mut *mut IC4_INTERFACE,
     ) -> bool;
 }
 #[doc = " Function pointer for the device-list-changed handler\n\n @param[in] pDevEnum\tPointer to the device enumerator on which the callback was registered\n @param[in] user_ptr\tUser data that was specified when calling #ic4_devenum_event_add_device_list_changed()"]
-pub type ic4_devenum_device_list_change_handler = ::std::option::Option<
-    unsafe extern "C" fn(pDevEnum: *mut IC4_DEVICE_ENUM, user_ptr: *mut ::std::os::raw::c_void),
->;
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct ic4_devenum_device_list_change_handler(
+    pub  ::core::option::Option<
+        unsafe extern "C" fn(pDevEnum: *mut IC4_DEVICE_ENUM, user_ptr: *mut ::core::ffi::c_void),
+    >,
+);
+impl ::core::ops::Deref for ic4_devenum_device_list_change_handler {
+    type Target = ::core::option::Option<
+        unsafe extern "C" fn(pDevEnum: *mut IC4_DEVICE_ENUM, user_ptr: *mut ::core::ffi::c_void),
+    >;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for ic4_devenum_device_list_change_handler {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
 #[doc = " Function pointer for cleanup of the device-list-changed user data\n\n @param[in] user_ptr\tUser data that was specified when calling #ic4_devenum_event_add_device_list_changed()"]
-pub type ic4_devenum_device_list_change_deleter =
-    ::std::option::Option<unsafe extern "C" fn(user_ptr: *mut ::std::os::raw::c_void)>;
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct ic4_devenum_device_list_change_deleter(
+    pub ::core::option::Option<unsafe extern "C" fn(user_ptr: *mut ::core::ffi::c_void)>,
+);
+impl ::core::ops::Deref for ic4_devenum_device_list_change_deleter {
+    type Target = ::core::option::Option<unsafe extern "C" fn(user_ptr: *mut ::core::ffi::c_void)>;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for ic4_devenum_device_list_change_deleter {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
 extern "C" {
     #[doc = " Registers a function to be called when the list of available video capture devices has (potentially) changed\n\n @param[in] pEnumerator\tThe device enumerator for which the callback is registered\n @param[in] handler\t\tThe function to be called when the list of available video capture devices has changed\n @param[in] user_ptr\t\tUser data to be passed in calls to \\a handler.\n @param[in] deleter\t\tA function to be called when the handler was unregistered and the user_ptr will no longer be required.\\n\n\t\t\t\t\t\t\tThe deleter function can be used to release data associated with \\a user_ptr.\\n\n\t\t\t\t\t\t\tThe \\a deleter function will be called when the device-list-changed handler is unregistered,\n\t\t\t\t\t\t\tor the device enumerator object itself is destroyed.\n\n @note\n To unregister a device-list-changed handler, call #ic4_devenum_event_remove_device_list_changed().\\n\n It is not guaranteed that every call to @a handler correlates to an actual change in the device list.\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information."]
     pub fn ic4_devenum_event_add_device_list_changed(
         pEnumerator: *mut IC4_DEVICE_ENUM,
         handler: ic4_devenum_device_list_change_handler,
-        user_ptr: *mut ::std::os::raw::c_void,
+        user_ptr: *mut ::core::ffi::c_void,
         deleter: ic4_devenum_device_list_change_deleter,
     ) -> bool;
 }
@@ -1388,7 +2269,7 @@ extern "C" {
     pub fn ic4_devenum_event_remove_device_list_changed(
         pEnumerator: *mut IC4_DEVICE_ENUM,
         handler: ic4_devenum_device_list_change_handler,
-        user_ptr: *mut ::std::os::raw::c_void,
+        user_ptr: *mut ::core::ffi::c_void,
     ) -> bool;
 }
 extern "C" {
@@ -1403,19 +2284,17 @@ extern "C" {
     #[doc = " Returns the name of the device interface.\n\n @param[in] pInterface A pointer to a device interface\n\n @return\tA null-terminated string containing the device interface's name.\\n\n\t\t\tThe memory pointed to by the returned pointer is valid as long as the interface object exists.\\n\n\t\t\tIf an error occurs, the function returns @c NULL. Use ic4_get_last_error() to query error information."]
     pub fn ic4_devitf_get_display_name(
         pInterface: *const IC4_INTERFACE,
-    ) -> *const ::std::os::raw::c_char;
+    ) -> *const ::core::ffi::c_char;
 }
 extern "C" {
     #[doc = " @brief Returns the name of the transport layer that provides this interface object.\n\n This string can be interpreted as a name for the driver providing access to devices on the interface.\n\n @param[in] pInterface\tA pointer to a device interface\n\n @return\tA null-terminated string containing the transport layer name.\\n\n\t\t\tThe memory pointed to by the returned pointer is valid as long as the interface object exists.\\n\n\t\t\tIf an error occurs, the function returns @c NULL. Use ic4_get_last_error() to query error information."]
-    pub fn ic4_devitf_get_tl_name(
-        pInterface: *const IC4_INTERFACE,
-    ) -> *const ::std::os::raw::c_char;
+    pub fn ic4_devitf_get_tl_name(pInterface: *const IC4_INTERFACE) -> *const ::core::ffi::c_char;
 }
 extern "C" {
     #[doc = " @brief Returns the version of the transport layer that provides this interface object.\n\n This string can be interpreted as driver version for the driver providing access devices on the interface.\n\n @param[in] pInterface\tA pointer to a device interface\n\n @return\tA null-terminated string containing the transport layer verision.\\n\n\t\t\tThe memory pointed to by the returned pointer is valid as long as the interface object exists.\\n\n\t\t\tIf an error occurs, the function returns @c NULL. Use ic4_get_last_error() to query error information."]
     pub fn ic4_devitf_get_tl_version(
         pInterface: *const IC4_INTERFACE,
-    ) -> *const ::std::os::raw::c_char;
+    ) -> *const ::core::ffi::c_char;
 }
 #[repr(i32)]
 #[non_exhaustive]
@@ -1446,13 +2325,13 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Returns the number of devices discovered by the previous call to ic4_devitf_update_device_list().\n\n @param[in] pInterface A pointer to a device interface\n\n @return The number of devices in the inferface's internal device list\\n\n         If an error occurs, the function returns 0. ic4_get_last_error() can query error information.\n\n @see ic4_devitf_get_devinfo"]
-    pub fn ic4_devitf_get_device_count(pInterface: *const IC4_INTERFACE) -> ::std::os::raw::c_int;
+    pub fn ic4_devitf_get_device_count(pInterface: *const IC4_INTERFACE) -> ::core::ffi::c_int;
 }
 extern "C" {
     #[doc = " Returns a #IC4_DEVICE_INFO object describing one of the discovered video capture devices.\n\n @param[in] pInterface\tA pointer to a device interface\n @param[in] index\t\t\tList position of the device whose information is to be retrieved\n @param[out] ppInfo\t\tA pointer to receive a pointer to the a #IC4_DEVICE_INFO object.\\n\n\t\t\t\t\t\t\tWhen the device information object is no longer required, release the reference\n\t\t\t\t\t\t\tusing ic4_devenum_unref().\n\n @return \\c true on success, otherwise \\c false.\n\n @remarks ic4_devitf_update_device_list() has to be called before this function can return anything useful.\n          Use ic4_devitf_get_device_count() to determine the maximum valid value for \\a index.\n\n @see ic4_devinfo_unref"]
     pub fn ic4_devitf_get_devinfo(
         pInterface: *const IC4_INTERFACE,
-        index: ::std::os::raw::c_int,
+        index: ::core::ffi::c_int,
         ppInfo: *mut *mut IC4_DEVICE_INFO,
     ) -> bool;
 }
@@ -1473,27 +2352,24 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Get the model name from a device information object.\n\n @param[in] pInfo A pointer to a device information object\n\n @return\n    A pointer to a null-terminated string containing the device's model name, or \\c NULL if an error occured.\\n\n    Use ic4_get_last_error() to query error information.\\n\n    The memory pointed to by the return value is valid as long as the device information object exists."]
-    pub fn ic4_devinfo_get_model_name(
-        pInfo: *const IC4_DEVICE_INFO,
-    ) -> *const ::std::os::raw::c_char;
+    pub fn ic4_devinfo_get_model_name(pInfo: *const IC4_DEVICE_INFO) -> *const ::core::ffi::c_char;
 }
 extern "C" {
     #[doc = " Get the textual representation of the serial number from a device information object.\n\n @param[in] pInfo A pointer to a device information object\n\n @return\n    A pointer to a null-terminated string containing the device's serial number, or \\c NULL if an error occured.\\n\n    Use ic4_get_last_error() to query error information.\\n\n    The memory pointed to by the return value is valid as long as the device information object exists.\\n\n\t  The format of the serial number string is device-specific.\n"]
-    pub fn ic4_devinfo_get_serial(pInfo: *const IC4_DEVICE_INFO) -> *const ::std::os::raw::c_char;
+    pub fn ic4_devinfo_get_serial(pInfo: *const IC4_DEVICE_INFO) -> *const ::core::ffi::c_char;
 }
 extern "C" {
     #[doc = " Get the device version from a device information object.\n\n @param[in] pInfo A pointer to a device information object\n\n @return\n    A pointer to a null-terminated string containing the device's version information, or \\c NULL if an error occured.\\n\n    Use ic4_get_last_error() to query error information.\\n\n    The memory pointed to by the return value is valid as long as the device information object exists.\\n\n\t  The format of the device version is device-specific."]
-    pub fn ic4_devinfo_get_version(pInfo: *const IC4_DEVICE_INFO) -> *const ::std::os::raw::c_char;
+    pub fn ic4_devinfo_get_version(pInfo: *const IC4_DEVICE_INFO) -> *const ::core::ffi::c_char;
 }
 extern "C" {
     #[doc = " Get the device's user-defined identifier from a device information object.\n\n @param[in] pInfo A pointer to a device information object\n\n @return\n    A pointer to a null-terminated string containing the device's user-defined identifier, or \\c NULL if an error occured.\\n\n    Use ic4_get_last_error() to query error information.\\n\n    The memory pointed to by the return value is valid as long as the device information object exists.\n\n @remarks\n    If supported by the device, the device's user-defined identifier can be configured through the @c DeviceUserID feature\n    in the device's property map."]
-    pub fn ic4_devinfo_get_user_id(pInfo: *const IC4_DEVICE_INFO) -> *const ::std::os::raw::c_char;
+    pub fn ic4_devinfo_get_user_id(pInfo: *const IC4_DEVICE_INFO) -> *const ::core::ffi::c_char;
 }
 extern "C" {
     #[doc = " Get the device's unique name from a device information object.\n\n @param[in] pInfo A pointer to a device information object\n\n @return\n    A pointer to a null-terminated string containing the device's unique name, or \\c NULL if an error occured.\\n\n    Use ic4_get_last_error() to query error information.\\n\n    The memory pointed to by the return value is valid as long as the device information object exists.\\n\n\t  The unique name consists of an identifier for the device driver and the device's serial number,\n    allowing devices to be uniquely identified by a single string."]
-    pub fn ic4_devinfo_get_unique_name(
-        pInfo: *const IC4_DEVICE_INFO,
-    ) -> *const ::std::os::raw::c_char;
+    pub fn ic4_devinfo_get_unique_name(pInfo: *const IC4_DEVICE_INFO)
+        -> *const ::core::ffi::c_char;
 }
 extern "C" {
     #[doc = " Checks whether two device information objects refer to the same video capture device.\n\n @param[in] pInfo1 First device info\n @param[in] pInfo2 Second device info\n\n @return\n    \\c true if the device information objects refer to the same video capture device, otherwise \\c false.\\n\n    If both pointers are NULL, the function returns \\c true."]
@@ -1525,10 +2401,25 @@ pub enum IC4_DISPLAY_TYPE {
 pub struct IC4_DISPLAY {
     _unused: [u8; 0],
 }
-pub type IC4_WINDOW_HANDLE = *mut ::std::os::raw::c_void;
+#[repr(transparent)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
+pub struct IC4_WINDOW_HANDLE(pub *mut ::core::ffi::c_void);
+impl ::core::ops::Deref for IC4_WINDOW_HANDLE {
+    type Target = *mut ::core::ffi::c_void;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for IC4_WINDOW_HANDLE {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
 #[doc = " @brief A structure containing display statistics\n\n This structure contains information about the number of frames that were\n displayed or dropped by a display."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_DISPLAY_STATS {
     #[doc = " @brief The number of frames that were displayed by a display"]
     pub num_frames_displayed: u64,
@@ -1537,12 +2428,12 @@ pub struct IC4_DISPLAY_STATS {
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
-    ["Size of IC4_DISPLAY_STATS"][::std::mem::size_of::<IC4_DISPLAY_STATS>() - 16usize];
-    ["Alignment of IC4_DISPLAY_STATS"][::std::mem::align_of::<IC4_DISPLAY_STATS>() - 8usize];
+    ["Size of IC4_DISPLAY_STATS"][::core::mem::size_of::<IC4_DISPLAY_STATS>() - 16usize];
+    ["Alignment of IC4_DISPLAY_STATS"][::core::mem::align_of::<IC4_DISPLAY_STATS>() - 8usize];
     ["Offset of field: IC4_DISPLAY_STATS::num_frames_displayed"]
-        [::std::mem::offset_of!(IC4_DISPLAY_STATS, num_frames_displayed) - 0usize];
+        [::core::mem::offset_of!(IC4_DISPLAY_STATS, num_frames_displayed) - 0usize];
     ["Offset of field: IC4_DISPLAY_STATS::num_frames_dropped"]
-        [::std::mem::offset_of!(IC4_DISPLAY_STATS, num_frames_dropped) - 8usize];
+        [::core::mem::offset_of!(IC4_DISPLAY_STATS, num_frames_dropped) - 8usize];
 };
 extern "C" {
     #[doc = " @brief Creates a new display.\n\n @param[in] type The type of display to create\n @param[in] parent Handle to the parent window to embed the display into.\n @param[out] ppDisplay Pointer to receive the handle to the new display object.\\n\n             When the display is no longer required, release the object reference using ic4_display_unref().\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @warning\n This function only works in Windows platforms. For other platforms, use @ref ic4_display_create_external_opengl().\n\n @see ic4_display_unref"]
@@ -1597,25 +2488,60 @@ extern "C" {
     pub fn ic4_display_set_render_position(
         pDisplay: *mut IC4_DISPLAY,
         pos: IC4_DISPLAY_RENDER_POSITION,
-        left: ::std::os::raw::c_int,
-        top: ::std::os::raw::c_int,
-        width: ::std::os::raw::c_int,
-        height: ::std::os::raw::c_int,
+        left: ::core::ffi::c_int,
+        top: ::core::ffi::c_int,
+        width: ::core::ffi::c_int,
+        height: ::core::ffi::c_int,
     ) -> bool;
 }
 #[doc = " Function pointer for the window-closed handler\n\n @param[in] pDisplay\tPointer to the display whose window was closed\n @param[in] user_ptr\tUser data that was specified when calling #ic4_display_event_add_window_closed()"]
-pub type ic4_display_window_closed_handler = ::std::option::Option<
-    unsafe extern "C" fn(pDisplay: *mut IC4_DISPLAY, user_ptr: *mut ::std::os::raw::c_void),
->;
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct ic4_display_window_closed_handler(
+    pub  ::core::option::Option<
+        unsafe extern "C" fn(pDisplay: *mut IC4_DISPLAY, user_ptr: *mut ::core::ffi::c_void),
+    >,
+);
+impl ::core::ops::Deref for ic4_display_window_closed_handler {
+    type Target = ::core::option::Option<
+        unsafe extern "C" fn(pDisplay: *mut IC4_DISPLAY, user_ptr: *mut ::core::ffi::c_void),
+    >;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for ic4_display_window_closed_handler {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
 #[doc = " Function pointer for cleanup of the device-lost user data\n\n @param[in] user_ptr\tUser data that was specified when calling #ic4_grabber_event_add_device_lost()"]
-pub type ic4_display_window_closed_deleter =
-    ::std::option::Option<unsafe extern "C" fn(user_ptr: *mut ::std::os::raw::c_void)>;
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct ic4_display_window_closed_deleter(
+    pub ::core::option::Option<unsafe extern "C" fn(user_ptr: *mut ::core::ffi::c_void)>,
+);
+impl ::core::ops::Deref for ic4_display_window_closed_deleter {
+    type Target = ::core::option::Option<unsafe extern "C" fn(user_ptr: *mut ::core::ffi::c_void)>;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for ic4_display_window_closed_deleter {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
 extern "C" {
     #[doc = " @brief Registers a callback to be called when the display is closed.\n\n @param[in] pDisplay\tA display\n @param[in] handler\tThe function to be called when the display is closed\n @param[in] user_ptr\tUser data to be passed in calls to \\a handler.\n @param[in] deleter\tA function to be called when the handler was unregistered and the user_ptr will no longer be required.\\n\n\t\t\t\t\t\tThe deleter function can be used to release data associated with \\a user_ptr.\\n\n\t\t\t\t\t\tThe \\a deleter function will be called when the display-closed handler is unregistered,\n\t\t\t\t\t\tor the display object itself is destroyed.\n\n @note\n To unregister a display-closed handler, call #ic4_display_event_remove_window_closed().\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information."]
     pub fn ic4_display_event_add_window_closed(
         pDisplay: *mut IC4_DISPLAY,
         handler: ic4_display_window_closed_handler,
-        user_ptr: *mut ::std::os::raw::c_void,
+        user_ptr: *mut ::core::ffi::c_void,
         deleter: ic4_display_window_closed_deleter,
     ) -> bool;
 }
@@ -1624,7 +2550,7 @@ extern "C" {
     pub fn ic4_display_event_remove_window_closed(
         pDisplay: *mut IC4_DISPLAY,
         handler: ic4_display_window_closed_handler,
-        user_ptr: *mut ::std::os::raw::c_void,
+        user_ptr: *mut ::core::ffi::c_void,
     ) -> bool;
 }
 extern "C" {
@@ -1635,8 +2561,8 @@ extern "C" {
     #[doc = " @brief Updates the external OpenGL display with the latest image available.\n\n @param[in] pDisplay\tThe external OpenGL display\n @param[in] width\t\tWidth of the display window in physical pixels\n @param[in] height\tHeight of the display window in physical pixels\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse @ref ic4_get_last_error() to query error information.\n\n @remarks\n This function must be called with the OpenGL context activated for the executing thread (e.g. @c makeCurrent)."]
     pub fn ic4_display_external_opengl_render(
         pDisplay: *mut IC4_DISPLAY,
-        width: ::std::os::raw::c_int,
-        height: ::std::os::raw::c_int,
+        width: ::core::ffi::c_int,
+        height: ::core::ffi::c_int,
     ) -> bool;
 }
 extern "C" {
@@ -1727,7 +2653,7 @@ extern "C" {
     #[doc = " @brief Query information about the error of the previous library function call\n\n @param[out] pError Pointer to a #IC4_ERROR value to receive the error code.\n @param[out] message Pointer to a character array to receive an error message.<br>\n This parameter is optional and may be \\c NULL.\n @param[in,out] message_length Pointer to a \\c size_t describing the length of the array pointed to by \\a message.<br>\n If \\a message is not \\c NULL, this parameter is required.<br>\n The function always writes the actual number of characters required to store the error message.\n\n @return \\c true on success.\n @return If \\a pError is \\c NULL, the function fails and returns \\c false.\n @return If \\a message is not \\c NULL and \\a message_length is \\c NULL, the function fails and returns \\c false.\n @return If \\a *message_length is lower than the number of characters required to store the error message, the function fails and returns \\c false.\n\n @note\n The last error information is stored in a thread-local way. A call to \\c ic4_get_last_error\n returns error information about the previous function call that happened on the same thread\n that \\c ic4_get_last_error is called from.\n\n @note\n An error while calling \\c ic4_get_last_error does not update the internally stored last error."]
     pub fn ic4_get_last_error(
         pError: *mut IC4_ERROR,
-        message: *mut ::std::os::raw::c_char,
+        message: *mut ::core::ffi::c_char,
         message_length: *mut usize,
     ) -> bool;
 }
@@ -1763,7 +2689,7 @@ extern "C" {
     #[doc = " @brief Opens the video capture matching the specified identifier.\n\n @param[in] pGrabber\t\tA grabber instance that does not have an opened video capture device\n @param[in] identifier\tThe model name, unique name, serial, user id, IPV4 address or MAC address of a connected video capture device\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @remarks\n If the grabber already has a device open, the function will fail and the error value is set to #IC4_ERROR_INVALID_OPERATION. \\n\n If there are multiple devices matching the specified identifier, the function will fail and the error value is set to #IC4_ERROR_AMBIGUOUS. \\n\n If there is no device with the specified identifier, the function will fail and the error value is set to #IC4_ERROR_DEVICE_NOT_FOUND. \\n\n\n @see ic4_grabber_device_open\n @see ic4_grabber_device_close\n @see ic4_grabber_is_device_open\n @see ic4_grabber_is_device_valid"]
     pub fn ic4_grabber_device_open_by_identifier(
         pGrabber: *mut IC4_GRABBER,
-        identifier: *const ::std::os::raw::c_char,
+        identifier: *const ::core::ffi::c_char,
     ) -> bool;
 }
 extern "C" {
@@ -1840,18 +2766,53 @@ extern "C" {
     ) -> bool;
 }
 #[doc = " Function pointer for the device-lost handler\n\n @param[in] pGrabber\tPointer to the grabber whose device was lost\n @param[in] user_ptr\tUser data that was specified when calling #ic4_grabber_event_add_device_lost()"]
-pub type ic4_grabber_device_lost_handler = ::std::option::Option<
-    unsafe extern "C" fn(pGrabber: *mut IC4_GRABBER, user_ptr: *mut ::std::os::raw::c_void),
->;
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct ic4_grabber_device_lost_handler(
+    pub  ::core::option::Option<
+        unsafe extern "C" fn(pGrabber: *mut IC4_GRABBER, user_ptr: *mut ::core::ffi::c_void),
+    >,
+);
+impl ::core::ops::Deref for ic4_grabber_device_lost_handler {
+    type Target = ::core::option::Option<
+        unsafe extern "C" fn(pGrabber: *mut IC4_GRABBER, user_ptr: *mut ::core::ffi::c_void),
+    >;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for ic4_grabber_device_lost_handler {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
 #[doc = " Function pointer for cleanup of the device-lost user data\n\n @param[in] user_ptr\tUser data that was specified when calling #ic4_grabber_event_add_device_lost()"]
-pub type ic4_grabber_device_lost_deleter =
-    ::std::option::Option<unsafe extern "C" fn(user_ptr: *mut ::std::os::raw::c_void)>;
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct ic4_grabber_device_lost_deleter(
+    pub ::core::option::Option<unsafe extern "C" fn(user_ptr: *mut ::core::ffi::c_void)>,
+);
+impl ::core::ops::Deref for ic4_grabber_device_lost_deleter {
+    type Target = ::core::option::Option<unsafe extern "C" fn(user_ptr: *mut ::core::ffi::c_void)>;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for ic4_grabber_device_lost_deleter {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
 extern "C" {
     #[doc = " Registers a function to be called when the currently opened video capture device was disconnected.\n\n @param[in] pGrabber\tThe grabber for which the callback is registered\n @param[in] handler\tThe function to be called when the device is lost\n @param[in] user_ptr\tUser data to be passed in calls to \\a handler.\n @param[in] deleter\tA function to be called when the handler was unregistered and the user_ptr will no longer be required.\\n\n\t\t\t\t\t\tThe deleter function can be used to release data associated with \\a user_ptr.\\n\n\t\t\t\t\t\tThe \\a deleter function will be called when the device-lost handler is unregistered,\n\t\t\t\t\t\tor the grabber object itself is destroyed.\n\n @note\n To unregister a device-lost handler, call #ic4_grabber_event_remove_device_lost().\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information."]
     pub fn ic4_grabber_event_add_device_lost(
         pGrabber: *mut IC4_GRABBER,
         handler: ic4_grabber_device_lost_handler,
-        user_ptr: *mut ::std::os::raw::c_void,
+        user_ptr: *mut ::core::ffi::c_void,
         deleter: ic4_grabber_device_lost_deleter,
     ) -> bool;
 }
@@ -1860,12 +2821,12 @@ extern "C" {
     pub fn ic4_grabber_event_remove_device_lost(
         pGrabber: *mut IC4_GRABBER,
         handler: ic4_grabber_device_lost_handler,
-        user_ptr: *mut ::std::os::raw::c_void,
+        user_ptr: *mut ::core::ffi::c_void,
     ) -> bool;
 }
 #[doc = " @brief Contains statistics counters that can be used to analyze the stream behavior and identify possible bottlenecks.\n\n This structure is filled by calling #ic4_grabber_get_stream_stats()."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_STREAM_STATS {
     #[doc = "< Number of frames delivered by the device"]
     pub device_delivered: u64,
@@ -1886,24 +2847,24 @@ pub struct IC4_STREAM_STATS {
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
-    ["Size of IC4_STREAM_STATS"][::std::mem::size_of::<IC4_STREAM_STATS>() - 64usize];
-    ["Alignment of IC4_STREAM_STATS"][::std::mem::align_of::<IC4_STREAM_STATS>() - 8usize];
+    ["Size of IC4_STREAM_STATS"][::core::mem::size_of::<IC4_STREAM_STATS>() - 64usize];
+    ["Alignment of IC4_STREAM_STATS"][::core::mem::align_of::<IC4_STREAM_STATS>() - 8usize];
     ["Offset of field: IC4_STREAM_STATS::device_delivered"]
-        [::std::mem::offset_of!(IC4_STREAM_STATS, device_delivered) - 0usize];
+        [::core::mem::offset_of!(IC4_STREAM_STATS, device_delivered) - 0usize];
     ["Offset of field: IC4_STREAM_STATS::device_transmission_error"]
-        [::std::mem::offset_of!(IC4_STREAM_STATS, device_transmission_error) - 8usize];
+        [::core::mem::offset_of!(IC4_STREAM_STATS, device_transmission_error) - 8usize];
     ["Offset of field: IC4_STREAM_STATS::device_underrun"]
-        [::std::mem::offset_of!(IC4_STREAM_STATS, device_underrun) - 16usize];
+        [::core::mem::offset_of!(IC4_STREAM_STATS, device_underrun) - 16usize];
     ["Offset of field: IC4_STREAM_STATS::transform_delivered"]
-        [::std::mem::offset_of!(IC4_STREAM_STATS, transform_delivered) - 24usize];
+        [::core::mem::offset_of!(IC4_STREAM_STATS, transform_delivered) - 24usize];
     ["Offset of field: IC4_STREAM_STATS::transform_underrun"]
-        [::std::mem::offset_of!(IC4_STREAM_STATS, transform_underrun) - 32usize];
+        [::core::mem::offset_of!(IC4_STREAM_STATS, transform_underrun) - 32usize];
     ["Offset of field: IC4_STREAM_STATS::sink_delivered"]
-        [::std::mem::offset_of!(IC4_STREAM_STATS, sink_delivered) - 40usize];
+        [::core::mem::offset_of!(IC4_STREAM_STATS, sink_delivered) - 40usize];
     ["Offset of field: IC4_STREAM_STATS::sink_underrun"]
-        [::std::mem::offset_of!(IC4_STREAM_STATS, sink_underrun) - 48usize];
+        [::core::mem::offset_of!(IC4_STREAM_STATS, sink_underrun) - 48usize];
     ["Offset of field: IC4_STREAM_STATS::sink_ignored"]
-        [::std::mem::offset_of!(IC4_STREAM_STATS, sink_ignored) - 56usize];
+        [::core::mem::offset_of!(IC4_STREAM_STATS, sink_ignored) - 56usize];
 };
 extern "C" {
     #[doc = " @brief Query statistics counters from the currently running or previously stopped data stream.\n\n @param[in] pGrabber\tA grabber object\n @param[out] stats\tA pointer to a structure to receive the stream statistics\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @pre This operation is only valid after a data stream was established once."]
@@ -1913,14 +2874,31 @@ extern "C" {
     ) -> bool;
 }
 #[doc = " @brief Callback function called to allocate memory during the call of #ic4_grabber_device_save_state.\n\n @param[in]\tsize\tSize of the memory buffer to be allocated.\n\n @return\t\tThe pointer to the allocated memory buffer, or @c NULL if the allocation was not possible.\n\n @note\n If this function returns @c NULL, the call to #ic4_grabber_device_save_state will fail.\n\n @see ic4_grabber_device_save_state"]
-pub type ic4_device_state_allocator =
-    ::std::option::Option<unsafe extern "C" fn(size: usize) -> *mut ::std::os::raw::c_void>;
+#[repr(transparent)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+pub struct ic4_device_state_allocator(
+    pub ::core::option::Option<unsafe extern "C" fn(size: usize) -> *mut ::core::ffi::c_void>,
+);
+impl ::core::ops::Deref for ic4_device_state_allocator {
+    type Target =
+        ::core::option::Option<unsafe extern "C" fn(size: usize) -> *mut ::core::ffi::c_void>;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl ::core::ops::DerefMut for ic4_device_state_allocator {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
 extern "C" {
     #[doc = " @brief Saves the currently opened video capture device and all its settings into a memory buffer.\n\n @param[in]\tpGrabber\tA grabber object with an opened device\n @param[in]\talloc\t\tPointer to a function that allocates the memory buffer.\\n\n\t\t\t\t\t\t\tFor example, @c malloc can be passed here.\n @param[out]\tppData\t\tPointer to a pointer to receive the newly-allocated memory buffer containing the device state.\\n\n\t\t\t\t\t\t\tThe caller is responsible for releasing the memory, using a function that can free memory returned by @c alloc.\n @param[out]\tdata_size\tPointer to size_t to receive the size of the memory buffer allocated by the call\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @note\n To restore the device state at a later time, use #ic4_grabber_device_open_from_state.\\n\n In addition to serializing the device's properties (like #ic4_propmap_serialize_to_memory() would), this function also saves the\n currently opened video capture device so that it can be re-opened at a later time with all settings restored.\n\n @see ic4_grabber_load_device_state\n @see ic4_grabber_save_device_state_to_file"]
     pub fn ic4_grabber_device_save_state(
         pGrabber: *mut IC4_GRABBER,
         alloc: ic4_device_state_allocator,
-        ppData: *mut *mut ::std::os::raw::c_void,
+        ppData: *mut *mut ::core::ffi::c_void,
         data_size: *mut usize,
     ) -> bool;
 }
@@ -1928,7 +2906,7 @@ extern "C" {
     #[doc = " @brief Saves the currently opened video capture device and all its settings into a file.\n\n @param[in]\tpGrabber\tA grabber object with an opened device\n @param[in]\tfile_path\tPath to a file that the device state is written to.\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @note\n To restore the device state at a later time, use #ic4_grabber_device_open_from_state_file().\\n\n In addition to serializing the device's properties (like #ic4_propmap_serialize_to_file() would), this function also saves the\n currently opened video capture device so that it can be re-opened at a later time with all settings restored.\n\n @see ic4_grabber_device_open_from_state_file\n @see ic4_grabber_device_save_state"]
     pub fn ic4_grabber_device_save_state_to_file(
         pGrabber: *mut IC4_GRABBER,
-        file_path: *const ::std::os::raw::c_char,
+        file_path: *const ::core::ffi::c_char,
     ) -> bool;
 }
 extern "C" {
@@ -1941,7 +2919,7 @@ extern "C" {
     #[doc = " @brief Restores the opened device and its settings from a memory buffer containing data that was previously written by #ic4_grabber_device_save_state.\n\n @param[in]\tpGrabber\tA grabber object without an opened device\n @param[in]\tdata\t\tPointer to a memory buffer containing data that was written by #ic4_grabber_device_save_state\n @param[in]\tdata_size\tSize of the memory buffer pointed to by @c pData\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @note\n If the memory buffer contains settings for properties that could not be written, the function fails and the error value is set to #IC4_ERROR_INCOMPLETE.\n\n @see ic4_grabber_device_save_state"]
     pub fn ic4_grabber_device_open_from_state(
         pGrabber: *mut IC4_GRABBER,
-        data: *const ::std::os::raw::c_void,
+        data: *const ::core::ffi::c_void,
         data_size: usize,
     ) -> bool;
 }
@@ -1949,7 +2927,7 @@ extern "C" {
     #[doc = " @brief Restores the opened device and its settings from a file that was previously written by #ic4_grabber_device_save_state_to_file().\n\n @param[in]\tpGrabber\tA grabber object without an opened device\n @param[in]\tfile_path\tPath to a file containing device state information\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n @note\n If the file contains settings for properties that could not be written, the function fails and the error value is set to #IC4_ERROR_INCOMPLETE.\n\n @see ic4_grabber_device_save_state_to_file\n @see ic4_grabber_device_open_from_state"]
     pub fn ic4_grabber_device_open_from_state_file(
         pGrabber: *mut IC4_GRABBER,
-        file_path: *const ::std::os::raw::c_char,
+        file_path: *const ::core::ffi::c_char,
     ) -> bool;
 }
 extern "C" {
@@ -1959,7 +2937,7 @@ extern "C" {
     ) -> bool;
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_DBG_BUFFER_STATS {
     pub num_announced: u64,
     pub num_queued: u64,
@@ -1967,14 +2945,14 @@ pub struct IC4_DBG_BUFFER_STATS {
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
-    ["Size of IC4_DBG_BUFFER_STATS"][::std::mem::size_of::<IC4_DBG_BUFFER_STATS>() - 24usize];
-    ["Alignment of IC4_DBG_BUFFER_STATS"][::std::mem::align_of::<IC4_DBG_BUFFER_STATS>() - 8usize];
+    ["Size of IC4_DBG_BUFFER_STATS"][::core::mem::size_of::<IC4_DBG_BUFFER_STATS>() - 24usize];
+    ["Alignment of IC4_DBG_BUFFER_STATS"][::core::mem::align_of::<IC4_DBG_BUFFER_STATS>() - 8usize];
     ["Offset of field: IC4_DBG_BUFFER_STATS::num_announced"]
-        [::std::mem::offset_of!(IC4_DBG_BUFFER_STATS, num_announced) - 0usize];
+        [::core::mem::offset_of!(IC4_DBG_BUFFER_STATS, num_announced) - 0usize];
     ["Offset of field: IC4_DBG_BUFFER_STATS::num_queued"]
-        [::std::mem::offset_of!(IC4_DBG_BUFFER_STATS, num_queued) - 8usize];
+        [::core::mem::offset_of!(IC4_DBG_BUFFER_STATS, num_queued) - 8usize];
     ["Offset of field: IC4_DBG_BUFFER_STATS::num_await_delivery"]
-        [::std::mem::offset_of!(IC4_DBG_BUFFER_STATS, num_await_delivery) - 16usize];
+        [::core::mem::offset_of!(IC4_DBG_BUFFER_STATS, num_await_delivery) - 16usize];
 };
 extern "C" {
     pub fn ic4_dbg_grabber_device_buffer_stats(
@@ -2024,7 +3002,7 @@ pub enum IC4_LOG_TARGET_FLAGS {
 }
 #[doc = " @brief The library initialization config structure\n\n Passed to @ref ic4_init_library when initializing the IC Imaging Control 4 C Library."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_INIT_CONFIG {
     #[doc = " @brief Specifies the library API log level.\n\n This log level controls whether to log errors for failed library API function calls."]
     pub api_log_level: IC4_LOG_LEVEL,
@@ -2033,25 +3011,34 @@ pub struct IC4_INIT_CONFIG {
     #[doc = " @brief Selects the targets for logging.\n\n This is a bitwise combination of @ref IC4_LOG_TARGET_FLAGS values."]
     pub log_targets: IC4_LOG_TARGET_FLAGS,
     #[doc = " @brief Specifies the log file to use if @a log_targets has @ref IC4_LOGTARGET_FILE set."]
-    pub log_file: *const ::std::os::raw::c_char,
+    pub log_file: *const ::core::ffi::c_char,
     #[doc = " @brief Reserved. Must be 0."]
     pub reserved0: u64,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
-    ["Size of IC4_INIT_CONFIG"][::std::mem::size_of::<IC4_INIT_CONFIG>() - 32usize];
-    ["Alignment of IC4_INIT_CONFIG"][::std::mem::align_of::<IC4_INIT_CONFIG>() - 8usize];
+    ["Size of IC4_INIT_CONFIG"][::core::mem::size_of::<IC4_INIT_CONFIG>() - 32usize];
+    ["Alignment of IC4_INIT_CONFIG"][::core::mem::align_of::<IC4_INIT_CONFIG>() - 8usize];
     ["Offset of field: IC4_INIT_CONFIG::api_log_level"]
-        [::std::mem::offset_of!(IC4_INIT_CONFIG, api_log_level) - 0usize];
+        [::core::mem::offset_of!(IC4_INIT_CONFIG, api_log_level) - 0usize];
     ["Offset of field: IC4_INIT_CONFIG::internal_log_level"]
-        [::std::mem::offset_of!(IC4_INIT_CONFIG, internal_log_level) - 4usize];
+        [::core::mem::offset_of!(IC4_INIT_CONFIG, internal_log_level) - 4usize];
     ["Offset of field: IC4_INIT_CONFIG::log_targets"]
-        [::std::mem::offset_of!(IC4_INIT_CONFIG, log_targets) - 8usize];
+        [::core::mem::offset_of!(IC4_INIT_CONFIG, log_targets) - 8usize];
     ["Offset of field: IC4_INIT_CONFIG::log_file"]
-        [::std::mem::offset_of!(IC4_INIT_CONFIG, log_file) - 16usize];
+        [::core::mem::offset_of!(IC4_INIT_CONFIG, log_file) - 16usize];
     ["Offset of field: IC4_INIT_CONFIG::reserved0"]
-        [::std::mem::offset_of!(IC4_INIT_CONFIG, reserved0) - 24usize];
+        [::core::mem::offset_of!(IC4_INIT_CONFIG, reserved0) - 24usize];
 };
+impl Default for IC4_INIT_CONFIG {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     #[doc = " @brief Initializes the IC Imaging Control 4 C Library\n\n ic4_init_library must be called before any other library function.\n\n @param init_config A structure configuring library settings, e.g. the log level.\n\n @return @c true on success, otherwise @c false."]
     pub fn ic4_init_library(init_config: *const IC4_INIT_CONFIG) -> bool;
@@ -2061,7 +3048,7 @@ extern "C" {
     pub fn ic4_exit_library();
 }
 extern "C" {
-    pub fn ic4_dbg_count_objects(type_name: *const ::std::os::raw::c_char) -> usize;
+    pub fn ic4_dbg_count_objects(type_name: *const ::core::ffi::c_char) -> usize;
 }
 #[repr(i32)]
 #[non_exhaustive]
@@ -2113,50 +3100,51 @@ extern "C" {
 }
 #[doc = " Contains function pointers used to specify the behavior of a queue sink."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_QUEUESINK_CALLBACKS {
     #[doc = " @brief Notifies the user that the sink will not call any additional callback functions.\n\n @anchor queuesink_release\n\n Any resources attached to the \\c context parameter can be released.\n\n @param[in] context   The \\c context parameter that was passed to #ic4_queuesink_create() when the sink was created\n\n @note\n The \\c release callback function is executed on the thread that destroys the sink using the final call to #ic4_sink_unref()."]
-    pub release: ::std::option::Option<unsafe extern "C" fn(context: *mut ::std::os::raw::c_void)>,
+    pub release: ::core::option::Option<unsafe extern "C" fn(context: *mut ::core::ffi::c_void)>,
     #[doc = " @brief Called when the data stream to the sink is created\n\n @anchor queuesink_sink_connected\n\n @param[in] sink                  The sink object\n @param[in] context               The \\c context parameter that was passed to #ic4_queuesink_create() when the sink was created\n @param[in] image_type            The negotiated image type that the sink will receive\n @param[in] min_buffers_required  The minimum number of buffers required by the device to start a stream\n\n @return  \\c true, if the data stream should be created.\n          If \\c false is returned the call to #ic4_grabber_stream_setup() will fail.\n\n @note\n @a min_buffers_required buffers have to be allocated and queued in order for the sink to begin operating.\n If the function does call @ref ic4_queuesink_alloc_and_queue_buffers(), the required number of buffers\n will be created automatically after the function returns.\n If the function does allocate buffers, but the number is lower than required, @ref ic4_grabber_stream_setup() will fail.\n\n @note\n The \\a queuesink_sink_connected function is executed on the thread that calls @ref ic4_grabber_stream_setup()."]
-    pub sink_connected: ::std::option::Option<
+    pub sink_connected: ::core::option::Option<
         unsafe extern "C" fn(
             sink: *mut IC4_SINK,
-            context: *mut ::std::os::raw::c_void,
+            context: *mut ::core::ffi::c_void,
             image_type: *const IC4_IMAGE_TYPE,
             min_buffers_required: usize,
         ) -> bool,
     >,
     #[doc = " Called when the data stream to the sink is stopped\n\n @anchor queuesink_sink_disconnected\n\n @param[in] sink          The sink object\n @param[in] context       The \\c context parameter that was passed to #ic4_queuesink_create() when the sink was created\n\n @note\n The \\a sink_disconnected function is executed on the thread that calls @ref ic4_grabber_stream_stop().\n\n @warning\n When the data stream to ths sink is stopped, the @ref ic4_grabber_stream_stop() call wait until this function returns.\n This can quickly lead to a deadlock, if code in the \\a sink_disconnected callback performs an operation that unconditionally requires\n activity on the thread that called @ref ic4_grabber_stream_stop()."]
-    pub sink_disconnected: ::std::option::Option<
-        unsafe extern "C" fn(sink: *mut IC4_SINK, context: *mut ::std::os::raw::c_void),
+    pub sink_disconnected: ::core::option::Option<
+        unsafe extern "C" fn(sink: *mut IC4_SINK, context: *mut ::core::ffi::c_void),
     >,
     #[doc = " Called when new images were added to the sink's queue of filled buffers\n\n This callback usually calls @ref ic4_queuesink_pop_output_buffer() to access the image buffers.\n\n @anchor queuesink_frames_queued\n\n @param[in] sink          The sink object\n @param[in] context       The \\c context parameter that was passed to #ic4_queuesink_create() when the sink was created\n\n @note\n If this callback function performs a lengthy operation, it is recommended to regularly check #ic4_queuesink_is_cancel_requested()\n to determine whether the data stream is being stopped.\n\n @note\n The \\a frames_queued function is executed on a dedicated thread managed by the sink.\n\n @warning\n When the data stream to ths sink is stopped, the #ic4_grabber_stream_stop() call wait until this function returns.\n This can quickly lead to a deadlock, if code in the \\c frames_queued callback performs an operation that unconditionally requires\n activity on the thread that called \\c ic4_grabber_stream_stop."]
-    pub frames_queued: ::std::option::Option<
-        unsafe extern "C" fn(sink: *mut IC4_SINK, context: *mut ::std::os::raw::c_void),
+    pub frames_queued: ::core::option::Option<
+        unsafe extern "C" fn(sink: *mut IC4_SINK, context: *mut ::core::ffi::c_void),
     >,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
-    ["Size of IC4_QUEUESINK_CALLBACKS"][::std::mem::size_of::<IC4_QUEUESINK_CALLBACKS>() - 32usize];
+    ["Size of IC4_QUEUESINK_CALLBACKS"]
+        [::core::mem::size_of::<IC4_QUEUESINK_CALLBACKS>() - 32usize];
     ["Alignment of IC4_QUEUESINK_CALLBACKS"]
-        [::std::mem::align_of::<IC4_QUEUESINK_CALLBACKS>() - 8usize];
+        [::core::mem::align_of::<IC4_QUEUESINK_CALLBACKS>() - 8usize];
     ["Offset of field: IC4_QUEUESINK_CALLBACKS::release"]
-        [::std::mem::offset_of!(IC4_QUEUESINK_CALLBACKS, release) - 0usize];
+        [::core::mem::offset_of!(IC4_QUEUESINK_CALLBACKS, release) - 0usize];
     ["Offset of field: IC4_QUEUESINK_CALLBACKS::sink_connected"]
-        [::std::mem::offset_of!(IC4_QUEUESINK_CALLBACKS, sink_connected) - 8usize];
+        [::core::mem::offset_of!(IC4_QUEUESINK_CALLBACKS, sink_connected) - 8usize];
     ["Offset of field: IC4_QUEUESINK_CALLBACKS::sink_disconnected"]
-        [::std::mem::offset_of!(IC4_QUEUESINK_CALLBACKS, sink_disconnected) - 16usize];
+        [::core::mem::offset_of!(IC4_QUEUESINK_CALLBACKS, sink_disconnected) - 16usize];
     ["Offset of field: IC4_QUEUESINK_CALLBACKS::frames_queued"]
-        [::std::mem::offset_of!(IC4_QUEUESINK_CALLBACKS, frames_queued) - 24usize];
+        [::core::mem::offset_of!(IC4_QUEUESINK_CALLBACKS, frames_queued) - 24usize];
 };
 #[doc = " @struct IC4_QUEUESINK_CONFIG\n\n @brief Configures the behavior of a queue sink.\n\n A pointer to a \\c IC4_QUEUESINK_CONFIG is passed to @ref ic4_queuesink_create()."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_QUEUESINK_CONFIG {
     #[doc = " @brief A structure containing function pointers to customize the sink's behavior.\n\n Programs usually at least register a callback for @ref IC4_QUEUESINK_CALLBACKS::frames_queued to be able\n to process new images immediately."]
     pub callbacks: IC4_QUEUESINK_CALLBACKS,
     #[doc = " @brief A user-defined value that is passed to the callbacks\n\n If \\c callback_context points to a memory location, and callback functions access that memory,\n the program has to make sure that the memory is valid until the @ref IC4_QUEUESINK_CALLBACKS::release callback is executed."]
-    pub callback_context: *mut ::std::os::raw::c_void,
+    pub callback_context: *mut ::core::ffi::c_void,
     #[doc = " @brief An array of possible pixel formats that the sink can receive."]
     pub pixel_formats: *const IC4_PIXEL_FORMAT,
     #[doc = " @brief Length of the @ref pixel_formats array.\n\n If this value is \\c 0, the sink will accept any pixel format."]
@@ -2164,29 +3152,38 @@ pub struct IC4_QUEUESINK_CONFIG {
     #[doc = " @brief A structure containing function pointers to customize the sink's allocator.\n\n This parameter is optional, set all callback functions to \\c NULL to use the default allocator.\n\n If @ref IC4_ALLOCATOR_CALLBACKS::allocate_buffer is set, @ref IC4_ALLOCATOR_CALLBACKS::free_buffer must be set as well."]
     pub allocator: IC4_ALLOCATOR_CALLBACKS,
     #[doc = " @brief A user-defined value that is passed to the allocator callbacks\n\n If \\c callback_context points to a memory location, and callback functions access that memory,\n the program has to make sure that the memory is valid until the @ref IC4_ALLOCATOR_CALLBACKS::release callback is executed."]
-    pub allocator_context: *mut ::std::os::raw::c_void,
+    pub allocator_context: *mut ::core::ffi::c_void,
     #[doc = " @brief Defines the maximum number of buffers that are stored in the sink's output queue.\n\n If set to @c 0, the number of buffers is unlimited.\n If a new frame arrives at the sink, and the output queue size would exceed @a max_output_buffers,\n the oldest image is discarded and its buffer is added to the free queue."]
     pub max_output_buffers: usize,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
-    ["Size of IC4_QUEUESINK_CONFIG"][::std::mem::size_of::<IC4_QUEUESINK_CONFIG>() - 96usize];
-    ["Alignment of IC4_QUEUESINK_CONFIG"][::std::mem::align_of::<IC4_QUEUESINK_CONFIG>() - 8usize];
+    ["Size of IC4_QUEUESINK_CONFIG"][::core::mem::size_of::<IC4_QUEUESINK_CONFIG>() - 96usize];
+    ["Alignment of IC4_QUEUESINK_CONFIG"][::core::mem::align_of::<IC4_QUEUESINK_CONFIG>() - 8usize];
     ["Offset of field: IC4_QUEUESINK_CONFIG::callbacks"]
-        [::std::mem::offset_of!(IC4_QUEUESINK_CONFIG, callbacks) - 0usize];
+        [::core::mem::offset_of!(IC4_QUEUESINK_CONFIG, callbacks) - 0usize];
     ["Offset of field: IC4_QUEUESINK_CONFIG::callback_context"]
-        [::std::mem::offset_of!(IC4_QUEUESINK_CONFIG, callback_context) - 32usize];
+        [::core::mem::offset_of!(IC4_QUEUESINK_CONFIG, callback_context) - 32usize];
     ["Offset of field: IC4_QUEUESINK_CONFIG::pixel_formats"]
-        [::std::mem::offset_of!(IC4_QUEUESINK_CONFIG, pixel_formats) - 40usize];
+        [::core::mem::offset_of!(IC4_QUEUESINK_CONFIG, pixel_formats) - 40usize];
     ["Offset of field: IC4_QUEUESINK_CONFIG::num_pixel_formats"]
-        [::std::mem::offset_of!(IC4_QUEUESINK_CONFIG, num_pixel_formats) - 48usize];
+        [::core::mem::offset_of!(IC4_QUEUESINK_CONFIG, num_pixel_formats) - 48usize];
     ["Offset of field: IC4_QUEUESINK_CONFIG::allocator"]
-        [::std::mem::offset_of!(IC4_QUEUESINK_CONFIG, allocator) - 56usize];
+        [::core::mem::offset_of!(IC4_QUEUESINK_CONFIG, allocator) - 56usize];
     ["Offset of field: IC4_QUEUESINK_CONFIG::allocator_context"]
-        [::std::mem::offset_of!(IC4_QUEUESINK_CONFIG, allocator_context) - 80usize];
+        [::core::mem::offset_of!(IC4_QUEUESINK_CONFIG, allocator_context) - 80usize];
     ["Offset of field: IC4_QUEUESINK_CONFIG::max_output_buffers"]
-        [::std::mem::offset_of!(IC4_QUEUESINK_CONFIG, max_output_buffers) - 88usize];
+        [::core::mem::offset_of!(IC4_QUEUESINK_CONFIG, max_output_buffers) - 88usize];
 };
+impl Default for IC4_QUEUESINK_CONFIG {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     #[doc = " @brief Creates a new @ref queuesink.\n\n @param[in] ppSink            Pointer to a sink handle to receive the new queue sink.\n @param[in] config            Pointer to a structure containing the sink configuration\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n The image type of the images the sink receives is determined when the data stream to the sink is created\n in a call to #ic4_grabber_stream_setup() using the following steps:\n  - If @ref IC4_QUEUESINK_CONFIG::num_pixel_formats is \\c 0, the device format is selected.\n  - If the device's output format matches one of the pixel formats passed in @ref IC4_QUEUESINK_CONFIG::pixel_formats, the first match is selected.\n  - If there is no direct match, but a conversion between the device's output format format and one of the passed pixel formats exists,\n      the first format with a conversion is selected.\n  - If no conversion between the device's output format and any of the values in @ref IC4_QUEUESINK_CONFIG::pixel_formats exists, the stream setup fails."]
     pub fn ic4_queuesink_create(
@@ -2221,7 +3218,7 @@ extern "C" {
 }
 #[doc = " @brief Contains information about the current queue lengths inside the queue sink."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_QUEUESINK_QUEUE_SIZES {
     #[doc = "< Number of image buffers in the free queue"]
     pub free_queue_length: usize,
@@ -2231,13 +3228,13 @@ pub struct IC4_QUEUESINK_QUEUE_SIZES {
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
     ["Size of IC4_QUEUESINK_QUEUE_SIZES"]
-        [::std::mem::size_of::<IC4_QUEUESINK_QUEUE_SIZES>() - 16usize];
+        [::core::mem::size_of::<IC4_QUEUESINK_QUEUE_SIZES>() - 16usize];
     ["Alignment of IC4_QUEUESINK_QUEUE_SIZES"]
-        [::std::mem::align_of::<IC4_QUEUESINK_QUEUE_SIZES>() - 8usize];
+        [::core::mem::align_of::<IC4_QUEUESINK_QUEUE_SIZES>() - 8usize];
     ["Offset of field: IC4_QUEUESINK_QUEUE_SIZES::free_queue_length"]
-        [::std::mem::offset_of!(IC4_QUEUESINK_QUEUE_SIZES, free_queue_length) - 0usize];
+        [::core::mem::offset_of!(IC4_QUEUESINK_QUEUE_SIZES, free_queue_length) - 0usize];
     ["Offset of field: IC4_QUEUESINK_QUEUE_SIZES::output_queue_length"]
-        [::std::mem::offset_of!(IC4_QUEUESINK_QUEUE_SIZES, output_queue_length) - 8usize];
+        [::core::mem::offset_of!(IC4_QUEUESINK_QUEUE_SIZES, output_queue_length) - 8usize];
 };
 extern "C" {
     #[doc = " @brief Query information about the number of image buffers in the queue sink's queues.\n\n @param[in] pSink     A queue sink\n @param[out] sizes    A pointer to a structure to receive the queue lengths\n\n @pre\n This operation is only valid while there is a data stream from a device to the sink.\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information."]
@@ -2248,18 +3245,18 @@ extern "C" {
 }
 #[doc = " @brief Contains image file storage options for bitmap files."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_IMAGEBUFFER_SAVE_OPTIONS_BMP {
     #[doc = " @brief If set, and the image buffer's pixel format is a bayer format, interpret the pixel data as monochrome\n and store the raw data as a monochrome image."]
-    pub store_bayer_raw_data_as_monochrome: ::std::os::raw::c_int,
+    pub store_bayer_raw_data_as_monochrome: ::core::ffi::c_int,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
     ["Size of IC4_IMAGEBUFFER_SAVE_OPTIONS_BMP"]
-        [::std::mem::size_of::<IC4_IMAGEBUFFER_SAVE_OPTIONS_BMP>() - 4usize];
+        [::core::mem::size_of::<IC4_IMAGEBUFFER_SAVE_OPTIONS_BMP>() - 4usize];
     ["Alignment of IC4_IMAGEBUFFER_SAVE_OPTIONS_BMP"]
-        [::std::mem::align_of::<IC4_IMAGEBUFFER_SAVE_OPTIONS_BMP>() - 4usize];
-    ["Offset of field: IC4_IMAGEBUFFER_SAVE_OPTIONS_BMP::store_bayer_raw_data_as_monochrome"][::std::mem::offset_of!(
+        [::core::mem::align_of::<IC4_IMAGEBUFFER_SAVE_OPTIONS_BMP>() - 4usize];
+    ["Offset of field: IC4_IMAGEBUFFER_SAVE_OPTIONS_BMP::store_bayer_raw_data_as_monochrome"][::core::mem::offset_of!(
         IC4_IMAGEBUFFER_SAVE_OPTIONS_BMP,
         store_bayer_raw_data_as_monochrome
     )
@@ -2283,57 +3280,66 @@ pub enum IC4_PNG_COMPRESSION_LEVEL {
 }
 #[doc = " @brief Contains image file storage options for PNG files."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_IMAGEBUFFER_SAVE_OPTIONS_PNG {
     #[doc = " @brief If set, and the image buffer's pixel format is a bayer format, interpret the pixel data as monochrome\n and store the raw data as a monochrome image."]
-    pub store_bayer_raw_data_as_monochrome: ::std::os::raw::c_int,
+    pub store_bayer_raw_data_as_monochrome: ::core::ffi::c_int,
     #[doc = " Specifies the PNG compression level"]
     pub compression_level: IC4_PNG_COMPRESSION_LEVEL,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
     ["Size of IC4_IMAGEBUFFER_SAVE_OPTIONS_PNG"]
-        [::std::mem::size_of::<IC4_IMAGEBUFFER_SAVE_OPTIONS_PNG>() - 8usize];
+        [::core::mem::size_of::<IC4_IMAGEBUFFER_SAVE_OPTIONS_PNG>() - 8usize];
     ["Alignment of IC4_IMAGEBUFFER_SAVE_OPTIONS_PNG"]
-        [::std::mem::align_of::<IC4_IMAGEBUFFER_SAVE_OPTIONS_PNG>() - 4usize];
-    ["Offset of field: IC4_IMAGEBUFFER_SAVE_OPTIONS_PNG::store_bayer_raw_data_as_monochrome"][::std::mem::offset_of!(
+        [::core::mem::align_of::<IC4_IMAGEBUFFER_SAVE_OPTIONS_PNG>() - 4usize];
+    ["Offset of field: IC4_IMAGEBUFFER_SAVE_OPTIONS_PNG::store_bayer_raw_data_as_monochrome"][::core::mem::offset_of!(
         IC4_IMAGEBUFFER_SAVE_OPTIONS_PNG,
         store_bayer_raw_data_as_monochrome
     )
         - 0usize];
     ["Offset of field: IC4_IMAGEBUFFER_SAVE_OPTIONS_PNG::compression_level"]
-        [::std::mem::offset_of!(IC4_IMAGEBUFFER_SAVE_OPTIONS_PNG, compression_level) - 4usize];
+        [::core::mem::offset_of!(IC4_IMAGEBUFFER_SAVE_OPTIONS_PNG, compression_level) - 4usize];
 };
+impl Default for IC4_IMAGEBUFFER_SAVE_OPTIONS_PNG {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[doc = " @brief Contains image file storage options for Jpeg files."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_IMAGEBUFFER_SAVE_OPTIONS_JPEG {
     #[doc = " @brief Specifies the Jpeg image quality in percent.\n\n High quality images will take more disk space, low quality images are smaller."]
-    pub quality_pct: ::std::os::raw::c_int,
+    pub quality_pct: ::core::ffi::c_int,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
     ["Size of IC4_IMAGEBUFFER_SAVE_OPTIONS_JPEG"]
-        [::std::mem::size_of::<IC4_IMAGEBUFFER_SAVE_OPTIONS_JPEG>() - 4usize];
+        [::core::mem::size_of::<IC4_IMAGEBUFFER_SAVE_OPTIONS_JPEG>() - 4usize];
     ["Alignment of IC4_IMAGEBUFFER_SAVE_OPTIONS_JPEG"]
-        [::std::mem::align_of::<IC4_IMAGEBUFFER_SAVE_OPTIONS_JPEG>() - 4usize];
+        [::core::mem::align_of::<IC4_IMAGEBUFFER_SAVE_OPTIONS_JPEG>() - 4usize];
     ["Offset of field: IC4_IMAGEBUFFER_SAVE_OPTIONS_JPEG::quality_pct"]
-        [::std::mem::offset_of!(IC4_IMAGEBUFFER_SAVE_OPTIONS_JPEG, quality_pct) - 0usize];
+        [::core::mem::offset_of!(IC4_IMAGEBUFFER_SAVE_OPTIONS_JPEG, quality_pct) - 0usize];
 };
 #[doc = " @brief Contains image file storage options for TIFF files."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_IMAGEBUFFER_SAVE_OPTIONS_TIFF {
     #[doc = " @brief If set, and the image buffer's pixel format is a bayer format, interpret the pixel data as monochrome\n and store the raw data as a monochrome image."]
-    pub store_bayer_raw_data_as_monochrome: ::std::os::raw::c_int,
+    pub store_bayer_raw_data_as_monochrome: ::core::ffi::c_int,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
     ["Size of IC4_IMAGEBUFFER_SAVE_OPTIONS_TIFF"]
-        [::std::mem::size_of::<IC4_IMAGEBUFFER_SAVE_OPTIONS_TIFF>() - 4usize];
+        [::core::mem::size_of::<IC4_IMAGEBUFFER_SAVE_OPTIONS_TIFF>() - 4usize];
     ["Alignment of IC4_IMAGEBUFFER_SAVE_OPTIONS_TIFF"]
-        [::std::mem::align_of::<IC4_IMAGEBUFFER_SAVE_OPTIONS_TIFF>() - 4usize];
-    ["Offset of field: IC4_IMAGEBUFFER_SAVE_OPTIONS_TIFF::store_bayer_raw_data_as_monochrome"][::std::mem::offset_of!(
+        [::core::mem::align_of::<IC4_IMAGEBUFFER_SAVE_OPTIONS_TIFF>() - 4usize];
+    ["Offset of field: IC4_IMAGEBUFFER_SAVE_OPTIONS_TIFF::store_bayer_raw_data_as_monochrome"][::core::mem::offset_of!(
         IC4_IMAGEBUFFER_SAVE_OPTIONS_TIFF,
         store_bayer_raw_data_as_monochrome
     )
@@ -2343,7 +3349,7 @@ extern "C" {
     #[doc = " @brief Saves an image buffer as a Bitmap file.\n\n @param[in] pImageBuffer\tAn image buffer\n @param[in] file_path\tPath of the image file\n @param[in] options\tOptions structure configuring the save operation\n\n @note\n Depending on the pixel format of the image buffer, a transformation is applied before saving the image.\n\t- Monochrome pixel formats are converted to Mono8 and stored as a 8-bit monochrome bitmap file\n\t- Bayer, RGB and YUV pixel formats are converted to BGR8 and stored as a 24-bit color bitmap file\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information."]
     pub fn ic4_imagebuffer_save_as_bmp(
         pImageBuffer: *mut IC4_IMAGE_BUFFER,
-        file_path: *const ::std::os::raw::c_char,
+        file_path: *const ::core::ffi::c_char,
         options: *const IC4_IMAGEBUFFER_SAVE_OPTIONS_BMP,
     ) -> bool;
 }
@@ -2351,7 +3357,7 @@ extern "C" {
     #[doc = " @brief Saves an image buffer as a Jpeg file.\n\n @param[in] pImageBuffer\tAn image buffer\n @param[in] file_path\tPath of the image file\n @param[in] options\tOptions structure configuring the save operation\n\n @note\n Depending on the pixel format of the image buffer, a transformation is applied before saving the image.\n\t- Monochrome pixel formats are converted to Mono8 and stored as a monochrome jpeg file\n\t- Bayer, RGB and YUV pixel formats are converted to BGR8 stored as a color jpeg file\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information."]
     pub fn ic4_imagebuffer_save_as_jpeg(
         pImageBuffer: *mut IC4_IMAGE_BUFFER,
-        file_path: *const ::std::os::raw::c_char,
+        file_path: *const ::core::ffi::c_char,
         options: *const IC4_IMAGEBUFFER_SAVE_OPTIONS_JPEG,
     ) -> bool;
 }
@@ -2359,7 +3365,7 @@ extern "C" {
     #[doc = " @brief Saves an image buffer as a Tiff file.\n\n @param[in] pImageBuffer\tAn image buffer\n @param[in] file_path\tPath of the image file\n @param[in] options\tOptions structure configuring the save operation\n\n @note\n Depending on the pixel format of the image buffer, a transformation is applied before saving the image.\n\t- Monochrome pixel formats with a bit depth higher than 8bpp are converted to Mono16 and stored as a monochrome Tiff file with 16 bits per channel\n\t- Mono8 image buffers are stored as a monochrome Tiff file with 8 bits per channel\n\t- Bayer format with a bit depth higher than 8bpp are converted to BGRa16 and stored as a 4-channel Tiff with 16 bits per channel\n\t- 8-bit Bayer, RGB and YUV pixel formats are converted to BGR8 stored as a 3-channel Tiff file with 8 bits per channel\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information."]
     pub fn ic4_imagebuffer_save_as_tiff(
         pImageBuffer: *mut IC4_IMAGE_BUFFER,
-        file_path: *const ::std::os::raw::c_char,
+        file_path: *const ::core::ffi::c_char,
         options: *const IC4_IMAGEBUFFER_SAVE_OPTIONS_TIFF,
     ) -> bool;
 }
@@ -2367,7 +3373,7 @@ extern "C" {
     #[doc = " @brief Saves an image buffer as a PNG file.\n\n @param[in] pImageBuffer\tAn image buffer\n @param[in] file_path\tPath of the image file\n @param[in] options\tOptions structure configuring the save operation\n\n @note\n Depending on the pixel format of the image buffer, a transformation is applied before saving the image.\n\t- Monochrome pixel formats with a bit depth higher than 8bpp are converted to Mono16 and stored as a monochrome PNG file with 16 bits per channel\n\t- Mono8 image buffers are stored as a monochrome PNG file with 8 bits per channel\n\t- Bayer format with a bit depth higher than 8bpp are converted to BGRa16 and stored as a 4-channel PNG with 16 bits per channel\n\t- 8-bit Bayer, RGB and YUV pixel formats are converted to BGR8 stored as a 3-channel PNG file with 8 bits per channel\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information."]
     pub fn ic4_imagebuffer_save_as_png(
         pImageBuffer: *mut IC4_IMAGE_BUFFER,
-        file_path: *const ::std::os::raw::c_char,
+        file_path: *const ::core::ffi::c_char,
         options: *const IC4_IMAGEBUFFER_SAVE_OPTIONS_PNG,
     ) -> bool;
 }
@@ -2411,7 +3417,7 @@ pub enum IC4_SNAPSINK_ALLOCATION_STRATEGY {
 }
 #[doc = " @struct IC4_SNAPSINK_CONFIG\n\n @brief Configures the behavior of a snap sink.\n\n A pointer to a \\c IC4_SNAPSINK_CONFIG is passed to @ref ic4_snapsink_create()."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_SNAPSINK_CONFIG {
     #[doc = " @brief Specifies the sink's buffer allocation strategy.\n\n The buffer allocation strategy defines how many buffers are pre-allocated, when additional buffers are created,\n and when excess buffers are reclaimed."]
     pub strategy: IC4_SNAPSINK_ALLOCATION_STRATEGY,
@@ -2430,31 +3436,40 @@ pub struct IC4_SNAPSINK_CONFIG {
     #[doc = " @brief A structure containing function pointers to customize the sink's allocator.\n\n This parameter is optional, set all callback functions to \\c to use the default allocator.\n\n If @ref IC4_ALLOCATOR_CALLBACKS::allocate_buffer is set, @ref IC4_ALLOCATOR_CALLBACKS::free_buffer must be set as well."]
     pub allocator: IC4_ALLOCATOR_CALLBACKS,
     #[doc = " @brief A user-defined value that is passed to the allocator callbacks\n\n If \\c callback_context points to a memory location, and callback functions access that memory,\n the program has to make sure that the memory is valid until the @ref IC4_ALLOCATOR_CALLBACKS::release callback is executed."]
-    pub allocator_context: *mut ::std::os::raw::c_void,
+    pub allocator_context: *mut ::core::ffi::c_void,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
-    ["Size of IC4_SNAPSINK_CONFIG"][::std::mem::size_of::<IC4_SNAPSINK_CONFIG>() - 88usize];
-    ["Alignment of IC4_SNAPSINK_CONFIG"][::std::mem::align_of::<IC4_SNAPSINK_CONFIG>() - 8usize];
+    ["Size of IC4_SNAPSINK_CONFIG"][::core::mem::size_of::<IC4_SNAPSINK_CONFIG>() - 88usize];
+    ["Alignment of IC4_SNAPSINK_CONFIG"][::core::mem::align_of::<IC4_SNAPSINK_CONFIG>() - 8usize];
     ["Offset of field: IC4_SNAPSINK_CONFIG::strategy"]
-        [::std::mem::offset_of!(IC4_SNAPSINK_CONFIG, strategy) - 0usize];
+        [::core::mem::offset_of!(IC4_SNAPSINK_CONFIG, strategy) - 0usize];
     ["Offset of field: IC4_SNAPSINK_CONFIG::num_buffers_alloc_on_connect"]
-        [::std::mem::offset_of!(IC4_SNAPSINK_CONFIG, num_buffers_alloc_on_connect) - 8usize];
+        [::core::mem::offset_of!(IC4_SNAPSINK_CONFIG, num_buffers_alloc_on_connect) - 8usize];
     ["Offset of field: IC4_SNAPSINK_CONFIG::num_buffers_allocation_threshold"]
-        [::std::mem::offset_of!(IC4_SNAPSINK_CONFIG, num_buffers_allocation_threshold) - 16usize];
+        [::core::mem::offset_of!(IC4_SNAPSINK_CONFIG, num_buffers_allocation_threshold) - 16usize];
     ["Offset of field: IC4_SNAPSINK_CONFIG::num_buffers_free_threshold"]
-        [::std::mem::offset_of!(IC4_SNAPSINK_CONFIG, num_buffers_free_threshold) - 24usize];
+        [::core::mem::offset_of!(IC4_SNAPSINK_CONFIG, num_buffers_free_threshold) - 24usize];
     ["Offset of field: IC4_SNAPSINK_CONFIG::num_buffers_max"]
-        [::std::mem::offset_of!(IC4_SNAPSINK_CONFIG, num_buffers_max) - 32usize];
+        [::core::mem::offset_of!(IC4_SNAPSINK_CONFIG, num_buffers_max) - 32usize];
     ["Offset of field: IC4_SNAPSINK_CONFIG::pixel_formats"]
-        [::std::mem::offset_of!(IC4_SNAPSINK_CONFIG, pixel_formats) - 40usize];
+        [::core::mem::offset_of!(IC4_SNAPSINK_CONFIG, pixel_formats) - 40usize];
     ["Offset of field: IC4_SNAPSINK_CONFIG::num_pixel_formats"]
-        [::std::mem::offset_of!(IC4_SNAPSINK_CONFIG, num_pixel_formats) - 48usize];
+        [::core::mem::offset_of!(IC4_SNAPSINK_CONFIG, num_pixel_formats) - 48usize];
     ["Offset of field: IC4_SNAPSINK_CONFIG::allocator"]
-        [::std::mem::offset_of!(IC4_SNAPSINK_CONFIG, allocator) - 56usize];
+        [::core::mem::offset_of!(IC4_SNAPSINK_CONFIG, allocator) - 56usize];
     ["Offset of field: IC4_SNAPSINK_CONFIG::allocator_context"]
-        [::std::mem::offset_of!(IC4_SNAPSINK_CONFIG, allocator_context) - 80usize];
+        [::core::mem::offset_of!(IC4_SNAPSINK_CONFIG, allocator_context) - 80usize];
 };
+impl Default for IC4_SNAPSINK_CONFIG {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     #[doc = " @brief Creates a new @ref snapsink.\n\n @param[in] ppSink            Pointer to a sink handle to receive the new snap sink.\n @param[in] config            Pointer to a structure containing the sink configuration.\\n\n                              This parameter is optional; passing @c NULL will use the default configuration.\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information.\n\n The image type of the images the sink receives is determined when the data stream to the sink is created\n in a call to #ic4_grabber_stream_setup() using the following steps:\n  - If @ref IC4_SNAPSINK_CONFIG::num_pixel_formats is \\c 0, the device format is selected.\n  - If the device's output format matches one of the pixel formats passed in @ref IC4_SNAPSINK_CONFIG::pixel_formats, the first match is selected.\n  - If there is no direct match, but a conversion between the device's output format format and one of the passed pixel formats exists,\n      the first format with a conversion is selected.\n  - If no conversion between the device's output format and any of the values in @ref IC4_SNAPSINK_CONFIG::pixel_formats exists, the stream setup fails."]
     pub fn ic4_snapsink_create(
@@ -2521,7 +3536,7 @@ extern "C" {
     #[doc = " @brief Opens a new video file ready to write images into.\n\n @param[in] pVideoWriter\tA video writer\n @param[in] file_name\t\tName of the new video file\n @param[in] image_type\tImage type of the images that are going to be written\n @param[in] frame_rate\tPlayback frame rate of the video file\n\n @return \\c true on success, otherwise \\c false.\\n\n\t\t\tUse ic4_get_last_error() to query error information."]
     pub fn ic4_videowriter_begin_file(
         pVideoWriter: *mut IC4_VIDEO_WRITER,
-        file_name: *const ::std::os::raw::c_char,
+        file_name: *const ::core::ffi::c_char,
         image_type: *const IC4_IMAGE_TYPE,
         frame_rate: f64,
     ) -> bool;
@@ -2578,7 +3593,7 @@ pub enum IC4_VERSION_INFO_FLAGS {
 extern "C" {
     #[doc = " @brief Retrieve version information description string\n\n @param[out] str         Pointer to a character array to receive an error message.\n @param[in,out] size     Size of str buffer\n @param[in] flags        What version information to retrieve\n\n @return \\c true on success"]
     pub fn ic4_get_version_info(
-        str_: *mut ::std::os::raw::c_char,
+        str_: *mut ::core::ffi::c_char,
         size: *mut usize,
         flags: IC4_VERSION_INFO_FLAGS,
     ) -> bool;
@@ -2610,36 +3625,45 @@ pub enum IC4_PROPERTY_DIALOG_FLAGS {
 }
 #[doc = " @brief A structure containing options customizing the appearance and behavior of the property dialog displayed by\n the @ref ic4_gui_grabber_show_device_properties() and @ref ic4_gui_show_property_map() functions."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub struct IC4_PROPERTY_DIALOG_OPTIONS {
     #[doc = " @brief A bitwise combination of flags."]
     pub flags: IC4_PROPERTY_DIALOG_FLAGS,
     #[doc = " @brief The initially selected value in the visibility dropdown box"]
     pub initial_visibility: IC4_PROPERTY_VISIBILITY,
     #[doc = " @brief The initially configured filter text"]
-    pub initial_filter: *const ::std::os::raw::c_char,
+    pub initial_filter: *const ::core::ffi::c_char,
     #[doc = " @brief The category from the property map to show the properties for.\n\n If not set, the @c Root category is displayed."]
-    pub category: *const ::std::os::raw::c_char,
+    pub category: *const ::core::ffi::c_char,
     #[doc = " @brief A title for the dialog box"]
-    pub title: *const ::std::os::raw::c_char,
+    pub title: *const ::core::ffi::c_char,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
     ["Size of IC4_PROPERTY_DIALOG_OPTIONS"]
-        [::std::mem::size_of::<IC4_PROPERTY_DIALOG_OPTIONS>() - 32usize];
+        [::core::mem::size_of::<IC4_PROPERTY_DIALOG_OPTIONS>() - 32usize];
     ["Alignment of IC4_PROPERTY_DIALOG_OPTIONS"]
-        [::std::mem::align_of::<IC4_PROPERTY_DIALOG_OPTIONS>() - 8usize];
+        [::core::mem::align_of::<IC4_PROPERTY_DIALOG_OPTIONS>() - 8usize];
     ["Offset of field: IC4_PROPERTY_DIALOG_OPTIONS::flags"]
-        [::std::mem::offset_of!(IC4_PROPERTY_DIALOG_OPTIONS, flags) - 0usize];
+        [::core::mem::offset_of!(IC4_PROPERTY_DIALOG_OPTIONS, flags) - 0usize];
     ["Offset of field: IC4_PROPERTY_DIALOG_OPTIONS::initial_visibility"]
-        [::std::mem::offset_of!(IC4_PROPERTY_DIALOG_OPTIONS, initial_visibility) - 4usize];
+        [::core::mem::offset_of!(IC4_PROPERTY_DIALOG_OPTIONS, initial_visibility) - 4usize];
     ["Offset of field: IC4_PROPERTY_DIALOG_OPTIONS::initial_filter"]
-        [::std::mem::offset_of!(IC4_PROPERTY_DIALOG_OPTIONS, initial_filter) - 8usize];
+        [::core::mem::offset_of!(IC4_PROPERTY_DIALOG_OPTIONS, initial_filter) - 8usize];
     ["Offset of field: IC4_PROPERTY_DIALOG_OPTIONS::category"]
-        [::std::mem::offset_of!(IC4_PROPERTY_DIALOG_OPTIONS, category) - 16usize];
+        [::core::mem::offset_of!(IC4_PROPERTY_DIALOG_OPTIONS, category) - 16usize];
     ["Offset of field: IC4_PROPERTY_DIALOG_OPTIONS::title"]
-        [::std::mem::offset_of!(IC4_PROPERTY_DIALOG_OPTIONS, title) - 24usize];
+        [::core::mem::offset_of!(IC4_PROPERTY_DIALOG_OPTIONS, title) - 24usize];
 };
+impl Default for IC4_PROPERTY_DIALOG_OPTIONS {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     #[doc = " @brief Shows a dialog box allowing the user to configure the properties of the video capture opened in the passed @ref IC4_GRABBER.\n\n @param[in] hParent\tA parent window for the dialog\n @param pGrabber\t\tA grabber object whose video capture device is to be configured\n @param[in] options\tAn options structure to customize the dialog's behavior\n\n @return @c true, if the user closed the dialog using the @a OK button, otherwise @c false."]
     pub fn ic4_gui_grabber_show_device_properties(

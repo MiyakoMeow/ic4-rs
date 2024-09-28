@@ -8,17 +8,36 @@ use crate::*;
 
 bind_type!(SnapSink, Sink);
 
-pub type SnapSinkAllocationStrategyOri = ic4_sys::IC4_SNAPSINK_ALLOCATION_STRATEGY;
-bind_type!(SnapSinkAllocationStrategy, SnapSinkAllocationStrategyOri);
+pub type SnapSinkAllocationStrategy = ic4_sys::IC4_SNAPSINK_ALLOCATION_STRATEGY;
+impl DefaultExt for SnapSinkAllocationStrategy {
+    fn default_ext() -> Self {
+        SnapSinkAllocationStrategy::IC4_SNAPSINK_ALLOCATION_STRATEGY_DEFAULT
+    }
+}
 
-pub type SnapSinkConfigOri = ic4_sys::IC4_SNAPSINK_CONFIG;
-bind_type!(SnapSinkConfig, SnapSinkConfigOri);
+pub type SnapSinkConfig = ic4_sys::IC4_SNAPSINK_CONFIG;
+
+impl DefaultExt for SnapSinkConfig {
+    fn default_ext() -> Self {
+        SnapSinkConfig {
+            strategy: DefaultExt::default_ext(),
+            num_buffers_alloc_on_connect: 0,
+            num_buffers_allocation_threshold: 0,
+            num_buffers_free_threshold: 0,
+            num_buffers_max: 0,
+            pixel_formats: ptr_from_ref(&PixelFormat::IC4_PIXEL_FORMAT_Unspecified),
+            num_pixel_formats: 1,
+            allocator: DefaultExt::default_ext(),
+            allocator_context: null_mut(),
+        }
+    }
+}
 
 impl SnapSink {
     pub fn create(config: &SnapSinkConfig) -> self::Result<SnapSink> {
         let mut ptr = null_mut();
         unsafe {
-            ic4_sys::ic4_snapsink_create(ptr_from_mut(&mut ptr), ptr_from_ref(&config.inner))
+            ic4_sys::ic4_snapsink_create(ptr_from_mut(&mut ptr), ptr_from_ref(config))
                 .then_some(())
                 .ok_or_else(|| self::get_last_error())?;
         }
@@ -32,7 +51,7 @@ impl SnapSink {
         unsafe {
             ic4_sys::ic4_snapsink_get_output_image_type(
                 self.inner.as_ptr(),
-                ptr_from_mut(&mut image_type.inner),
+                ptr_from_mut(&mut image_type),
             )
             .then_some(())
             .ok_or_else(|| self::get_last_error())?;

@@ -1,6 +1,7 @@
 macro_rules! bind_type {
     ($name:ident, $inner_type:path) => {
         #[derive(Debug, Clone)]
+        #[repr(transparent)]
         pub struct $name {
             pub(crate) inner: $inner_type,
         }

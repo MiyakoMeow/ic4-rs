@@ -61,19 +61,24 @@ fn ic4_bindgen(ic4_root: &Path) {
     });
     #[rustfmt::skip]
     let bindings = bindings
+        .use_core()
         .size_t_is_usize(true)
         .default_macro_constant_type(bindgen::MacroTypeVariation::Signed)
         .fit_macro_constants(true)
-        // .disable_name_namespacing()
-        // .enable_cxx_namespaces()
         .respect_cxx_access_specs(true)
         .default_enum_style(bindgen::EnumVariation::Rust {
             non_exhaustive: true,
         })
+        .default_alias_style(bindgen::AliasVariation::NewTypeDeref)
+        .generate_block(true)
+        .generate_cstr(true)
+        .derive_default(true)
+        .derive_partialeq(true)
+        .derive_eq(true)
         ;
     let bindings = bindings
         .clang_args(["-I", ic4_include_dir.to_string_lossy().as_ref()])
-        .clang_arg("-std=c++14");
+        .clang_arg("-std=c++17");
     let bindings = bindings
         // Tell cargo to invalidate the built crate whenever any of the
         // included header files changed.

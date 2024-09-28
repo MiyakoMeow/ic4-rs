@@ -2,8 +2,7 @@
 
 use crate::*;
 
-pub type ErrorEnumOri = ic4_sys::IC4_ERROR;
-bind_type!(ErrorEnum, ErrorEnumOri);
+pub type ErrorEnum = ic4_sys::IC4_ERROR;
 
 #[derive(Debug, Clone)]
 pub struct Error {
@@ -14,7 +13,7 @@ pub struct Error {
 impl From<CString> for Error {
     fn from(value: CString) -> Self {
         Self {
-            err: ErrorEnumOri::IC4_ERROR_NOERROR.into(),
+            err: ErrorEnum::IC4_ERROR_NOERROR,
             message: value,
         }
     }
@@ -33,13 +32,13 @@ pub fn get_last_error() -> Error {
             std::ptr::from_mut(&mut message_length),
         ) {
             return Error {
-                err: ErrorEnumOri::IC4_ERROR_INTERNAL.into(),
+                err: ErrorEnum::IC4_ERROR_INTERNAL,
                 message: CString::from_vec_unchecked(b"Cannot generate ic4::Error!".to_vec()),
             };
         }
         let message = CString::from_vec_unchecked(message_buffer);
         Error {
-            err: error.into(),
+            err: error,
             message,
         }
     }

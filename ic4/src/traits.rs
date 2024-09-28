@@ -30,7 +30,7 @@ impl ToCStr for CString {
 }
 
 /*
- * Display
+ * CStr: Display
  */
 
 impl Display for dyn ToCStr {
@@ -43,4 +43,13 @@ impl Display for dyn ToCString {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str(self.to_cstring().to_string_lossy().as_ref())
     }
+}
+
+/*
+ * DefaultExt
+ */
+
+/// Same as std::prelude::Default.
+pub trait DefaultExt {
+    fn default_ext() -> Self;
 }

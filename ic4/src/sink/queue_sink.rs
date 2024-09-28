@@ -8,21 +8,43 @@ use crate::*;
 
 bind_type!(QueueSink, Sink);
 
-pub type QueueSinkConfigOri = ic4_sys::IC4_QUEUESINK_CONFIG;
-bind_type!(QueueSinkConfig, QueueSinkConfigOri);
+pub type QueueSinkConfig = ic4_sys::IC4_QUEUESINK_CONFIG;
 
-pub type QueueSinkCallbacksOri = ic4_sys::IC4_QUEUESINK_CALLBACKS;
-bind_type!(QueueSinkCallbacks, QueueSinkCallbacksOri);
+impl DefaultExt for QueueSinkConfig {
+    fn default_ext() -> Self {
+        QueueSinkConfig {
+            callbacks: DefaultExt::default_ext(),
+            callback_context: null_mut(),
+            pixel_formats: ptr_from_ref(&PixelFormat::IC4_PIXEL_FORMAT_Unspecified),
+            num_pixel_formats: 0,
+            allocator: DefaultExt::default_ext(),
+            allocator_context: null_mut(),
+            max_output_buffers: 0,
+        }
+    }
+}
 
-pub type QueueSinkQueueSizesOri = ic4_sys::IC4_QUEUESINK_QUEUE_SIZES;
-bind_type!(QueueSinkQueueSizes, QueueSinkQueueSizesOri);
+pub type QueueSinkCallbacks = ic4_sys::IC4_QUEUESINK_CALLBACKS;
 
-impl Default for QueueSinkQueueSizes {
-    fn default() -> Self {
-        Self::from(QueueSinkQueueSizesOri {
+impl DefaultExt for QueueSinkCallbacks {
+    fn default_ext() -> Self {
+        QueueSinkCallbacks {
+            release: None,
+            sink_connected: None,
+            sink_disconnected: None,
+            frames_queued: None,
+        }
+    }
+}
+
+pub type QueueSinkQueueSizes = ic4_sys::IC4_QUEUESINK_QUEUE_SIZES;
+
+impl DefaultExt for QueueSinkQueueSizes {
+    fn default_ext() -> Self {
+        QueueSinkQueueSizes {
             free_queue_length: 0,
             output_queue_length: 0,
-        })
+        }
     }
 }
 
@@ -30,7 +52,7 @@ impl QueueSink {
     pub fn create(config: &QueueSinkConfig) -> self::Result<QueueSink> {
         let mut ptr = null_mut();
         unsafe {
-            ic4_sys::ic4_queuesink_create(ptr_from_mut(&mut ptr), ptr_from_ref(&config.inner))
+            ic4_sys::ic4_queuesink_create(ptr_from_mut(&mut ptr), ptr_from_ref(config))
                 .then_some(())
                 .ok_or_else(|| self::get_last_error())?;
         }
@@ -44,7 +66,7 @@ impl QueueSink {
         unsafe {
             ic4_sys::ic4_queuesink_get_output_image_type(
                 self.inner.as_ptr(),
-                ptr_from_mut(&mut image_type.inner),
+                ptr_from_mut(&mut image_type),
             )
             .then_some(())
             .ok_or_else(|| self::get_last_error())?;
@@ -98,12 +120,9 @@ impl QueueSink {
     pub fn get_queue_sizes(&self) -> self::Result<QueueSinkQueueSizes> {
         let mut result: QueueSinkQueueSizes = Default::default();
         unsafe {
-            ic4_sys::ic4_queuesink_get_queue_sizes(
-                self.inner.as_ptr(),
-                ptr_from_mut(&mut result.inner),
-            )
-            .then_some(())
-            .ok_or_else(|| self::get_last_error())?;
+            ic4_sys::ic4_queuesink_get_queue_sizes(self.inner.as_ptr(), ptr_from_mut(&mut result))
+                .then_some(())
+                .ok_or_else(|| self::get_last_error())?;
         }
         Ok(result)
     }

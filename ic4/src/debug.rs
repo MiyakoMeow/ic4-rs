@@ -2,16 +2,15 @@
 
 use crate::*;
 
-pub type DebugBufferStatsOri = ic4_sys::IC4_DBG_BUFFER_STATS;
-bind_type!(DebugBufferStats, DebugBufferStatsOri);
+pub type DebugBufferStats = ic4_sys::IC4_DBG_BUFFER_STATS;
 
-impl Default for DebugBufferStats {
-    fn default() -> Self {
-        DebugBufferStats::from(DebugBufferStatsOri {
+impl DefaultExt for DebugBufferStats {
+    fn default_ext() -> Self {
+        DebugBufferStats {
             num_announced: 0,
             num_queued: 0,
             num_await_delivery: 0,
-        })
+        }
     }
 }
 
@@ -21,7 +20,7 @@ impl Grabber {
         unsafe {
             ic4_sys::ic4_dbg_grabber_device_buffer_stats(
                 self.as_mut_ptr(),
-                ptr_from_mut(&mut property_map.inner),
+                ptr_from_mut(&mut property_map),
             )
             .then_some(())
             .ok_or_else(|| self::get_last_error())?;
@@ -33,7 +32,7 @@ impl Grabber {
         unsafe {
             ic4_sys::ic4_dbg_grabber_transform_buffer_stats(
                 self.as_mut_ptr(),
-                ptr_from_mut(&mut property_map.inner),
+                ptr_from_mut(&mut property_map),
             )
             .then_some(())
             .ok_or_else(|| self::get_last_error())?;
@@ -42,10 +41,8 @@ impl Grabber {
     }
 }
 
-pub type LogLevelOri = ic4_sys::IC4_LOG_LEVEL;
-bind_type!(LogLevel, LogLevelOri);
-pub type LogTargetFlagsOri = ic4_sys::IC4_LOG_TARGET_FLAGS;
-bind_type!(LogTargetFlags, LogTargetFlagsOri);
+pub type LogLevel = ic4_sys::IC4_LOG_LEVEL;
+pub type LogTargetFlags = ic4_sys::IC4_LOG_TARGET_FLAGS;
 
 pub fn debug_count_objects(config: &CStr) -> usize {
     unsafe { ic4_sys::ic4_dbg_count_objects(config.as_ptr()) }
