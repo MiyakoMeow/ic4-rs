@@ -13,4 +13,26 @@ Download, install, and check the `bin` directory of the SDK is in the `PATH` var
 Use `ic4::DefaultExt::default_ext` instead.
 
 ## Progress
-Safe Rust bindings are done, but there is still no tests.
+[x] Safe Rust bindings are all done.
+
+Tests:
+- [x] CString buffer to C functions. 
+- [ ] ...
+
+Tests with actual device:
+- [ ] Open GigE device.
+- [ ] Open stream.
+- [ ] Save image to file.
+- [ ] Get Image from stream.
+- [ ] ...
+
+## Development: Test
+Use command below:
+```commandline
+cargo test -- --test-threads=1
+```
+
+With `test-ensure-existing-device` feature:
+```commandline
+cargo test --features test-ensure-existing-device -- --test-threads=1
+```
