@@ -2,8 +2,10 @@
 
 use crate::*;
 
+#[doc = " @brief Contains retrievable version descriptions"]
 pub type VersionInfoFlags = ic4_sys::IC4_VERSION_INFO_FLAGS;
 
+    #[doc = " @brief Retrieve version information description string\n\n @param[out] str         Pointer to a character array to receive an error message.\n @param[in,out] size     Size of str buffer\n @param[in] flags        What version information to retrieve\n\n @return \\c true on success"]
 pub fn get_version_info(flags: VersionInfoFlags) -> self::Result<CString> {
     let mut message_length = 10 * 1024;
     let mut message_vec = vec![0; 10 * 1024];

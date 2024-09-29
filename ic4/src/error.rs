@@ -2,6 +2,7 @@
 
 use crate::*;
 
+#[doc = " @brief Contains the possible error codes"]
 pub type ErrorEnum = ic4_sys::IC4_ERROR;
 
 #[derive(Debug, Clone)]
@@ -21,6 +22,7 @@ impl From<CString> for Error {
 
 pub type Result<T> = std::result::Result<T, self::Error>;
 
+#[doc = " @brief Query information about the error of the previous library function call\n\n @param[out] pError Pointer to a #IC4_ERROR value to receive the error code.\n @param[out] message Pointer to a character array to receive an error message.<br>\n This parameter is optional and may be \\c NULL.\n @param[in,out] message_length Pointer to a \\c size_t describing the length of the array pointed to by \\a message.<br>\n If \\a message is not \\c NULL, this parameter is required.<br>\n The function always writes the actual number of characters required to store the error message.\n\n @return \\c true on success.\n @return If \\a pError is \\c NULL, the function fails and returns \\c false.\n @return If \\a message is not \\c NULL and \\a message_length is \\c NULL, the function fails and returns \\c false.\n @return If \\a *message_length is lower than the number of characters required to store the error message, the function fails and returns \\c false.\n\n @note\n The last error information is stored in a thread-local way. A call to \\c ic4_get_last_error\n returns error information about the previous function call that happened on the same thread\n that \\c ic4_get_last_error is called from.\n\n @note\n An error while calling \\c ic4_get_last_error does not update the internally stored last error."]
 pub fn get_last_error() -> Error {
     unsafe {
         let mut error = ErrorEnum::IC4_ERROR_UNKNOWN;

@@ -41,7 +41,10 @@ impl Grabber {
     }
 }
 
+#[doc = " @brief Defines the possible library log levels"]
 pub type LogLevel = ic4_sys::IC4_LOG_LEVEL;
+
+#[doc = " @brief Defines the possible log targets"]
 pub type LogTargetFlags = ic4_sys::IC4_LOG_TARGET_FLAGS;
 
 pub fn debug_count_objects(config: &CStr) -> usize {
