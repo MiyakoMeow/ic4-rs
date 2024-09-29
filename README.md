@@ -8,7 +8,7 @@ Then ensure that the `bin` directory of the SDK and Driver is in the `PATH` vari
 
 1. SDK:
 
-[IC Imaging Control 4 SDK](https://www.theimagingsource.com/zh-hans-cn/support/download/icimagingcontrol4win-1.1.0.2833/)
+- IC Imaging Control 4 SDK: https://www.theimagingsource.com/zh-hans-cn/support/download/icimagingcontrol4win-1.1.0.2833/
 
 2. Driver:
 
