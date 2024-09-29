@@ -24,8 +24,8 @@ For more infomation, see https://www.theimagingsource.com/zh-hans-cn/support/dow
 Use `ic4::DefaultExt::default_ext` instead.
 
 ## Progress
-[x] Raw bindings.
-[x] Safe Rust bindings.
+- [x] Raw bindings.
+- [x] Safe Rust bindings.
 
 Tests:
 - [x] CString buffer to C functions. 
