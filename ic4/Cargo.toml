@@ -3,7 +3,7 @@ name = "ic4"
 version = "0.0.2-dev"
 description = "A Rust bindings for IC Imaging Control 4 SDK from The Imaging Source. (Safe Part)"
 documentation = "https://docs.rs/ic4"
-readme = "../README.md"
+readme = "README.md"
 
 edition.workspace = true
 license.workspace = true
